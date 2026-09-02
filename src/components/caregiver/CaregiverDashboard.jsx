@@ -208,33 +208,69 @@ export const CaregiverDashboard = () => {
               <div>
                 <div className="flex justify-between text-xs font-bold text-ink mb-1">
                   <span>Memory Puzzle Recognition</span>
-                  <span>90% Accuracy</span>
+                  <span>{aiState.gameStats?.mem1?.attempts > 0 ? `${aiState.gameStats.mem1.accuracy}% Accuracy` : 'No attempts yet'}</span>
                 </div>
                 <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-                  <div className="h-full bg-forest rounded-full w-[90%]" />
+                  <div
+                    className="h-full bg-forest rounded-full transition-all duration-500"
+                    style={{ width: `${aiState.gameStats?.mem1?.accuracy || 0}%` }}
+                  />
                 </div>
               </div>
 
               <div>
                 <div className="flex justify-between text-xs font-bold text-ink mb-1">
                   <span>Attention Target Focus</span>
-                  <span>85% Accuracy</span>
+                  <span>{aiState.gameStats?.att1?.attempts > 0 ? `${aiState.gameStats.att1.accuracy}% Accuracy` : 'No attempts yet'}</span>
                 </div>
                 <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-                  <div className="h-full bg-terracotta rounded-full w-[85%]" />
+                  <div
+                    className="h-full bg-terracotta rounded-full transition-all duration-500"
+                    style={{ width: `${aiState.gameStats?.att1?.accuracy || 0}%` }}
+                  />
                 </div>
               </div>
 
               <div>
                 <div className="flex justify-between text-xs font-bold text-ink mb-1">
                   <span>Pattern Completion</span>
-                  <span>75% Accuracy</span>
+                  <span>{aiState.gameStats?.pat1?.attempts > 0 ? `${aiState.gameStats.pat1.accuracy}% Accuracy` : 'No attempts yet'}</span>
                 </div>
                 <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-                  <div className="h-full bg-gold-dark rounded-full w-[75%]" />
+                  <div
+                    className="h-full bg-gold-dark rounded-full transition-all duration-500"
+                    style={{ width: `${aiState.gameStats?.pat1?.accuracy || 0}%` }}
+                  />
                 </div>
               </div>
             </div>
+          </div>
+          {/* AI Recommendation */}
+          <div className="bg-forest text-cream p-5 rounded-3xl border-2 border-sage/40 shadow-photo">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-gold/20 flex items-center justify-center shrink-0">
+                <Sparkles className="w-6 h-6 text-gold" />
+              </div>
+
+            <div>
+            <p className="text-xs font-bold text-gold uppercase tracking-wider">
+              AI Recommendation
+            </p>
+
+            <h3 className="text-lg font-extrabold mt-1">
+              {aiState.recommendation?.charAt(0).toUpperCase() +
+                  aiState.recommendation?.slice(1)} Activity
+            </h3>
+
+            <p className="text-sm text-cream/80 mt-1">
+              {aiState.recommendationReason}
+            </p>
+
+            <p className="text-xs text-sage mt-2 font-bold">
+              Overall Trend: {aiState.overallTrend}
+            </p>
+            </div>
+          </div>
           </div>
 
           {/* Activity Logs Timeline */}
