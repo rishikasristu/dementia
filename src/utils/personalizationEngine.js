@@ -104,6 +104,7 @@ export const evaluatePerformance = (history = []) => {
       accuracyRate: 0,
       avgResponseTime: 0,
       totalHintsUsed: 0,
+      cognitiveScore: 0,
 
       overallTrend: 'Starting',
 
