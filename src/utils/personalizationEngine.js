@@ -132,7 +132,21 @@ export const evaluatePerformance = (history = []) => {
       sum + (activity.hintsUsed || 0),
     0
   );
+  // -----------------------------------------
+// COGNITIVE PERFORMANCE SCORE
+// -----------------------------------------
 
+  const accuracyScore = accuracyRate * 70;
+
+  const responseScore =
+    Math.max(0, Math.min(20, 20 - (avgResponseTime * 1.25)));
+
+  const hintScore =
+    Math.max(0, Math.min(10, 10 - (totalHintsUsed * 2)));
+
+  const cognitiveScore = Math.round(
+    accuracyScore + responseScore + hintScore
+  );
   // -----------------------------------------
   // GAME-SPECIFIC PERFORMANCE
   // -----------------------------------------
@@ -262,16 +276,18 @@ export const evaluatePerformance = (history = []) => {
   // -----------------------------------------
   // RECOMMENDATION REASON
   // -----------------------------------------
-
   const weakestStats = gameStats[weakestGame];
 
-  let recommendationReason =
-    'This activity provides a balanced cognitive exercise.';
+  let recommendationReason;
 
-  if (weakestStats.attempts > 0) {
+  if (weakestStats.attempts === 0) {
+    recommendationReason =
+      `Try ${GAME_NAMES[weakestGame]} next to assess another cognitive area.`;
+  } else {
     recommendationReason =
       `${GAME_NAMES[weakestGame]} performance can benefit from additional practice.`;
   }
+  
 
   return {
     difficulty,
@@ -286,7 +302,7 @@ export const evaluatePerformance = (history = []) => {
     accuracyRate: Math.round(accuracyRate * 100),
     avgResponseTime: Math.round(avgResponseTime),
     totalHintsUsed,
-
+    cognitiveScore,
     recommendation,
     recommendationReason,
 

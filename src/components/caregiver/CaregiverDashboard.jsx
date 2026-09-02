@@ -155,6 +155,9 @@ export const CaregiverDashboard = () => {
           <div>
             <p className="text-xs font-bold text-ink/70 uppercase tracking-wider">Puzzle Accuracy</p>
             <p className="text-2xl font-extrabold text-forest">{aiState.accuracyRate || 85}% Rate</p>
+            <p className="text-xs text-terracotta font-bold">
+              Cognitive Score: {aiState.cognitiveScore}/100
+            </p>
             <p className="text-xs text-forest/80 font-bold">Avg {aiState.avgResponseTime || 5}s Response</p>
           </div>
         </div>
