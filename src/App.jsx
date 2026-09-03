@@ -14,7 +14,6 @@ const MainAppContent = () => {
 
   return (
     <div className="min-h-screen bg-cream text-ink flex flex-col selection:bg-sage selection:text-forest">
-
       {/* SIH Presentation Control Banner */}
       <DemoBanner />
 
