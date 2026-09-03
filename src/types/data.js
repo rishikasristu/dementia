@@ -17,7 +17,7 @@ export const INITIAL_MEMORIES = [
     photo: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80',
     audioTag: 'Your granddaughter Ananya smiling at the family Diwali celebration.',
     date: 'Diwali 2022',
-    story: 'Ananya spent the afternoon making homemade mathri snacks with you.',
+    story: 'Ananya spent the afternoon making homemade snacks with you.',
     options: ['Ananya (Granddaughter)', 'Priya (Daughter)', 'Kavita (Niece)']
   },
   {
@@ -35,10 +35,10 @@ export const INITIAL_MEMORIES = [
     name: 'Family Garden House',
     relation: 'Home',
     photo: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80',
-    audioTag: 'Your peaceful courtyard house with mango trees in Mysuru.',
+    audioTag: 'Your peaceful courtyard house with mango trees.',
     date: 'Home',
     story: 'You planted the sweet red hibiscus bushes in the front yard.',
-    options: ['Mysuru Courtyard House', 'Bengaluru Flat', 'Chennai Cottage']
+    options: ['Family Garden House', 'City Apartment', 'Village Cottage']
   }
 ];
 
@@ -51,25 +51,25 @@ export const INITIAL_REMINDERS = [
     category: 'meds',
     icon: '💊',
     completed: true,
-    audioText: 'It is 8:00 AM. Please take one blue tablet with warm water after breakfast.',
+    audioText: 'It is 8 AM. Please take your medicine with warm water after breakfast.'
   },
   {
     id: 'r2',
     time: '10:00',
-    title: 'Hydration Break (Fresh Water)',
+    title: 'Hydration Break',
     category: 'water',
     icon: '💧',
     completed: true,
-    audioText: 'It is 10:00 AM. Time for a refreshing glass of water.',
+    audioText: 'It is 10 AM. Time for a refreshing glass of water.'
   },
   {
     id: 'r3',
     time: '13:00',
-    title: 'Nutritious Lunch & Soft Roti',
+    title: 'Nutritious Lunch',
     category: 'lunch',
-    icon: '🍽',
+    icon: '🍽️',
     completed: false,
-    audioText: 'It is 1:00 PM. Enjoy your warm dal and fresh spinach roti.',
+    audioText: 'It is 1 PM. Time for lunch.'
   },
   {
     id: 'r4',
@@ -78,7 +78,7 @@ export const INITIAL_REMINDERS = [
     category: 'walk',
     icon: '🌿',
     completed: false,
-    audioText: 'It is 5:00 PM. Take a gentle 15 minute stroll around the flowers.',
+    audioText: 'It is 5 PM. Take a gentle walk.'
   },
   {
     id: 'r5',
@@ -87,7 +87,7 @@ export const INITIAL_REMINDERS = [
     category: 'meds',
     icon: '💊',
     completed: false,
-    audioText: 'It is 8:00 PM. Take your evening calcium tablet after dinner.',
+    audioText: 'It is 8 PM. Please take your evening medicine.'
   }
 ];
 
@@ -125,8 +125,9 @@ export const TRANSLATIONS = {
     hintsAvailable: "Hint active",
     cognitiveMetrics: "Cognitive Activity Trends",
     addMemory: "+ Add New Memory",
-    addReminder: "+ Add Reminder",
+    addReminder: "+ Add Reminder"
   },
+
   te: {
     greetingTitle: "శుభోదయం, లక్ష్మి గారూ",
     supportSubtitle: "ఈ రోజు మన ప్రశాంత సమయాన్ని సరదాగా గడుపుదాం.",
@@ -153,14 +154,15 @@ export const TRANSLATIONS = {
     personalGuide: "వ్యక్తిగత మార్గదర్శి",
     caregiverDashboard: "సంరక్షకుడి డాష్‌బోర్డ్",
     backToElderly: "వృద్ధుల స్క్రీన్‌కి వెళ్లండి",
-    caregiverTitle: "సంరక్షకుని పోర్టల్ — లక్ష్మి గారి నివేదిక",
+    caregiverTitle: "సంరక్షకుని పోర్టల్",
     languageSelect: "భాష",
     difficulty: "కఠినత్వం",
     hintsAvailable: "సూచన ఉంది",
     cognitiveMetrics: "జ్ఞాపకశక్తి పురోగతి",
     addMemory: "+ కొత్త జ్ఞాపకం జతచేయి",
-    addReminder: "+ గుర్తుచేసేది జతచేయి",
+    addReminder: "+ గుర్తుచేసేది జతచేయి"
   },
+
   hi: {
     greetingTitle: "शुभ प्रभात, लक्ष्मी जी",
     supportSubtitle: "आइए साथ में कुछ शांत और सुखद समय बिताएं।",
@@ -180,25 +182,29 @@ export const TRANSLATIONS = {
     markDone: "पूरा करें",
     offlineNotice: "ऑफ़लाइन — आपकी गतिविधियाँ इस डिवाइस पर सुरक्षित हैं।",
     syncedNotice: "अभी-अभी केयरगिवर डैशबोर्ड के साथ सिंक हुआ।",
-    whoIsThis: "यह परिवार के कौन से सदस्य हैं?",
+    whoIsThis: "यह परिवार का कौन सा सदस्य है?",
     wonderful: "अद्भुत कार्य!",
     takeYourTime: "पूरा समय लें, कोई जल्दी नहीं।",
     tryAnother: "क्या एक और खेल खेलना चाहेंगे?",
     personalGuide: "व्यक्तिगत मार्गदर्शक",
     caregiverDashboard: "केयरगिवर डैशबोर्ड",
     backToElderly: "बुज़ुर्ग इंटरफ़ेस पर जाएँ",
-    caregiverTitle: "केयरगिवर पोर्टल — लक्ष्मी जी का अवलोकन",
+    caregiverTitle: "केयरगिवर पोर्टल",
     languageSelect: "भाषा",
     difficulty: "कठिनाई",
     hintsAvailable: "संकेत सक्रिय",
     cognitiveMetrics: "स्मृति प्रगति चार्ट",
     addMemory: "+ नई याद जोड़ें",
-    addReminder: "+ नया रिमाइंडर जोड़ें",
+    addReminder: "+ नया रिमाइंडर जोड़ें"
   }
 };
 
 // Cognitive Games Data Setup
 export const COGNITIVE_PUZZLES = {
+
+  // =========================
+  // MEMORY GAME
+  // =========================
   memory: [
     {
       id: 'mem1',
@@ -207,12 +213,12 @@ export const COGNITIVE_PUZZLES = {
       items: [
         { id: 1, name: 'Marigold Flower', icon: '🌼', color: 'bg-amber-100 border-amber-300' },
         { id: 2, name: 'Clay Pot', icon: '🪴', color: 'bg-emerald-100 border-emerald-300' },
-        { id: 3, name: 'Watering Can', icon: '🚿', color: 'bg-sky-100 border-sky-300' },
+        { id: 3, name: 'Watering Can', icon: '🚿', color: 'bg-sky-100 border-sky-300' }
       ],
       targetId: 1,
       targetQuestion: 'Which item was the Marigold Flower?',
       distractors: [
-        { id: 4, name: 'Red Rose', icon: '🌹', color: 'bg-rose-100 border-rose-300' },
+        { id: 4, name: 'Red Rose', icon: '🌹', color: 'bg-rose-100 border-rose-300' }
       ]
     },
     {
@@ -222,15 +228,66 @@ export const COGNITIVE_PUZZLES = {
       items: [
         { id: 1, name: 'Ceramic Teapot', icon: '🫖', color: 'bg-amber-100 border-amber-300' },
         { id: 2, name: 'Sweet Biscuits', icon: '🍪', color: 'bg-amber-50 border-amber-200' },
-        { id: 3, name: 'Green Mango', icon: '🥭', color: 'bg-lime-100 border-lime-300' },
+        { id: 3, name: 'Green Mango', icon: '🥭', color: 'bg-lime-100 border-lime-300' }
       ],
       targetId: 2,
       targetQuestion: 'Which item was the Sweet Biscuits?',
       distractors: [
-        { id: 4, name: 'Apple', icon: '🍎', color: 'bg-red-100 border-red-300' },
+        { id: 4, name: 'Apple', icon: '🍎', color: 'bg-red-100 border-red-300' }
+      ]
+    },
+
+    // NER / Assam Cultural Memory
+    {
+      id: 'mem3',
+      title: 'Assam Cultural Memory',
+      instructions: 'Look carefully at these familiar Assamese items and memorize them.',
+      items: [
+        { id: 1, name: 'Japi', icon: '👒', color: 'bg-amber-100 border-amber-300' },
+        { id: 2, name: 'Gamosa', icon: '🧣', color: 'bg-red-100 border-red-300' },
+        { id: 3, name: 'Assam Tea', icon: '🫖', color: 'bg-lime-100 border-lime-300' }
+      ],
+      targetId: 2,
+      targetQuestion: 'Which item was the Gamosa?',
+      distractors: [
+        { id: 4, name: 'Umbrella', icon: '☂️', color: 'bg-sky-100 border-sky-300' }
+      ]
+    },
+    {
+      id: 'mem4',
+      title: 'Assam Festival Memory',
+      instructions: 'Memorize these familiar festival items.',
+      items: [
+        { id: 1, name: 'Bihu Dance', icon: '💃', color: 'bg-orange-100 border-orange-300' },
+        { id: 2, name: 'Pitha', icon: '🍘', color: 'bg-amber-100 border-amber-300' },
+        { id: 3, name: 'Dhol Drum', icon: '🥁', color: 'bg-red-100 border-red-300' }
+      ],
+      targetId: 2,
+      targetQuestion: 'Which item was the Pitha?',
+      distractors: [
+        { id: 4, name: 'Apple', icon: '🍎', color: 'bg-red-100 border-red-300' }
+      ]
+    },
+    {
+      id: 'mem5',
+      title: 'Tea Garden Memory',
+      instructions: 'Memorize these things commonly seen in a tea garden.',
+      items: [
+        { id: 1, name: 'Tea Leaves', icon: '🍃', color: 'bg-green-100 border-green-300' },
+        { id: 2, name: 'Tea Basket', icon: '🧺', color: 'bg-yellow-100 border-yellow-300' },
+        { id: 3, name: 'Tea Cup', icon: '☕', color: 'bg-orange-100 border-orange-300' }
+      ],
+      targetId: 1,
+      targetQuestion: 'Which item was the Tea Leaves?',
+      distractors: [
+        { id: 4, name: 'Book', icon: '📖', color: 'bg-blue-100 border-blue-300' }
       ]
     }
   ],
+
+  // =========================
+  // ATTENTION GAME
+  // =========================
   attention: [
     {
       id: 'att1',
@@ -243,7 +300,7 @@ export const COGNITIVE_PUZZLES = {
         { id: 3, icon: '🦋', isTarget: true, name: 'Golden Butterfly' },
         { id: 4, icon: '🍃', isTarget: false, name: 'Green Leaf' },
         { id: 5, icon: '🌻', isTarget: false, name: 'Sunflower' },
-        { id: 6, icon: '🦋', isTarget: true, name: 'Golden Butterfly' },
+        { id: 6, icon: '🦋', isTarget: true, name: 'Golden Butterfly' }
       ],
       totalTargets: 3
     },
@@ -258,11 +315,32 @@ export const COGNITIVE_PUZZLES = {
         { id: 3, icon: '🌺', isTarget: false, name: 'Flower' },
         { id: 4, icon: '💧', isTarget: true, name: 'Water Drop' },
         { id: 5, icon: '☀️', isTarget: false, name: 'Sun' },
-        { id: 6, icon: '💧', isTarget: true, name: 'Water Drop' },
+        { id: 6, icon: '💧', isTarget: true, name: 'Water Drop' }
+      ],
+      totalTargets: 3
+    },
+
+    // Assam Cultural Attention
+    {
+      id: 'att3',
+      title: 'Find the Japi',
+      instruction: 'Find all 3 traditional Japi symbols!',
+      targetType: 'japi',
+      grid: [
+        { id: 1, icon: '👒', isTarget: true, name: 'Japi' },
+        { id: 2, icon: '🧣', isTarget: false, name: 'Gamosa' },
+        { id: 3, icon: '👒', isTarget: true, name: 'Japi' },
+        { id: 4, icon: '🫖', isTarget: false, name: 'Tea Pot' },
+        { id: 5, icon: '🍘', isTarget: false, name: 'Pitha' },
+        { id: 6, icon: '👒', isTarget: true, name: 'Japi' }
       ],
       totalTargets: 3
     }
   ],
+
+  // =========================
+  // PATTERN GAME
+  // =========================
   pattern: [
     {
       id: 'pat1',
@@ -280,7 +358,7 @@ export const COGNITIVE_PUZZLES = {
       options: [
         { id: 'o1', icon: '🌸', label: 'Pink Blossom' },
         { id: 'o2', icon: '🌱', label: 'Green Seedling' },
-        { id: 'o3', icon: '🍎', label: 'Red Apple' },
+        { id: 'o3', icon: '🍎', label: 'Red Apple' }
       ]
     },
     {
@@ -299,8 +377,335 @@ export const COGNITIVE_PUZZLES = {
       options: [
         { id: 'o1', icon: '☀️', label: 'Sun' },
         { id: 'o2', icon: '🌙', label: 'Moon' },
-        { id: 'o3', icon: '⚡️', label: 'Spark' },
+        { id: 'o3', icon: '⚡️', label: 'Spark' }
+      ]
+    },
+
+    // Assam Cultural Pattern
+    {
+      id: 'pat3',
+      title: 'Assam Cultural Pattern',
+      instruction: 'Japi, Gamosa, Japi, Gamosa... What comes next?',
+      sequence: ['👒 Japi', '🧣 Gamosa', '👒 Japi', '🧣 Gamosa', '?'],
+      sequenceDisplay: [
+        { icon: '👒', label: 'Japi' },
+        { icon: '🧣', label: 'Gamosa' },
+        { icon: '👒', label: 'Japi' },
+        { icon: '🧣', label: 'Gamosa' },
+        { icon: '❓', label: 'Next' }
+      ],
+      correctAnswer: '👒 Japi',
+      options: [
+        { id: 'o1', icon: '👒', label: 'Japi' },
+        { id: 'o2', icon: '🫖', label: 'Tea' },
+        { id: 'o3', icon: '🍘', label: 'Pitha' }
       ]
     }
-  ]
+  ],
+
+  // =========================
+  // OBJECT RECOGNITION
+  // =========================
+  objectRecognition: [
+    {
+      id: 'obj1',
+      title: 'Recognize the Japi',
+      instruction: 'Look at the object and choose its correct name.',
+      object: { icon: '👒', name: 'Japi' },
+      correctAnswer: 'Japi',
+      options: [
+        { id: 'o1', icon: '👒', label: 'Japi' },
+        { id: 'o2', icon: '🧣', label: 'Gamosa' },
+        { id: 'o3', icon: '🫖', label: 'Tea Pot' }
+      ],
+      hint: 'It is a traditional Assamese headgear.'
+    },
+    {
+      id: 'obj2',
+      title: 'Recognize the Gamosa',
+      instruction: 'Look at the object and choose its correct name.',
+      object: { icon: '🧣', name: 'Gamosa' },
+      correctAnswer: 'Gamosa',
+      options: [
+        { id: 'o1', icon: '🧣', label: 'Gamosa' },
+        { id: 'o2', icon: '👒', label: 'Japi' },
+        { id: 'o3', icon: '☂️', label: 'Umbrella' }
+      ],
+      hint: 'It is a traditional Assamese cloth.'
+    },
+    {
+      id: 'obj3',
+      title: 'Recognize the Tea',
+      instruction: 'Look at the object and choose its correct name.',
+      object: { icon: '🫖', name: 'Tea Pot' },
+      correctAnswer: 'Tea Pot',
+      options: [
+        { id: 'o1', icon: '🫖', label: 'Tea Pot' },
+        { id: 'o2', icon: '🍚', label: 'Rice Bowl' },
+        { id: 'o3', icon: '🍎', label: 'Apple' }
+      ],
+      hint: 'Assam is famous for its tea gardens.'
+    },
+    {
+      id: 'obj4',
+      title: 'Recognize the Pitha',
+      instruction: 'Look at the food item and choose its correct name.',
+      object: { icon: '🍘', name: 'Pitha' },
+      correctAnswer: 'Pitha',
+      options: [
+        { id: 'o1', icon: '🍘', label: 'Pitha' },
+        { id: 'o2', icon: '🍎', label: 'Apple' },
+        { id: 'o3', icon: '🥭', label: 'Mango' }
+      ],
+      hint: 'It is a familiar traditional Assamese food.'
+    },
+    {
+      id: 'obj5',
+      title: 'Recognize the Tea Garden',
+      instruction: 'Look at the symbol and choose the correct answer.',
+      object: { icon: '🌿', name: 'Tea Garden' },
+      correctAnswer: 'Tea Garden',
+      options: [
+        { id: 'o1', icon: '🌿', label: 'Tea Garden' },
+        { id: 'o2', icon: '🏢', label: 'City Building' },
+        { id: 'o3', icon: '🚗', label: 'Road' }
+      ],
+      hint: 'Assam is well known for its beautiful tea gardens.'
+    }
+  ],
+
+  // =========================
+  // ODD ONE OUT
+  // =========================
+  oddOneOut: [
+    {
+      id: 'odd1',
+      title: 'Find the Different Item',
+      instruction: 'Three items belong to the garden. Which one is different?',
+      items: [
+        { id: 'flower', icon: '🌸', label: 'Flower', category: 'garden' },
+        { id: 'sunflower', icon: '🌻', label: 'Sunflower', category: 'garden' },
+        { id: 'leaf', icon: '🍃', label: 'Leaf', category: 'garden' },
+        { id: 'car', icon: '🚗', label: 'Car', category: 'vehicle' }
+      ],
+      correctAnswerId: 'car',
+      explanation: 'The car is different because the other three belong to a garden.'
+    },
+    {
+      id: 'odd2',
+      title: 'Find the Different Item',
+      instruction: 'Three of these are things we drink. Which one is different?',
+      items: [
+        { id: 'tea', icon: '☕', label: 'Tea', category: 'drink' },
+        { id: 'water', icon: '💧', label: 'Water', category: 'drink' },
+        { id: 'milk', icon: '🥛', label: 'Milk', category: 'drink' },
+        { id: 'apple', icon: '🍎', label: 'Apple', category: 'food' }
+      ],
+      correctAnswerId: 'apple',
+      explanation: 'Apple is different because the other three are drinks.'
+    },
+    {
+      id: 'odd3',
+      title: 'Find the Different Item',
+      instruction: 'Three of these are animals. Which one is different?',
+      items: [
+        { id: 'dog', icon: '🐶', label: 'Dog', category: 'animal' },
+        { id: 'cat', icon: '🐱', label: 'Cat', category: 'animal' },
+        { id: 'cow', icon: '🐄', label: 'Cow', category: 'animal' },
+        { id: 'chair', icon: '🪑', label: 'Chair', category: 'furniture' }
+      ],
+      correctAnswerId: 'chair',
+      explanation: 'Chair is different because the other three are animals.'
+    },
+    {
+      id: 'odd4',
+      title: 'Find the Different Item',
+      instruction: 'Three of these belong to the kitchen. Which one is different?',
+      items: [
+        { id: 'spoon', icon: '🥄', label: 'Spoon', category: 'kitchen' },
+        { id: 'plate', icon: '🍽️', label: 'Plate', category: 'kitchen' },
+        { id: 'cup', icon: '☕', label: 'Cup', category: 'kitchen' },
+        { id: 'tree', icon: '🌳', label: 'Tree', category: 'nature' }
+      ],
+      correctAnswerId: 'tree',
+      explanation: 'Tree is different because the other three are kitchen items.'
+    },
+    {
+      id: 'odd5',
+      title: 'Assam Cultural Items',
+      instruction: 'Three of these are familiar Assam-related items. Which one is different?',
+      items: [
+        { id: 'japi', icon: '👒', label: 'Japi', category: 'assam' },
+        { id: 'gamosa', icon: '🧣', label: 'Gamosa', category: 'assam' },
+        { id: 'tea', icon: '🫖', label: 'Assam Tea', category: 'assam' },
+        { id: 'airplane', icon: '✈️', label: 'Airplane', category: 'transport' }
+      ],
+      correctAnswerId: 'airplane',
+      explanation: 'Airplane is different from the other familiar Assam-related items.'
+    },
+    {
+      id: 'odd6',
+      title: 'Assam Traditional Items',
+      instruction: 'Which item does not belong with the familiar Assamese cultural items?',
+      items: [
+        { id: 'japi', icon: '👒', label: 'Japi', category: 'assam' },
+        { id: 'gamosa', icon: '🧣', label: 'Gamosa', category: 'assam' },
+        { id: 'pitha', icon: '🍘', label: 'Pitha', category: 'assam' },
+        { id: 'computer', icon: '💻', label: 'Computer', category: 'technology' }
+      ],
+      correctAnswerId: 'computer',
+      explanation: 'Computer is different because the other items are familiar Assamese cultural items.'
+    }
+  ],
+
+  // =========================
+  // DAILY ROUTINE
+  // =========================
+  dailyRoutine: [
+    {
+      id: "routine1",
+      title: "Morning Routine",
+      instruction: "Look at the daily routine. What should come next?",
+      sequence: [
+        { icon: "🌅", label: "Wake Up" },
+        { icon: "🪥", label: "Brush Teeth" },
+        { icon: "🍳", label: "Breakfast" }
+      ],
+      correctAnswer: "Take Medicine",
+      options: [
+        { id: "o1", icon: "💊", label: "Take Medicine" },
+        { id: "o2", icon: "🌙", label: "Go to Sleep" },
+        { id: "o3", icon: "🏠", label: "Leave Home" }
+      ]
+    },
+    {
+      id: "routine2",
+      title: "Healthy Day Routine",
+      instruction: "What should come next in this routine?",
+      sequence: [
+        { icon: "🍽️", label: "Eat Lunch" },
+        { icon: "💧", label: "Drink Water" },
+        { icon: "🌿", label: "Take a Walk" }
+      ],
+      correctAnswer: "Return Home",
+      options: [
+        { id: "o1", icon: "🏠", label: "Return Home" },
+        { id: "o2", icon: "🌙", label: "Go to Sleep" },
+        { id: "o3", icon: "🪥", label: "Brush Teeth" }
+      ]
+    },
+    {
+      id: "routine3",
+      title: "Breakfast and Medicine",
+      instruction: "After breakfast, what should come next?",
+      sequence: [
+        { icon: "🌅", label: "Wake Up" },
+        { icon: "🪥", label: "Brush Teeth" },
+        { icon: "🍳", label: "Breakfast" }
+      ],
+      correctAnswer: "Take Medicine",
+      options: [
+        { id: "o1", icon: "💊", label: "Take Medicine" },
+        { id: "o2", icon: "🌙", label: "Go to Sleep" },
+        { id: "o3", icon: "🍽️", label: "Eat Dinner" }
+      ]
+    },
+    {
+      id: "routine4",
+      title: "Healthy Exercise Routine",
+      instruction: "What should come next in this healthy routine?",
+      sequence: [
+        { icon: "🌿", label: "Go for a Walk" },
+        { icon: "💧", label: "Drink Water" },
+        { icon: "🪑", label: "Rest for a While" }
+      ],
+      correctAnswer: "Return Home",
+      options: [
+        { id: "o1", icon: "🏠", label: "Return Home" },
+        { id: "o2", icon: "🌙", label: "Go to Sleep" },
+        { id: "o3", icon: "🪥", label: "Brush Teeth" }
+      ]
+    },
+    {
+      id: "routine5",
+      title: "Evening Routine",
+      instruction: "After dinner, what should come next?",
+      sequence: [
+        { icon: "🌆", label: "Evening" },
+        { icon: "🍽️", label: "Eat Dinner" }
+      ],
+      correctAnswer: "Take Evening Medicine",
+      options: [
+        { id: "o1", icon: "💊", label: "Take Evening Medicine" },
+        { id: "o2", icon: "🌅", label: "Eat Breakfast" },
+        { id: "o3", icon: "🌿", label: "Go for a Walk" }
+      ]
+    },
+    {
+      id: "routine6",
+      title: "Bedtime Routine",
+      instruction: "What should come next before going to sleep?",
+      sequence: [
+        { icon: "🌙", label: "Night Time" },
+        { icon: "🪥", label: "Brush Teeth" },
+        { icon: "🛏️", label: "Get Ready for Bed" }
+      ],
+      correctAnswer: "Go to Sleep",
+      options: [
+        { id: "o1", icon: "😴", label: "Go to Sleep" },
+        { id: "o2", icon: "🍳", label: "Eat Breakfast" },
+        { id: "o3", icon: "🌿", label: "Go for a Walk" }
+      ]
+    }
+  ],
+
+  // =========================
+  // SPOT THE DIFFERENCE
+  // =========================
+spotDifference: [
+  {
+    id: "spot1",
+    title: "Garden Spot the Difference",
+    instruction: "Look carefully at Picture B and find 5 differences.",
+    image: "/images/spot-difference/puzzle1.jpeg",
+
+    differences: [
+      { id: "d1", left: "78%", top: "18%" },
+      { id: "d2", left: "22%", top: "70%" },
+      { id: "d3", left: "58%", top: "70%" },
+      { id: "d4", left: "70%", top: "35%" },
+      { id: "d5", left: "82%", top: "68%" }
+    ]
+  },
+
+  {
+    id: "spot2",
+    title: "Home Spot the Difference",
+    instruction: "Look carefully at Picture B and find 5 differences.",
+    image: "/images/spot-difference/puzzle2.jpeg",
+
+    differences: [
+      { id: "d1", left: "80%", top: "10%" },
+      { id: "d2", left: "42%", top: "35%" },
+      { id: "d3", left: "68%", top: "70%" },
+      { id: "d4", left: "35%", top: "72%" },
+      { id: "d5", left: "45%", top: "20%" }
+    ]
+  },
+
+  {
+    id: "spot3",
+    title: "Park Spot the Difference",
+    instruction: "Look carefully at Picture B and find 5 differences.",
+    image: "/images/spot-difference/puzzle3.jpeg",
+
+    differences: [
+      { id: "d1", left: "75%", top: "8%" },
+      { id: "d2", left: "78%", top: "35%" },
+      { id: "d3", left: "72%", top: "75%" },
+      { id: "d4", left: "55%", top: "18%" },
+      { id: "d5", left: "25%", top: "72%" }
+    ]
+  }
+]
 };
