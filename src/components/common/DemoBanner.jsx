@@ -68,6 +68,14 @@ export const DemoBanner = () => {
               हिंदी
             </button>
           </div>
+          <button
+            onClick={() => setLanguage('as')}
+            className={`px-2.5 py-1 text-xs rounded-md transition-all font-semibold ${
+            language === 'as' ? 'bg-gold text-forest shadow-sm' : 'text-cream/80 hover:text-cream'
+            }`}
+>
+            অসমীয়া
+          </button>
 
           {/* Offline/Online Simulator Button */}
           <button

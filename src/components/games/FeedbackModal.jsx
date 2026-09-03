@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { useApp } from '../../context/AppContext';
-import { speakText } from '../../utils/speech';
+import { speakWithAzure } from '../../utils/speech';
 
 export const FeedbackModal = ({ isOpen, isCorrect, onNext, onRepeat }) => {
   const { language, t } = useApp();
@@ -16,9 +16,9 @@ export const FeedbackModal = ({ isOpen, isCorrect, onNext, onRepeat }) => {
           origin: { y: 0.6 },
           colors: ['#A8C3A0', '#E9C46A', '#D98262']
         });
-        speakText("Wonderful job, Lakshmi! Your garden is growing.", language);
+        speakWithAzure("Wonderful job, Lakshmi! Your garden is growing.", language);
       } else {
-        speakText("That was a great effort. Let's try once more together.", language);
+        speakWithAzure("That was a great effort. Let's try once more together.", language);
       }
     }
   }, [isOpen, isCorrect, language]);

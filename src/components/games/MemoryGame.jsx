@@ -4,7 +4,7 @@ import { COGNITIVE_PUZZLES } from '../../types/data';
 import { FeedbackModal } from './FeedbackModal';
 import { SpeechButton } from '../common/SpeechButton';
 import { Eye, HelpCircle, Sparkles } from 'lucide-react';
-import { speakText } from '../../utils/speech';
+import { speakWithAzure } from '../../utils/speech';
 
 export const MemoryGame = () => {
   const { aiState, recordActivity, language, t } = useApp();
@@ -20,12 +20,12 @@ export const MemoryGame = () => {
     setStartTime(Date.now());
     setStage('memorize');
     setShowHint(false);
-    speakText(`${currentPuzzle.title}. ${currentPuzzle.instructions}`, language);
+    speakWithAzure(`${currentPuzzle.title}. ${currentPuzzle.instructions}`, language);
   }, [puzzleIndex, language]);
 
   const handleHideItems = () => {
     setStage('hidden');
-    speakText(currentPuzzle.targetQuestion, language);
+    speakWithAzure(currentPuzzle.targetQuestion, language);
   };
 
   const handleSelectOption = (item) => {

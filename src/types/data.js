@@ -194,7 +194,73 @@ export const TRANSLATIONS = {
     cognitiveMetrics: "स्मृति प्रगति चार्ट",
     addMemory: "+ नई याद जोड़ें",
     addReminder: "+ नया रिमाइंडर जोड़ें",
+  },
+  as: {
+    greetingTitle: "শুভ প্ৰভাত, লক্ষ্মী",
+
+    supportSubtitle: "আহক, আজি আমি একেলগে অলপ শান্ত আৰু আনন্দময় সময় কটাওঁ।",
+
+    play: "খেল খেলোঁ",
+
+    memories: "পৰিয়ালৰ স্মৃতি",
+
+    today: "আজিৰ সময়সূচী",
+
+    gardenTitle: "আপোনাৰ স্মৃতিৰ বাগিচা",
+
+    seedlingStage: "এটা সৰু পুলিৰ সৈতে দিনটো আৰম্ভ কৰোঁ 🌱",
+
+    sproutStage: "বাগিচাত সতেজ সেউজীয়া পাত গজি উঠিছে 🌿",
+
+    blossomStage: "বাগিচাত ধুনীয়া ফুল ফুলিছে 🌸",
+
+    treeStage: "আপোনাৰ স্মৃতিৰ গছজোপা শক্তিশালী আৰু জীৱন্ত 🌳",
+
+    speak: "কওক",
+
+    tap: "বাছনি কৰক",
+
+    listen: "শুনক",
+
+    completed: "সম্পূৰ্ণ হৈছে",
+
+    upcoming: "আগন্তুক",
+
+    markDone: "সম্পূৰ্ণ কৰক",
+
+    offlineNotice: "অফলাইন — আপোনাৰ কাৰ্যকলাপসমূহ এই ডিভাইচত সুৰক্ষিতভাৱে সংৰক্ষিত হৈছে।",
+
+    syncedNotice: "এইমাত্ৰ যত্নদাতাৰ ড্যাশব’ৰ্ডৰ সৈতে ছিংক কৰা হৈছে।",
+
+    whoIsThis: "এইজন পৰিয়ালৰ কোনজন সদস্য?",
+
+    wonderful: "বৰ ভাল কৰিছে!",
+
+    takeYourTime: "আপোনাৰ সময় লওক, কোনো খৰখেদা নাই।",
+
+    tryAnother: "আকৌ এটা খেল খেলিব বিচাৰেনে?",
+
+    personalGuide: "ব্যক্তিগত সহায়ক",
+
+    caregiverDashboard: "যত্নদাতাৰ ড্যাশব’ৰ্ড",
+
+    backToElderly: "বয়োজ্যেষ্ঠৰ স্ক্ৰীণলৈ যাওক",
+
+    caregiverTitle: "যত্নদাতাৰ প’ৰ্টেল — লক্ষ্মীৰ অৱলোকন",
+
+    languageSelect: "ভাষা",
+
+    difficulty: "কঠিনতাৰ স্তৰ",
+
+    hintsAvailable: "ইংগিত সক্ৰিয়",
+
+    cognitiveMetrics: "স্মৃতিৰ অগ্ৰগতিৰ চাৰ্ট",
+
+    addMemory: "+ নতুন স্মৃতি যোগ কৰক",
+
+    addReminder: "+ নতুন ৰিমাইণ্ডাৰ যোগ কৰক"
   }
+
 };
 
 // Cognitive Games Data Setup

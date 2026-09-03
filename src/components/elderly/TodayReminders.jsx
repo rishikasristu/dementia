@@ -2,13 +2,16 @@ import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { SpeechButton } from '../common/SpeechButton';
 import { ArrowLeft, CheckCircle2, Clock, Volume2 } from 'lucide-react';
-import { speakText } from '../../utils/speech';
+import { speakWithAzure } from '../../utils/speech';
 
 export const TodayReminders = () => {
   const { reminders, toggleReminder, setCurrentView, language, t } = useApp();
 
   const handleReadReminder = (reminder) => {
-    speakText(reminder.audioText || `${reminder.time}: ${reminder.title}`, language);
+    speakWithAzure(
+      reminder.audioText || `${reminder.time}: ${reminder.title}`,
+      language
+    );
   };
 
   return (

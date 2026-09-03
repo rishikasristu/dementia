@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { SpeechButton } from '../common/SpeechButton';
 import { ArrowLeft, CheckCircle2, Heart, Volume2, Sparkles } from 'lucide-react';
-import { speakText } from '../../utils/speech';
-
+import { speakWithAzure } from '../../utils/speech';
+import { translateText } from '../../utils/translator';
 export const MemoryAlbum = () => {
   const { memories, setCurrentView, language, t } = useApp();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [translatedMemoryText, setTranslatedMemoryText] = useState('');
 
   const activeMemory = memories[currentIndex] || memories[0];
+  useEffect(() => {
+  const translateMemory = async () => {
+    if (!activeMemory) return;
+
+    const text = `${activeMemory.audioTag} ${activeMemory.story}`;
+
+    const translated = await translateText(text, language);
+
+    setTranslatedMemoryText(translated);
+  };
+
+  translateMemory();
+}, [activeMemory, language]);
 
   const handleOptionSelect = (optionText) => {
     setSelectedOption(optionText);
@@ -21,13 +35,19 @@ export const MemoryAlbum = () => {
         isCorrect: true,
         message: `Yes! That is your ${activeMemory.relation}, ${activeMemory.name}! ❤️`
       });
-      speakText(`Yes! That is your ${activeMemory.relation}, ${activeMemory.name}!`, language);
+      speakWithAzure(
+        `Yes! That is your ${activeMemory.relation}, ${activeMemory.name}!`,
+      language
+    );
     } else {
       setFeedback({
         isCorrect: false,
         message: `This is your ${activeMemory.relation}, ${activeMemory.name}. Let me read her story.`
       });
-      speakText(`This is your ${activeMemory.relation}, ${activeMemory.name}.`, language);
+      speakWithAzure(
+        `This is your ${activeMemory.relation}, ${activeMemory.name}.`,
+        language
+      );
     }
   };
 
@@ -104,7 +124,7 @@ export const MemoryAlbum = () => {
           <div className="mb-6">
             <SpeechButton
               mode="listen"
-              textToSpeak={activeMemory.audioTag + " " + activeMemory.story}
+              textToSpeak={translatedMemoryText}
               label="🔊 Listen to Memory Story"
             />
           </div>

@@ -2,13 +2,16 @@ import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { GardenCanvas } from '../common/GardenCanvas';
 import { Brain, Image as ImageIcon, Bell, Volume2 } from 'lucide-react';
-import { speakText } from '../../utils/speech';
+import { speakWithAzure } from '../../utils/speech';
 
 export const ElderlyHome = () => {
   const { setCurrentView, language, t } = useApp();
 
   const handleListenGreeting = () => {
-    speakText(`${t.greetingTitle}. ${t.supportSubtitle}`, language);
+    speakWithAzure(
+      `${t.greetingTitle}. ${t.supportSubtitle}`,
+      language
+    );
   };
 
   return (

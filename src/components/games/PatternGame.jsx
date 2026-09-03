@@ -3,8 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { COGNITIVE_PUZZLES } from '../../types/data';
 import { FeedbackModal } from './FeedbackModal';
 import { SpeechButton } from '../common/SpeechButton';
-import { speakText } from '../../utils/speech';
-
+import { speakWithAzure } from '../../utils/speech';
 export const PatternGame = () => {
   const { aiState, recordActivity, language } = useApp();
   const [puzzleIndex, setPuzzleIndex] = useState(0);
@@ -15,7 +14,7 @@ export const PatternGame = () => {
 
   useEffect(() => {
     setStartTime(Date.now());
-    speakText(currentPuzzle.instruction, language);
+    speakWithAzure(currentPuzzle.instruction, language);
   }, [puzzleIndex, language]);
 
   const handleSelectOption = (option) => {

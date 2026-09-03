@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Mic, MicOff, Volume2, VolumeX } from 'lucide-react';
-import { speakText, listenVoiceInput } from '../../utils/speech';
+import {
+  speakText,
+  speakWithAzure,
+  listenVoiceInput
+} from '../../utils/speech';
 import { useApp } from '../../context/AppContext';
 
 export const SpeechButton = ({ 
@@ -12,17 +16,28 @@ export const SpeechButton = ({
 }) => {
   const { language } = useApp();
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [azureAudio, setAzureAudio] = useState(null);
   const [isListening, setIsListening] = useState(false);
   const [statusMsg, setStatusMsg] = useState('');
 
   const handleSpeakClick = () => {
     if (mode === 'listen') {
       if (isSpeaking) {
+        if (azureAudio) {
+          azureAudio.pause();
+          azureAudio.currentTime = 0;
+        }
+
         window.speechSynthesis.cancel();
+        setAzureAudio(null);
         setIsSpeaking(false);
-      } else {
+      }
+       else {
         setIsSpeaking(true);
-        speakText(textToSpeak, language, () => {
+
+        speakWithAzure(textToSpeak, language).then((audio) => {
+          setAzureAudio(audio);
+        }).finally(() => {
           setIsSpeaking(false);
         });
       }
@@ -74,7 +89,7 @@ export const SpeechButton = ({
           isSpeaking ? (
             <>
               <VolumeX className="w-7 h-7" />
-              <span>{label || 'Stop Listening'}</span>
+              <span>{label || '⏹ Stop'}</span>
             </>
           ) : (
             <>

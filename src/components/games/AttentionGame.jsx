@@ -3,7 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { COGNITIVE_PUZZLES } from '../../types/data';
 import { FeedbackModal } from './FeedbackModal';
 import { SpeechButton } from '../common/SpeechButton';
-import { speakText } from '../../utils/speech';
+import { speakWithAzure } from '../../utils/speech';
 
 export const AttentionGame = () => {
   const { recordActivity, language } = useApp();
@@ -17,7 +17,7 @@ export const AttentionGame = () => {
   useEffect(() => {
     setStartTime(Date.now());
     setTappedIds([]);
-    speakText(currentPuzzle.instruction, language);
+    speakWithAzure(currentPuzzle.instruction, language);
   }, [puzzleIndex, language]);
 
   const handleTileTap = (tile) => {
@@ -40,7 +40,10 @@ export const AttentionGame = () => {
       }
     } else {
       // Soft reminder if non-target tapped
-      speakText("That's a pretty flower! Look for the golden butterfly.", language);
+      speakWithAzure(
+        "That's a pretty flower! Look for the golden butterfly.",
+        language
+      );   
     }
   };
 
