@@ -1,9 +1,44 @@
 // Web Speech Synthesis and Recognition Helper
+import { translateText } from './translator';
+export const speakWithAzure = async (text, language = 'en') => {
+  try {
+    const response = await fetch('http://localhost:5000/api/speak', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text,
+        language
+      })
+    });
 
+    if (!response.ok) {
+      throw new Error('Azure Speech request failed');
+    }
+
+    const audioBlob = await response.blob();
+    const audioUrl = URL.createObjectURL(audioBlob);
+
+    const audio = new Audio(audioUrl);
+
+    audio.onended = () => {
+      URL.revokeObjectURL(audioUrl);
+    };
+
+    await audio.play();
+    return audio;
+  } catch (error) {
+    console.error('Azure Speech Error:', error);
+    return null;
+  }
+};
 const LANG_MAP = {
   en: 'en-IN',
   te: 'te-IN',
-  hi: 'hi-IN'
+  hi: 'hi-IN',
+  as: 'as-IN'
+
 };
 
 export const speakText = (text, lang = 'en', onEndCallback = null) => {

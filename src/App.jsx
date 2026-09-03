@@ -21,6 +21,7 @@ const MainAppContent = () => {
 
       {/* Main View Router */}
       <main className="flex-1 pb-16">
+        
         {userRole === 'caregiver' || currentView === 'caregiver_dashboard' ? (
           <CaregiverDashboard />
         ) : (

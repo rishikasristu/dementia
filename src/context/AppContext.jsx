@@ -1,409 +1,239 @@
-import React, {
-  createContext,
-  useContext,
-  useState
-} from 'react';
-
-import {
-  INITIAL_MEMORIES,
-  INITIAL_REMINDERS,
-  TRANSLATIONS
-} from '../types/data';
-
-import {
-  evaluatePerformance
-} from '../utils/personalizationEngine';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { INITIAL_MEMORIES, INITIAL_REMINDERS, TRANSLATIONS } from '../types/data';
+import { evaluatePerformance } from '../utils/personalizationEngine';
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  const [userRole, setUserRole] = useState('elderly'); // 'elderly' | 'caregiver'
+  const [currentView, setCurrentView] = useState('home'); // 'home' | 'album' | 'games' | 'reminders' | 'caregiver_dashboard'
+  const [language, setLanguage] = useState('en'); // 'en' | 'te' | 'hi'
+  const [activeGameType, setActiveGameType] = useState('memory'); // 'memory' | 'attention' | 'pattern'
 
-  // User Settings
-  const [userRole, setUserRole] = useState('elderly');
+  // Garden Growth & Activity Metrics
+  const [completedCount, setCompletedCount] = useState(1);
+  const [streakDays, setStreakDays] = useState(4);
+  const [memories, setMemories] = useState(() => {
+    const savedMemories = localStorage.getItem('memoryGardenMemories');
 
-  const [currentView, setCurrentView] = useState('home');
-
-  const [language, setLanguage] = useState('en');
-
-  const [activeGameType, setActiveGameType] =
-    useState('memory');
-
-
-  // Activity Metrics
-  const [completedCount, setCompletedCount] =
-    useState(1);
-
-  const [streakDays, setStreakDays] =
-    useState(4);
-
-
-  // Memories and Reminders
-  const [memories, setMemories] =
-    useState(INITIAL_MEMORIES);
-
-  const [reminders, setReminders] =
-    useState(INITIAL_REMINDERS);
-
-
-  // Cognitive Game History
-  const [history, setHistory] = useState([
-    {
-      gameId: 'mem1',
-      gameType: 'memory',
-      isCorrect: true,
-      correctAnswers: 1,
-      wrongAnswers: 0,
-      accuracy: 100,
-      timeTakenSeconds: 5,
-      hintsUsed: 0,
-      difficulty: 'Easy',
-      timestamp: Date.now() - 3600000
+    if (savedMemories) {
+      return JSON.parse(savedMemories);
     }
-  ]);
 
+    return INITIAL_MEMORIES;
+  });
+  const [reminders, setReminders] = useState(() => {
+    const savedReminders = localStorage.getItem('memoryGardenReminders');
 
-  // Offline State
-  const [isOffline, setIsOffline] =
-    useState(false);
+    if (savedReminders) {
+      return JSON.parse(savedReminders);
+    }
 
-  const [pendingSyncQueue, setPendingSyncQueue] =
-    useState([]);
+    return INITIAL_REMINDERS;
+  });
+  const [history, setHistory] = useState(() => {
+    const savedHistory = localStorage.getItem('memoryGardenHistory');
 
-  const [lastSyncTime, setLastSyncTime] =
-    useState('Just now');
+    if (savedHistory) {
+      return JSON.parse(savedHistory);
+    }
 
-  const [syncToast, setSyncToast] =
-    useState(null);
+    return [
+      {
+        gameId: 'mem1',
+        isCorrect: true,
+        timeTakenSeconds: 5,
+        hintsUsed: 0,
+        timestamp: Date.now() - 3600000
+      }
+    ];
+  });
+  // Offline-First State Simulator
+  const [isOffline, setIsOffline] = useState(() => {
+    return !navigator.onLine;
+  });
+  const [pendingSyncQueue, setPendingSyncQueue] = useState(() => {
+    const savedQueue = localStorage.getItem('memoryGardenSyncQueue');
 
+    if (savedQueue) {
+      return JSON.parse(savedQueue);
+    }
 
-  // Garden Growth Stage
-  const gardenStage =
-    Math.min(Math.floor(completedCount / 1), 3);
-
-
-  // AI Personalization
-  const aiState =
-    evaluatePerformance(history);
-
-
-  // Translation Helper
-  const t =
-    TRANSLATIONS[language] || TRANSLATIONS.en;
-
-
-  // Toggle Reminder
-  const toggleReminder = (id) => {
-
-    setReminders((prev) =>
-      prev.map((reminder) => {
-
-        if (reminder.id === id) {
-
-          const updatedReminder = {
-            ...reminder,
-            completed: !reminder.completed
-          };
-
-          if (isOffline) {
-
-            setPendingSyncQueue((queue) => [
-              ...queue,
-              {
-                type: 'TOGGLE_REMINDER',
-                id: id,
-                completed: updatedReminder.completed
-              }
-            ]);
-
-          }
-
-          return updatedReminder;
-        }
-
-        return reminder;
-
-      })
+    return [];
+  });
+  const [lastSyncTime, setLastSyncTime] = useState('Just now');
+  const [syncToast, setSyncToast] = useState(null);
+  useEffect(() => {
+    localStorage.setItem('memoryGardenHistory', JSON.stringify(history));
+  }, [history]);
+  useEffect(() => {
+    localStorage.setItem(
+      'memoryGardenMemories',
+      JSON.stringify(memories)
     );
-
+  }, [memories]);
+  useEffect(() => {
+  localStorage.setItem(
+    'memoryGardenReminders',
+    JSON.stringify(reminders)
+  );
+}, [reminders]);
+  useEffect(() => {
+    localStorage.setItem(
+      'memoryGardenSyncQueue',
+      JSON.stringify(pendingSyncQueue)
+    );
+  }, [pendingSyncQueue]);
+  useEffect(() => {
+  const handleOffline = () => {
+    setIsOffline(true);
   };
 
+  const handleOnline = () => {
+    setIsOffline(false);
 
-  // Add Memory
-  const addMemory = (newMem) => {
+    if (pendingSyncQueue.length > 0) {
+      setSyncToast(
+        `Synced ${pendingSyncQueue.length} offline activities to Caregiver Dashboard!`
+      );
 
-    const memoryObj = {
-      id: 'm_' + Date.now(),
-      ...newMem,
-      options: [
-        newMem.name + ' (' + newMem.relation + ')',
-        'Family Relative',
-        'Neighbor'
-      ]
-    };
-
-    setMemories((prev) => [
-      memoryObj,
-      ...prev
-    ]);
-
-    if (isOffline) {
-
-      setPendingSyncQueue((queue) => [
-        ...queue,
-        {
-          type: 'ADD_MEMORY',
-          data: memoryObj
-        }
-      ]);
-
-    } else {
+      setPendingSyncQueue([]);
 
       setLastSyncTime('Just now');
 
+      setTimeout(() => setSyncToast(null), 4000);
     }
-
   };
 
+  window.addEventListener('offline', handleOffline);
+  window.addEventListener('online', handleOnline);
 
-  // Add Reminder
+  return () => {
+    window.removeEventListener('offline', handleOffline);
+    window.removeEventListener('online', handleOnline);
+  };
+}, [pendingSyncQueue]);
+  // Derived Garden Stage (0: Seedling, 1: Sprout, 2: Blossom, 3: Sanctuary Tree)
+  const gardenStage = Math.min(Math.floor(completedCount / 1), 3);
+
+  // Derived AI Personalization State
+  const aiState = evaluatePerformance(history);
+
+  // Translations shortcut helper
+  const t = TRANSLATIONS[language] || TRANSLATIONS.en;
+
+  // Toggle Reminder Completion (Works offline & syncs)
+  const toggleReminder = (id) => {
+    setReminders(prev => prev.map(r => {
+      if (r.id === id) {
+        const updated = { ...r, completed: !r.completed };
+        if (isOffline) {
+          setPendingSyncQueue(q => [...q, { type: 'TOGGLE_REMINDER', id, completed: updated.completed }]);
+        }
+        return updated;
+      }
+      return r;
+    }));
+  };
+
+  // Add Memory (Caregiver action)
+  const addMemory = (newMem) => {
+    const memoryObj = {
+      id: 'm_' + Date.now(),
+      ...newMem,
+      options: [newMem.name + ' (' + newMem.relation + ')', 'Family Relative', 'Neighbor']
+    };
+    setMemories(prev => [memoryObj, ...prev]);
+    if (isOffline) {
+      setPendingSyncQueue(q => [...q, { type: 'ADD_MEMORY', data: memoryObj }]);
+    } else {
+      setLastSyncTime('Just now');
+    }
+  };
+
+  // Add Reminder (Caregiver action)
   const addReminder = (newRem) => {
-
     const reminderObj = {
       id: 'r_' + Date.now(),
       completed: false,
       icon: newRem.icon || '🔔',
       ...newRem
     };
-
-    setReminders((prev) => [
-      ...prev,
-      reminderObj
-    ]);
-
+    setReminders(prev => [...prev, reminderObj]);
     if (isOffline) {
-
-      setPendingSyncQueue((queue) => [
-        ...queue,
-        {
-          type: 'ADD_REMINDER',
-          data: reminderObj
-        }
-      ]);
-
+      setPendingSyncQueue(q => [...q, { type: 'ADD_REMINDER', data: reminderObj }]);
     } else {
-
       setLastSyncTime('Just now');
-
     }
-
   };
 
-
-  // Record General Activity
+  // Record Cognitive Activity Performance
   const recordActivity = (result) => {
-
     const logEntry = {
       ...result,
       timestamp: Date.now()
     };
 
-    setHistory((prev) => [
-      ...prev,
-      logEntry
-    ]);
-
+    setHistory(prev => [...prev, logEntry]);
+    
     if (result.isCorrect) {
-
-      setCompletedCount((prev) => prev + 1);
-
+      setCompletedCount(prev => prev + 1);
     }
 
     if (isOffline) {
-
-      setPendingSyncQueue((queue) => [
-        ...queue,
-        {
-          type: 'ACTIVITY_RESULT',
-          data: logEntry
-        }
-      ]);
-
+      setPendingSyncQueue(q => [...q, { type: 'ACTIVITY_RESULT', data: logEntry }]);
     } else {
-
       setLastSyncTime('Just now');
-
     }
-
   };
 
-
-  // Record Game Result
-  const recordGameResult = (result) => {
-
-    const correct =
-      result.correct ?? result.isCorrect ?? false;
-
-    const responseTime =
-      result.responseTime ??
-      result.timeTakenSeconds ??
-      0;
-
-    const gameResult = {
-      gameId: result.gameId || 'game_' + Date.now(),
-
-      gameType:
-        result.gameType || activeGameType,
-
-      isCorrect: correct,
-
-      correctAnswers:
-        correct ? 1 : 0,
-
-      wrongAnswers:
-        correct ? 0 : 1,
-
-      accuracy:
-        correct ? 100 : 0,
-
-      timeTakenSeconds:
-        responseTime,
-
-      hintsUsed:
-        result.hintsUsed || 0,
-
-      difficulty:
-        aiState.difficulty || 'Easy',
-
-      timestamp:
-        Date.now()
-    };
-
-    setHistory((prev) => [
-      ...prev,
-      gameResult
-    ]);
-
-    if (correct) {
-
-      setCompletedCount((prev) => prev + 1);
-
-    }
-
-    if (isOffline) {
-
-      setPendingSyncQueue((queue) => [
-        ...queue,
-        {
-          type: 'GAME_RESULT',
-          data: gameResult
-        }
-      ]);
-
-    } else {
-
-      setLastSyncTime('Just now');
-
-    }
-
-  };
-
-
-  // Toggle Offline Mode
+  // Toggle Offline Connection Simulator
   const toggleOffline = () => {
-
     if (isOffline) {
-
+      // Re-connecting online -> Trigger Auto Sync
       setIsOffline(false);
-
       if (pendingSyncQueue.length > 0) {
-
-        setSyncToast(
-          `Synced ${pendingSyncQueue.length} offline activities to Caregiver Dashboard!`
-        );
-
+        setSyncToast(`Synced ${pendingSyncQueue.length} offline activities to Caregiver Dashboard!`);
         setPendingSyncQueue([]);
-
-        setTimeout(() => {
-
-          setSyncToast(null);
-
-        }, 4000);
-
+        setTimeout(() => setSyncToast(null), 4000);
       }
-
       setLastSyncTime('Just now');
-
     } else {
-
       setIsOffline(true);
-
     }
-
   };
-
 
   return (
-
-    <AppContext.Provider
-      value={{
-
-        // User
-        userRole,
-        setUserRole,
-
-        // Navigation
-        currentView,
-        setCurrentView,
-
-        // Language
-        language,
-        setLanguage,
-
-        // Games
-        activeGameType,
-        setActiveGameType,
-
-        // Metrics
-        completedCount,
-        streakDays,
-        gardenStage,
-
-        // Data
-        memories,
-        reminders,
-        history,
-
-        // AI
-        aiState,
-
-        // Offline
-        isOffline,
-        toggleOffline,
-        pendingSyncQueue,
-        lastSyncTime,
-        syncToast,
-
-        // Actions
-        toggleReminder,
-        addMemory,
-        addReminder,
-        recordActivity,
-        recordGameResult,
-
-        // Translation
-        t
-
-      }}
-    >
-
+    <AppContext.Provider value={{
+      userRole,
+      setUserRole,
+      currentView,
+      setCurrentView,
+      language,
+      setLanguage,
+      activeGameType,
+      setActiveGameType,
+      completedCount,
+      streakDays,
+      gardenStage,
+      memories,
+      reminders,
+      history,
+      aiState,
+      isOffline,
+      toggleOffline,
+      pendingSyncQueue,
+      lastSyncTime,
+      syncToast,
+      toggleReminder,
+      addMemory,
+      addReminder,
+      recordActivity,
+      t
+    }}>
       {children}
-
     </AppContext.Provider>
-
   );
-
 };
 
-
-export const useApp = () =>
-  useContext(AppContext);
+export const useApp = () => useContext(AppContext);
