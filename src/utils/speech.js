@@ -1,9 +1,11 @@
 // Web Speech Synthesis and Recognition Helper
-
+import { translateText } from './translator';
 const LANG_MAP = {
   en: 'en-IN',
   te: 'te-IN',
-  hi: 'hi-IN'
+  hi: 'hi-IN',
+  as: 'as-IN'
+
 };
 
 export const speakText = (text, lang = 'en', onEndCallback = null) => {
