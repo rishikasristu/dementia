@@ -34,12 +34,26 @@ export const AppProvider = ({ children }) => {
   });
   // Offline-First State Simulator
   const [isOffline, setIsOffline] = useState(false);
-  const [pendingSyncQueue, setPendingSyncQueue] = useState([]);
+  const [pendingSyncQueue, setPendingSyncQueue] = useState(() => {
+    const savedQueue = localStorage.getItem('memoryGardenSyncQueue');
+
+    if (savedQueue) {
+      return JSON.parse(savedQueue);
+    }
+
+    return [];
+  });
   const [lastSyncTime, setLastSyncTime] = useState('Just now');
   const [syncToast, setSyncToast] = useState(null);
   useEffect(() => {
     localStorage.setItem('memoryGardenHistory', JSON.stringify(history));
   }, [history]);
+  useEffect(() => {
+    localStorage.setItem(
+      'memoryGardenSyncQueue',
+      JSON.stringify(pendingSyncQueue)
+    );
+  }, [pendingSyncQueue]);
   // Derived Garden Stage (0: Seedling, 1: Sprout, 2: Blossom, 3: Sanctuary Tree)
   const gardenStage = Math.min(Math.floor(completedCount / 1), 3);
 
