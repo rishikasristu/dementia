@@ -49,7 +49,9 @@ export const AppProvider = ({ children }) => {
     ];
   });
   // Offline-First State Simulator
-  const [isOffline, setIsOffline] = useState(false);
+  const [isOffline, setIsOffline] = useState(() => {
+    return !navigator.onLine;
+  });
   const [pendingSyncQueue, setPendingSyncQueue] = useState(() => {
     const savedQueue = localStorage.getItem('memoryGardenSyncQueue');
 
@@ -82,7 +84,35 @@ export const AppProvider = ({ children }) => {
       JSON.stringify(pendingSyncQueue)
     );
   }, [pendingSyncQueue]);
+  useEffect(() => {
+  const handleOffline = () => {
+    setIsOffline(true);
+  };
 
+  const handleOnline = () => {
+    setIsOffline(false);
+
+    if (pendingSyncQueue.length > 0) {
+      setSyncToast(
+        `Synced ${pendingSyncQueue.length} offline activities to Caregiver Dashboard!`
+      );
+
+      setPendingSyncQueue([]);
+
+      setLastSyncTime('Just now');
+
+      setTimeout(() => setSyncToast(null), 4000);
+    }
+  };
+
+  window.addEventListener('offline', handleOffline);
+  window.addEventListener('online', handleOnline);
+
+  return () => {
+    window.removeEventListener('offline', handleOffline);
+    window.removeEventListener('online', handleOnline);
+  };
+}, [pendingSyncQueue]);
   // Derived Garden Stage (0: Seedling, 1: Sprout, 2: Blossom, 3: Sanctuary Tree)
   const gardenStage = Math.min(Math.floor(completedCount / 1), 3);
 
