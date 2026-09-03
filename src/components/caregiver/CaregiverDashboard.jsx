@@ -7,9 +7,9 @@ import {
   Plus,
   Wifi,
   WifiOff,
-  TrendingUp
+  TrendingUp,
+  Sparkles
 } from 'lucide-react';
-
 export const CaregiverDashboard = () => {
   const {
     memories = [],
@@ -302,18 +302,22 @@ export const CaregiverDashboard = () => {
           </div>
 
           <div>
-            <p className="text-xs font-bold text-ink/70 uppercase">
-              Puzzle Accuracy
-            </p>
-
-            <p className="text-2xl font-extrabold text-forest">
-              {overallAccuracy}% Rate
-            </p>
-
-            <p className="text-xs text-forest/80 font-bold">
-              Avg {averageResponseTime}s Response
-            </p>
           </div>
+          <p className="text-xs font-bold text-ink/70 uppercase tracking-wider">
+              Puzzle Accuracy
+          </p>
+
+<p className="text-2xl font-extrabold text-forest">
+  {aiState.accuracyRate || overallAccuracy}% Rate
+</p>
+
+<p className="text-xs text-terracotta font-bold">
+  Cognitive Score: {aiState.cognitiveScore ?? 0}/100
+</p>
+
+<p className="text-xs text-forest/80 font-bold">
+  Avg {aiState.avgResponseTime || averageResponseTime}s Response
+</p>
 
         </div>
 
@@ -392,79 +396,105 @@ export const CaregiverDashboard = () => {
               </span>
 
             </div>
+{/* MEMORY */}
+<div>
 
-            {/* MEMORY */}
+  <div className="flex justify-between text-xs font-bold text-ink mb-1">
+    <span>Memory Activities</span>
+
+    <span>
+      {memoryStats.attempts > 0
+        ? `${memoryStats.accuracy}% Accuracy`
+        : 'No data yet'}
+    </span>
+  </div>
+
+  <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
+    <div
+      className="h-full bg-forest rounded-full"
+      style={{
+        width: `${memoryStats.accuracy}%`
+      }}
+    />
+  </div>
+
+</div>
+
+{/* ATTENTION */}
+<div>
+
+  <div className="flex justify-between text-xs font-bold text-ink mb-1">
+    <span>Attention Activities</span>
+
+    <span>
+      {attentionStats.attempts > 0
+        ? `${attentionStats.accuracy}% Accuracy`
+        : 'No data yet'}
+    </span>
+  </div>
+
+  <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
+    <div
+      className="h-full bg-terracotta rounded-full"
+      style={{
+        width: `${attentionStats.accuracy}%`
+      }}
+    />
+  </div>
+
+</div>
+
+{/* PATTERN */}
+<div>
+
+  <div className="flex justify-between text-xs font-bold text-ink mb-1">
+    <span>Pattern Activities</span>
+
+    <span>
+      {patternStats.attempts > 0
+        ? `${patternStats.accuracy}% Accuracy`
+        : 'No data yet'}
+    </span>
+  </div>
+
+  <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
+    <div
+      className="h-full bg-gold-dark rounded-full"
+      style={{
+        width: `${patternStats.accuracy}%`
+      }}
+    />
+  </div>
+
+</div>  
+</div>            
+
+          {/* AI Recommendation */}
+          <div className="bg-forest text-cream p-5 rounded-3xl border-2 border-sage/40 shadow-photo">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-gold/20 flex items-center justify-center shrink-0">
+                <Sparkles className="w-6 h-6 text-gold" />
+              </div>
+
             <div>
+            <p className="text-xs font-bold text-gold uppercase tracking-wider">
+              AI Recommendation
+            </p>
 
-              <div className="flex justify-between text-xs font-bold text-ink mb-1">
-                <span>Memory Activities</span>
+            <h3 className="text-lg font-extrabold mt-1">
+              {aiState.recommendation?.charAt(0).toUpperCase() +
+                  aiState.recommendation?.slice(1)} Activity
+            </h3>
 
-                <span>
-                  {memoryStats.attempts > 0
-                    ? `${memoryStats.accuracy}% Accuracy`
-                    : 'No data yet'}
-                </span>
-              </div>
+            <p className="text-sm text-cream/80 mt-1">
+              {aiState.recommendationReason}
+            </p>
 
-              <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-forest rounded-full"
-                  style={{
-                    width: `${memoryStats.accuracy}%`
-                  }}
-                />
-              </div>
-
+            <p className="text-xs text-sage mt-2 font-bold">
+              Overall Trend: {aiState.overallTrend}
+            </p>
             </div>
-
-            {/* ATTENTION */}
-            <div>
-
-              <div className="flex justify-between text-xs font-bold text-ink mb-1">
-                <span>Attention Activities</span>
-
-                <span>
-                  {attentionStats.attempts > 0
-                    ? `${attentionStats.accuracy}% Accuracy`
-                    : 'No data yet'}
-                </span>
-              </div>
-
-              <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-terracotta rounded-full"
-                  style={{
-                    width: `${attentionStats.accuracy}%`
-                  }}
-                />
-              </div>
-
-            </div>
-
-            {/* PATTERN */}
-            <div>
-
-              <div className="flex justify-between text-xs font-bold text-ink mb-1">
-                <span>Pattern Activities</span>
-
-                <span>
-                  {patternStats.attempts > 0
-                    ? `${patternStats.accuracy}% Accuracy`
-                    : 'No data yet'}
-                </span>
-              </div>
-
-              <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gold-dark rounded-full"
-                  style={{
-                    width: `${patternStats.accuracy}%`
-                  }}
-                />
-              </div>
-
-            </div>
-
+          </div>
           </div>
 
           {/* RECENT ACTIVITY LOG */}
