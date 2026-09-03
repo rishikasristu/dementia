@@ -13,7 +13,15 @@ export const AppProvider = ({ children }) => {
   // Garden Growth & Activity Metrics
   const [completedCount, setCompletedCount] = useState(1);
   const [streakDays, setStreakDays] = useState(4);
-  const [memories, setMemories] = useState(INITIAL_MEMORIES);
+  const [memories, setMemories] = useState(() => {
+    const savedMemories = localStorage.getItem('memoryGardenMemories');
+
+    if (savedMemories) {
+      return JSON.parse(savedMemories);
+    }
+
+    return INITIAL_MEMORIES;
+  });
   const [reminders, setReminders] = useState(INITIAL_REMINDERS);
   const [history, setHistory] = useState(() => {
     const savedHistory = localStorage.getItem('memoryGardenHistory');
@@ -48,6 +56,12 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('memoryGardenHistory', JSON.stringify(history));
   }, [history]);
+  useEffect(() => {
+    localStorage.setItem(
+      'memoryGardenMemories',
+      JSON.stringify(memories)
+    );
+  }, [memories]);
   useEffect(() => {
     localStorage.setItem(
       'memoryGardenSyncQueue',
