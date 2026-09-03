@@ -22,7 +22,15 @@ export const AppProvider = ({ children }) => {
 
     return INITIAL_MEMORIES;
   });
-  const [reminders, setReminders] = useState(INITIAL_REMINDERS);
+  const [reminders, setReminders] = useState(() => {
+    const savedReminders = localStorage.getItem('memoryGardenReminders');
+
+    if (savedReminders) {
+      return JSON.parse(savedReminders);
+    }
+
+    return INITIAL_REMINDERS;
+  });
   const [history, setHistory] = useState(() => {
     const savedHistory = localStorage.getItem('memoryGardenHistory');
 
@@ -63,11 +71,18 @@ export const AppProvider = ({ children }) => {
     );
   }, [memories]);
   useEffect(() => {
+  localStorage.setItem(
+    'memoryGardenReminders',
+    JSON.stringify(reminders)
+  );
+}, [reminders]);
+  useEffect(() => {
     localStorage.setItem(
       'memoryGardenSyncQueue',
       JSON.stringify(pendingSyncQueue)
     );
   }, [pendingSyncQueue]);
+
   // Derived Garden Stage (0: Seedling, 1: Sprout, 2: Blossom, 3: Sanctuary Tree)
   const gardenStage = Math.min(Math.floor(completedCount / 1), 3);
 
