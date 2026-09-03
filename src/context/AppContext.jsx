@@ -15,16 +15,31 @@ export const AppProvider = ({ children }) => {
   const [streakDays, setStreakDays] = useState(4);
   const [memories, setMemories] = useState(INITIAL_MEMORIES);
   const [reminders, setReminders] = useState(INITIAL_REMINDERS);
-  const [history, setHistory] = useState([
-    { gameId: 'mem1', isCorrect: true, timeTakenSeconds: 5, hintsUsed: 0, timestamp: Date.now() - 3600000 }
-  ]);
+  const [history, setHistory] = useState(() => {
+    const savedHistory = localStorage.getItem('memoryGardenHistory');
 
+    if (savedHistory) {
+      return JSON.parse(savedHistory);
+    }
+
+    return [
+      {
+        gameId: 'mem1',
+        isCorrect: true,
+        timeTakenSeconds: 5,
+        hintsUsed: 0,
+        timestamp: Date.now() - 3600000
+      }
+    ];
+  });
   // Offline-First State Simulator
   const [isOffline, setIsOffline] = useState(false);
   const [pendingSyncQueue, setPendingSyncQueue] = useState([]);
   const [lastSyncTime, setLastSyncTime] = useState('Just now');
   const [syncToast, setSyncToast] = useState(null);
-
+  useEffect(() => {
+    localStorage.setItem('memoryGardenHistory', JSON.stringify(history));
+  }, [history]);
   // Derived Garden Stage (0: Seedling, 1: Sprout, 2: Blossom, 3: Sanctuary Tree)
   const gardenStage = Math.min(Math.floor(completedCount / 1), 3);
 
