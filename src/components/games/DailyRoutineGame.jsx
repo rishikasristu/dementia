@@ -8,9 +8,10 @@ import {
   CheckCircle,
   XCircle
 } from 'lucide-react';
+import { speakWithAzure } from '../../utils/speech';
 
 export const DailyRoutineGame = () => {
-  const { recordGameResult, aiState } = useApp();
+  const { recordGameResult, aiState, language, t } = useApp();
 
   const puzzles = COGNITIVE_PUZZLES.dailyRoutine || [];
 
@@ -33,16 +34,8 @@ export const DailyRoutineGame = () => {
   const puzzle = puzzles[currentIndex];
 
   const speakText = (text) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.8;
-
-      window.speechSynthesis.speak(utterance);
-    }
-  };
-
+  speakWithAzure(text, language);
+};
   const handleAnswer = (option) => {
     if (answered) return;
 
@@ -103,18 +96,21 @@ export const DailyRoutineGame = () => {
 
         <div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-forest">
-            🌞 {puzzle.title}
+            🌞 {t[puzzle.titleKey] || puzzle.title}
           </h2>
 
           <p className="text-forest/70 font-medium mt-2">
-            {puzzle.instruction}
+            {t[puzzle.instructionKey] || puzzle.instruction}
           </p>
         </div>
 
         <button
-          onClick={() => speakText(puzzle.instruction)}
+          onClick={() =>
+  speakText(t[puzzle.instructionKey] || puzzle.instruction)
+}
+      
           className="p-3 rounded-2xl bg-gold/20 hover:bg-gold/30 text-forest transition-all"
-          title="Listen"
+          title={t.listen}
         >
           <Volume2 className="w-6 h-6" />
         </button>
@@ -125,7 +121,7 @@ export const DailyRoutineGame = () => {
       <div className="bg-cream-dark rounded-3xl p-6 border border-sage/30">
 
         <p className="text-sm font-bold text-forest/60 mb-5">
-          DAILY ROUTINE
+            {t.dailyRoutine}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -140,7 +136,7 @@ export const DailyRoutineGame = () => {
               </div>
 
               <p className="font-extrabold text-forest">
-                {step.label}
+                {t[step.labelKey] || step.label}
               </p>
             </div>
           ))}
@@ -153,7 +149,7 @@ export const DailyRoutineGame = () => {
           </div>
 
           <p className="font-bold text-forest text-lg">
-            What comes next?
+             {t.whatComesNext}
           </p>
         </div>
 
@@ -216,7 +212,7 @@ export const DailyRoutineGame = () => {
               </div>
 
               <p className="font-extrabold text-forest">
-                {option.label}
+                {t[option.labelKey] || option.label}
               </p>
 
             </button>
@@ -246,23 +242,29 @@ export const DailyRoutineGame = () => {
             {isCorrect ? (
               <>
                 <p className="font-extrabold text-green-700 text-lg">
-                  Correct Answer! 🎉
+                   {t.correctAnswer} 🎉
                 </p>
 
                 <p className="text-forest/70 text-sm">
-                  Excellent! You selected the correct next step.
+                   {t.excellentCorrectNextStep}
                 </p>
               </>
             ) : (
               <>
                 <p className="font-extrabold text-amber-700 text-lg">
-                  Well tried! 🌿
+                   {t.wellTried} 🌿
                 </p>
 
                 <p className="text-forest/70 text-sm">
-                  The correct answer is{' '}
-                  <strong>{puzzle.correctAnswer}</strong>
-                </p>
+  {t.theCorrectAnswerIs}{' '}
+  <strong>
+    {t[
+      puzzle.options.find(
+        option => option.label === puzzle.correctAnswer
+      )?.labelKey
+    ] || puzzle.correctAnswer}
+  </strong>
+</p>
               </>
             )}
 
@@ -279,7 +281,7 @@ export const DailyRoutineGame = () => {
           className="flex items-center gap-2 px-5 py-3 rounded-xl bg-cream-dark text-forest font-bold hover:bg-sage/20 transition-all"
         >
           <RotateCcw className="w-5 h-5" />
-          Restart
+          {t.restart}
         </button>
 
         {answered && (
@@ -288,8 +290,9 @@ export const DailyRoutineGame = () => {
             className="flex items-center gap-2 px-5 py-3 rounded-xl bg-forest text-cream font-bold hover:scale-[1.02] transition-all"
           >
             {currentIndex === puzzles.length - 1
-              ? 'Start Again'
-              : 'Next Question'}
+              ? t.startAgain
+              : t.nextQuestion
+              }
 
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -299,7 +302,7 @@ export const DailyRoutineGame = () => {
 
       {/* Progress */}
       <div className="text-center text-sm text-forest/60 font-medium">
-        Question {currentIndex + 1} of {puzzles.length}
+        {t.question} {currentIndex + 1} of {puzzles.length}
       </div>
 
     </div>

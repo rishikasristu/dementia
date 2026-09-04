@@ -46,7 +46,7 @@ export const CognitiveHub = () => {
           "
         >
           <ArrowLeft className="w-5 h-5" />
-          <span>Back to Garden</span>
+          <span>{t.backToGarden}</span>
         </button>
 
         <div
@@ -58,7 +58,7 @@ export const CognitiveHub = () => {
             border border-gold/40
           "
         >
-          🧠 Cognitive Activities
+          🧠 {t.cognitiveActivities}
         </div>
 
       </div>
@@ -118,7 +118,7 @@ export const CognitiveHub = () => {
             </p>
 
             <p className="text-xs text-cream/70 mt-1 font-medium">
-              Activities gently adapt based on your performance.
+              {t.activitiesAdaptToPerformance}
             </p>
 
           </div>
@@ -151,7 +151,7 @@ export const CognitiveHub = () => {
           `}
         >
           <Brain className="w-6 h-6 text-gold" />
-          <span>Memory</span>
+          <span>{t.memory}</span>
         </button>
 
         {/* Attention */}
@@ -169,7 +169,7 @@ export const CognitiveHub = () => {
           `}
         >
           <Target className="w-6 h-6" />
-          <span>Attention</span>
+          <span>{t.attention}</span>
         </button>
 
         {/* Pattern */}
@@ -187,7 +187,7 @@ export const CognitiveHub = () => {
           `}
         >
           <Puzzle className="w-6 h-6" />
-          <span>Pattern</span>
+          <span>{t.pattern}</span>
         </button>
 
         {/* Object Recognition */}
@@ -205,7 +205,7 @@ export const CognitiveHub = () => {
           `}
         >
           <Eye className="w-6 h-6" />
-          <span>Object Recognition</span>
+          <span>{t.objectRecognition}</span>
         </button>
 
         {/* Odd One Out */}
@@ -223,7 +223,7 @@ export const CognitiveHub = () => {
           `}
         >
           <Search className="w-6 h-6" />
-          <span>Odd One Out</span>
+          <span>{t.oddOneOut}</span>
         </button>
 
         {/* Daily Routine */}
@@ -241,7 +241,7 @@ export const CognitiveHub = () => {
           `}
         >
           <CalendarCheck className="w-6 h-6 text-gold" />
-          <span>Daily Routine</span>
+          <span>{t.dailyRoutine}</span>
         </button>
 
         {/* Spot the Difference */}
@@ -259,7 +259,7 @@ export const CognitiveHub = () => {
           `}
         >
           <ScanSearch className="w-6 h-6" />
-          <span>Spot Difference</span>
+          <span>{t.spotDifference}</span>
         </button>
 
       </div>

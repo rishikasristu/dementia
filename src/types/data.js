@@ -48,49 +48,67 @@ export const INITIAL_REMINDERS = [
     id: 'r1',
     time: '08:00',
     title: 'Morning Medicine & Warm Water',
+    titleKey: 'morningMedicineWarmWater',
     category: 'meds',
     icon: '💊',
     completed: true,
-    audioText: 'It is 8 AM. Please take your medicine with warm water after breakfast.'
+    audioText:
+      'It is 8 AM. Please take your medicine with warm water after breakfast.',
+    audioTextKey: 'morningMedicineWarmWaterAudio'
   },
+
   {
     id: 'r2',
     time: '10:00',
     title: 'Hydration Break',
+    titleKey: 'hydrationBreak',
     category: 'water',
     icon: '💧',
     completed: true,
-    audioText: 'It is 10 AM. Time for a refreshing glass of water.'
+    audioText:
+      'It is 10 AM. Time for a refreshing glass of water.',
+    audioTextKey: 'hydrationBreakAudio'
   },
+
   {
     id: 'r3',
     time: '13:00',
     title: 'Nutritious Lunch',
+    titleKey: 'nutritiousLunch',
     category: 'lunch',
     icon: '🍽️',
     completed: false,
-    audioText: 'It is 1 PM. Time for lunch.'
+    audioText:
+      'It is 1 PM. Time for lunch.',
+    audioTextKey: 'nutritiousLunchAudio'
   },
+
   {
     id: 'r4',
     time: '17:00',
     title: 'Evening Garden Stroll',
+    titleKey: 'eveningGardenStroll',
     category: 'walk',
     icon: '🌿',
     completed: false,
-    audioText: 'It is 5 PM. Take a gentle walk.'
+    audioText:
+      'It is 5 PM. Take a gentle walk.',
+    audioTextKey: 'eveningGardenStrollAudio'
   },
+
   {
     id: 'r5',
     time: '20:00',
     title: 'Evening Medicine',
+    titleKey: 'eveningMedicine',
     category: 'meds',
     icon: '💊',
     completed: false,
-    audioText: 'It is 8 PM. Please take your evening medicine.'
+    audioText:
+      'It is 8 PM. Please take your evening medicine.',
+    audioTextKey: 'eveningMedicineAudio'
   }
 ];
-
 // Multi-Language Dictionary
 export const TRANSLATIONS = {
   en: {
@@ -192,7 +210,138 @@ findJapiInstruction: "Find all 3 traditional Japi symbols!",
 activity2SelectiveAttention: "Activity 2: Selective Attention",
 listenInstructions: "🔊 Listen Instructions",
 found: "Found",
+spotDifference: "Spot the Difference",
+spotDifferenceInstruction: "Look carefully at Picture B and find 5 differences.",
+puzzle: "Puzzle",
+of: "of",
+differencesFound: "Differences Found",
+tapPictureDifference: "Tap on Picture B where you see a difference",
+restart: "Restart",
+nextPuzzle: "Next Puzzle",
+finishGame: "Finish Game",
+activity3VisualPattern: "Activity 3: Visual Pattern Sequence",
+listenSequence: "🔊 Listen Sequence",
+selectNextItem: "Select the item that comes next:",
+gardenFlowerSequence: "Garden Flower Sequence",
+gardenFlowerSequenceInstruction: "Look at the pattern. Which flower comes next?",
+
+dailyRhythmPattern: "Daily Rhythm Pattern",
+dailyRhythmPatternInstruction: "Sun, Cloud, Sun, Cloud... What comes next?",
+
+assamCulturalPattern: "Assam Cultural Pattern",
+assamCulturalPatternInstruction: "Japi, Gamosa, Japi, Gamosa... What comes next?",
+oddOneOut: "Odd One Out",
+gardenOddOneOut: "Find the Different Item",
+gardenOddOneOutInstruction: "Three items belong to the garden. Which one is different?",
+gardenOddOneOutExplanation: "The car is different because the other three belong to a garden.",
+
+homeOddOneOut: "Find the Different Item",
+homeOddOneOutInstruction: "Three of these are things we drink. Which one is different?",
+homeOddOneOutExplanation: "Apple is different because the other three are drinks.",
+
+assamCulturalOddOneOut: "Find the Different Item",
+assamCulturalOddOneOutInstruction: "Three of these are animals. Which one is different?",
+assamCulturalOddOneOutExplanation: "Chair is different because the other three are animals.",
+
+teaGardenOddOneOut: "Find the Different Item",
+teaGardenOddOneOutInstruction: "Three of these belong to the kitchen. Which one is different?",
+teaGardenOddOneOutExplanation: "Tree is different because the other three are kitchen items.",
+
+assamCulturalItems: "Assam Cultural Items",
+assamCulturalItemsInstruction: "Three of these are familiar Assam-related items. Which one is different?",
+assamCulturalItemsExplanation: "Airplane is different from the other familiar Assam-related items.",
+
+assamTraditionalItems: "Assam Traditional Items",
+assamTraditionalItemsInstruction: "Which item does not belong with the familiar Assamese cultural items?",
+assamTraditionalItemsExplanation: "Computer is different because the other items are familiar Assamese cultural items.",
+
+wonderfulCorrectAnswer: "Wonderful! Correct Answer! 🎉",
+nextQuestion: "Next Question",
+goodEffort: "Good Effort 🌱",
+oddOneOutHint: "Look carefully. Which item does not belong with the other three?",
+tryAgain: "Try Again",
+restartActivity: "Restart Activity",
+listenToQuestion: "Listen to Question",
+recognizeJapi: 'Recognize the Japi',
+recognizeGamosa: 'Recognize the Gamosa',
+recognizeTea: 'Recognize the Tea',
+recognizePitha: 'Recognize the Pitha',
+recognizeTeaGarden: 'Recognize the Tea Garden',
+
+recognizeObjectInstruction: 'Look at the object and choose its correct name.',
+recognizeFoodInstruction: 'Look at the food item and choose its correct name.',
+recognizeSymbolInstruction: 'Look at the symbol and choose the correct answer.',
+
+japiHint: 'It is a traditional Assamese headgear.',
+gamosaHint: 'It is a traditional Assamese cloth.',
+teaHint: 'Assam is famous for its tea gardens.',
+pithaHint: 'It is a familiar traditional Assamese food.',
+teaGardenHint: 'Assam is well known for its beautiful tea gardens.',
+japi: 'Japi',
+gamosa: 'Gamosa',
+teaPot: 'Tea Pot',
+umbrella: 'Umbrella',
+riceBowl: 'Rice Bowl',
+apple: 'Apple',
+pitha: 'Pitha',
+mango: 'Mango',
+teaGarden: 'Tea Garden',
+cityBuilding: 'City Building',
+road: 'Road',
+activityDailyRoutine: "Daily Routine",
+dailyRoutine: "Daily Routine",
+whatComesNext: "What comes next?",
+correctAnswer: "Correct Answer!",
+excellentCorrectNextStep:
+  "Excellent! You selected the correct next step.",
+wellTried: "Well tried!",
+theCorrectAnswerIs: "The correct answer is",
+restart: "Restart",
+startAgain: "Start Again",
+nextQuestion: "Next Question",
+question: "Question",
+of: "of",
+backToGarden: "Back to Garden",
+cognitiveActivities: "Cognitive Activities",
+mode: "Mode",
+activitiesAdaptToPerformance:
+  "Activities gently adapt based on your performance.",
+
+memory: "Memory",
+attention: "Attention",
+pattern: "Pattern",
+objectRecognition: "Object Recognition",
+oddOneOut: "Odd One Out",
+dailyRoutine: "Daily Routine",
+spotDifference: "Spot Difference",
+todaysTimeline: "Today's Timeline",
+todayRemindersDescription:
+  "Simple reminders for medicine, fresh water, and gentle walks today.",
+done: "Done",
+listenReminder: "Listen reminder vocal audio",
+morningMedicineWarmWater: "Morning Medicine & Warm Water",
+hydrationBreak: "Hydration Break",
+nutritiousLunch: "Nutritious Lunch",
+eveningGardenStroll: "Evening Garden Stroll",
+eveningMedicine: "Evening Medicine",
+
+morningMedicineWarmWaterAudio:
+  "It is 8 AM. Please take your medicine with warm water after breakfast.",
+hydrationBreakAudio:
+  "It is 10 AM. Time for a refreshing glass of water.",
+nutritiousLunchAudio:
+  "It is 1 PM. Time for lunch.",
+eveningGardenStrollAudio:
+  "It is 5 PM. Take a gentle walk.",
+eveningMedicineAudio:
+  "It is 8 PM. Please take your evening medicine.",
+  feedbackWonderfulAudio: "Wonderful job! Your garden is growing.",
+feedbackTryAgainAudio: "That was a great effort. Let's try once more together.",
+goodEffort: "Good Effort!",
+activityAddedFlower: "Your activity added a fresh flower to your Memory Garden!",
+tryAgainGently: "Try Again Gently",
   },
+
 
   te: {
     greetingTitle: "శుభోదయం, లక్ష్మి గారూ",
@@ -293,6 +442,181 @@ findJapiInstruction: "3 సంప్రదాయ జాపి గుర్తు
 activity2SelectiveAttention: "కార్యకలాపం 2: ఎంపికాత్మక శ్రద్ధ",
 listenInstructions: "🔊 సూచనలు వినండి",
 found: "కనుగొనబడింది",
+spotDifference: "తేడాలను గుర్తించండి",
+spotDifferenceInstruction: "చిత్రం Bను జాగ్రత్తగా చూసి 5 తేడాలను కనుగొనండి.",
+puzzle: "ఆట",
+of: "లో",
+differencesFound: "కనుగొన్న తేడాలు",
+tapPictureDifference: "తేడా కనిపించే చోట చిత్రం Bపై నొక్కండి",
+restart: "మళ్లీ ప్రారంభించండి",
+nextPuzzle: "తదుపరి ఆట",
+finishGame: "ఆటను ముగించండి",
+activity3VisualPattern: "కార్యకలాపం 3: దృశ్య నమూనా క్రమం",
+listenSequence: "🔊 క్రమాన్ని వినండి",
+selectNextItem: "తర్వాత వచ్చే అంశాన్ని ఎంచుకోండి:",
+gardenFlowerSequence: "తోట పూల క్రమం",
+gardenFlowerSequenceInstruction: "ఈ నమూనాను చూడండి. తర్వాత ఏ పువ్వు వస్తుంది?",
+
+dailyRhythmPattern: "రోజువారీ లయ నమూనా",
+dailyRhythmPatternInstruction: "సూర్యుడు, మేఘం, సూర్యుడు, మేఘం... తర్వాత ఏమి వస్తుంది?",
+
+assamCulturalPattern: "అస్సాం సాంస్కృతిక నమూనా",
+assamCulturalPatternInstruction: "జాపి, గామోసా, జాపి, గామోసా... తర్వాత ఏమి వస్తుంది?",
+oddOneOut: "విభిన్నమైనదాన్ని కనుగొనండి",
+gardenOddOneOut: "విభిన్నమైన వస్తువును కనుగొనండి",
+gardenOddOneOutInstruction: "మూడు వస్తువులు తోటకు చెందినవి. ఏది భిన్నంగా ఉంది?",
+gardenOddOneOutExplanation: "మిగిలిన మూడు తోటకు చెందినవి కాబట్టి కారు భిన్నమైనది.",
+
+homeOddOneOut: "విభిన్నమైన వస్తువును కనుగొనండి",
+homeOddOneOutInstruction: "వీటిలో మూడు మనం తాగే వస్తువులు. ఏది భిన్నంగా ఉంది?",
+homeOddOneOutExplanation: "మిగిలిన మూడు పానీయాలు కాబట్టి ఆపిల్ భిన్నమైనది.",
+
+assamCulturalOddOneOut: "విభిన్నమైన వస్తువును కనుగొనండి",
+assamCulturalOddOneOutInstruction: "వీటిలో మూడు జంతువులు. ఏది భిన్నంగా ఉంది?",
+assamCulturalOddOneOutExplanation: "మిగిలిన మూడు జంతువులు కాబట్టి కుర్చీ భిన్నమైనది.",
+
+teaGardenOddOneOut: "విభిన్నమైన వస్తువును కనుగొనండి",
+teaGardenOddOneOutInstruction: "వీటిలో మూడు వంటగదికి చెందినవి. ఏది భిన్నంగా ఉంది?",
+teaGardenOddOneOutExplanation: "మిగిలిన మూడు వంటగది వస్తువులు కాబట్టి చెట్టు భిన్నమైనది.",
+
+assamCulturalItems: "అస్సాం సాంస్కృతిక వస్తువులు",
+assamCulturalItemsInstruction: "వీటిలో మూడు అస్సాంకు సంబంధించిన పరిచయమైన వస్తువులు. ఏది భిన్నంగా ఉంది?",
+assamCulturalItemsExplanation: "మిగిలిన పరిచయమైన అస్సాం వస్తువుల నుండి విమానం భిన్నమైనది.",
+
+assamTraditionalItems: "అస్సాం సంప్రదాయ వస్తువులు",
+assamTraditionalItemsInstruction: "పరిచయమైన అస్సామీ సాంస్కృతిక వస్తువులతో సరిపోని వస్తువు ఏది?",
+assamTraditionalItemsExplanation: "మిగిలినవి పరిచయమైన అస్సామీ సాంస్కృతిక వస్తువులు కాబట్టి కంప్యూటర్ భిన్నమైనది.",
+
+wonderfulCorrectAnswer: "అద్భుతం! సరైన సమాధానం! 🎉",
+nextQuestion: "తదుపరి ప్రశ్న",
+goodEffort: "మంచి ప్రయత్నం 🌱",
+oddOneOutHint: "జాగ్రత్తగా చూడండి. మిగిలిన మూడు వస్తువులతో సరిపోని వస్తువు ఏది?",
+tryAgain: "మళ్లీ ప్రయత్నించండి",
+restartActivity: "కార్యకలాపాన్ని మళ్లీ ప్రారంభించండి",
+listenToQuestion: "ప్రశ్నను వినండి",
+recognizeJapi: 'జాపిని గుర్తించండి',
+recognizeGamosa: 'గమోసాను గుర్తించండి',
+recognizeTea: 'టీని గుర్తించండి',
+recognizePitha: 'పిఠాను గుర్తించండి',
+recognizeTeaGarden: 'టీ తోటను గుర్తించండి',
+
+recognizeObjectInstruction: 'వస్తువును చూసి దాని సరైన పేరును ఎంచుకోండి.',
+recognizeFoodInstruction: 'ఆహార పదార్థాన్ని చూసి దాని సరైన పేరును ఎంచుకోండి.',
+recognizeSymbolInstruction: 'చిహ్నాన్ని చూసి సరైన సమాధానాన్ని ఎంచుకోండి.',
+
+japiHint: 'ఇది అస్సాంలోని సాంప్రదాయ తలపాగా.',
+gamosaHint: 'ఇది అస్సాంలోని సాంప్రదాయ వస్త్రం.',
+teaHint: 'అస్సాం టీ తోటలకు ప్రసిద్ధి చెందింది.',
+pithaHint: 'ఇది అస్సాంలోని ప్రసిద్ధ సాంప్రదాయ ఆహారం.',
+teaGardenHint: 'అస్సాం తన అందమైన టీ తోటలకు ప్రసిద్ధి చెందింది.',
+japi: 'జాపి',
+gamosa: 'గమోసా',
+teaPot: 'టీ కుండ',
+umbrella: 'గొడుగు',
+riceBowl: 'అన్నం గిన్నె',
+apple: 'ఆపిల్',
+pitha: 'పిఠా',
+mango: 'మామిడి',
+teaGarden: 'టీ తోట',
+cityBuilding: 'నగర భవనం',
+road: 'రోడ్డు',
+activityDailyRoutine: "రోజువారీ దినచర్య",
+dailyRoutine: "రోజువారీ దినచర్య",
+whatComesNext: "తర్వాత ఏమి చేయాలి?",
+correctAnswer: "సరైన సమాధానం!",
+excellentCorrectNextStep: "చాలా బాగుంది! మీరు సరైన తదుపరి పనిని ఎంచుకున్నారు.",
+wellTried: "బాగా ప్రయత్నించారు!",
+theCorrectAnswerIs: "సరైన సమాధానం",
+restart: "మళ్లీ ప్రారంభించండి",
+startAgain: "మళ్లీ ప్రారంభించండి",
+nextQuestion: "తదుపరి ప్రశ్న",
+question: "ప్రశ్న",
+of: "లో",
+morningRoutine: "ఉదయం దినచర్య",
+morningRoutineInstruction: "రోజువారీ దినచర్యను చూడండి. తర్వాత ఏమి చేయాలి?",
+
+wakeUp: "నిద్ర లేవడం",
+brushTeeth: "పళ్ళు తోముకోవడం",
+breakfast: "అల్పాహారం",
+takeMedicine: "మందు తీసుకోవడం",
+goToSleep: "నిద్రపోవడానికి వెళ్లడం",
+leaveHome: "ఇంటి నుండి బయటకు వెళ్లడం",
+
+healthyDayRoutine: "ఆరోగ్యకరమైన రోజు దినచర్య",
+healthyDayRoutineInstruction: "ఈ దినచర్యలో తర్వాత ఏమి చేయాలి?",
+
+eatLunch: "మధ్యాహ్న భోజనం చేయడం",
+drinkWater: "నీరు తాగడం",
+takeAWalk: "నడకకు వెళ్లడం",
+returnHome: "ఇంటికి తిరిగి రావడం",
+
+breakfastAndMedicine: "అల్పాహారం మరియు మందు",
+breakfastAndMedicineInstruction: "అల్పాహారం తర్వాత ఏమి చేయాలి?",
+
+eatDinner: "రాత్రి భోజనం చేయడం",
+
+healthyExerciseRoutine: "ఆరోగ్యకరమైన వ్యాయామ దినచర్య",
+healthyExerciseRoutineInstruction: "ఈ ఆరోగ్యకరమైన దినచర్యలో తర్వాత ఏమి చేయాలి?",
+
+goForAWalk: "నడకకు వెళ్లడం",
+restForAWhile: "కొంతసేపు విశ్రాంతి తీసుకోవడం",
+
+eveningRoutine: "సాయంత్రం దినచర్య",
+eveningRoutineInstruction: "రాత్రి భోజనం తర్వాత ఏమి చేయాలి?",
+
+evening: "సాయంత్రం",
+takeEveningMedicine: "సాయంత్రం మందు తీసుకోవడం",
+eatBreakfast: "అల్పాహారం చేయడం",
+
+bedtimeRoutine: "నిద్రవేళ దినచర్య",
+bedtimeRoutineInstruction: "నిద్రపోయే ముందు తర్వాత ఏమి చేయాలి?",
+
+nightTime: "రాత్రి సమయం",
+getReadyForBed: "నిద్రకు సిద్ధం కావడం",
+backToGarden: "తోటకు తిరిగి వెళ్ళండి",
+cognitiveActivities: "జ్ఞాన సంబంధిత కార్యకలాపాలు",
+mode: "మోడ్",
+activitiesAdaptToPerformance:
+  "మీ పనితీరును బట్టి కార్యకలాపాలు సున్నితంగా మారుతాయి.",
+
+memory: "జ్ఞాపకశక్తి",
+attention: "శ్రద్ధ",
+pattern: "నమూనా",
+objectRecognition: "వస్తువును గుర్తించడం",
+oddOneOut: "విభిన్నమైనదాన్ని కనుగొనండి",
+dailyRoutine: "రోజువారీ దినచర్య",
+spotDifference: "తేడాను గుర్తించండి",
+backToGarden: "తోటకు తిరిగి వెళ్ళండి",
+todaysTimeline: "ఈరోజు కాలక్రమం",
+todayRemindersDescription:
+  "ఈరోజు మందులు, తాజా నీరు మరియు తేలికపాటి నడకల కోసం సాధారణ గుర్తింపులు.",
+completed: "పూర్తయింది",
+upcoming: "రాబోతోంది",
+listen: "వినండి",
+markDone: "పూర్తయినట్లు గుర్తించండి",
+done: "పూర్తయింది",
+listenReminder: "గుర్తింపును వినండి",
+morningMedicineWarmWater: "ఉదయం మందులు & గోరువెచ్చని నీరు",
+hydrationBreak: "నీరు తాగే విరామం",
+nutritiousLunch: "పోషకమైన మధ్యాహ్న భోజనం",
+eveningGardenStroll: "సాయంత్రం తోటలో నడక",
+eveningMedicine: "సాయంత్రం మందులు",
+
+morningMedicineWarmWaterAudio:
+  "ఇప్పుడు ఉదయం 8 గంటలు. దయచేసి అల్పాహారం తర్వాత గోరువెచ్చని నీటితో మీ మందులు తీసుకోండి.",
+hydrationBreakAudio:
+  "ఇప్పుడు ఉదయం 10 గంటలు. తాజా నీటిని ఒక గ్లాసు తాగే సమయం.",
+nutritiousLunchAudio:
+  "ఇప్పుడు మధ్యాహ్నం 1 గంట. భోజనం చేసే సమయం.",
+eveningGardenStrollAudio:
+  "ఇప్పుడు సాయంత్రం 5 గంటలు. కొద్దిసేపు నెమ్మదిగా నడవండి.",
+eveningMedicineAudio:
+  "ఇప్పుడు రాత్రి 8 గంటలు. దయచేసి మీ సాయంత్రం మందులు తీసుకోండి.",
+  feedbackWonderfulAudio: "అద్భుతంగా చేశారు! మీ తోట పెరుగుతోంది.",
+feedbackTryAgainAudio: "అది చాలా మంచి ప్రయత్నం. మనం కలిసి మరోసారి ప్రయత్నిద్దాం.",
+goodEffort: "మంచి ప్రయత్నం!",
+activityAddedFlower: "మీ కార్యకలాపం మీ మెమరీ గార్డెన్‌కు ఒక అందమైన కొత్త పువ్వును జోడించింది!",
+tryAgainGently: "మెల్లగా మరోసారి ప్రయత్నించండి",
   },
 
   hi: {
@@ -394,6 +718,181 @@ findJapiInstruction: "सभी 3 पारंपरिक जापी चि�
 activity2SelectiveAttention: "गतिविधि 2: चयनात्मक ध्यान",
 listenInstructions: "🔊 निर्देश सुनें",
 found: "मिल गया",
+spotDifference: "अंतर पहचानें",
+spotDifferenceInstruction: "चित्र B को ध्यान से देखें और 5 अंतर खोजें।",
+puzzle: "खेल",
+of: "में से",
+differencesFound: "मिले हुए अंतर",
+tapPictureDifference: "जहाँ अंतर दिखाई दे वहाँ चित्र B पर टैप करें",
+restart: "फिर से शुरू करें",
+nextPuzzle: "अगला खेल",
+finishGame: "खेल समाप्त करें",
+activity3VisualPattern: "गतिविधि 3: दृश्य पैटर्न क्रम",
+listenSequence: "🔊 क्रम सुनें",
+selectNextItem: "अगला आने वाला विकल्प चुनें:",
+gardenFlowerSequence: "बगीचे के फूलों का क्रम",
+gardenFlowerSequenceInstruction: "इस पैटर्न को ध्यान से देखें। अगला कौन सा फूल आएगा?",
+
+dailyRhythmPattern: "दैनिक लय पैटर्न",
+dailyRhythmPatternInstruction: "सूरज, बादल, सूरज, बादल... अगला क्या आएगा?",
+
+assamCulturalPattern: "असम सांस्कृतिक पैटर्न",
+assamCulturalPatternInstruction: "जापी, गमोसा, जापी, गमोसा... अगला क्या आएगा?",
+oddOneOut: "अलग वस्तु खोजें",
+gardenOddOneOut: "अलग वस्तु खोजें",
+gardenOddOneOutInstruction: "तीन वस्तुएँ बगीचे से संबंधित हैं। इनमें से कौन अलग है?",
+gardenOddOneOutExplanation: "कार अलग है क्योंकि बाकी तीन वस्तुएँ बगीचे से संबंधित हैं।",
+
+homeOddOneOut: "अलग वस्तु खोजें",
+homeOddOneOutInstruction: "इनमें से तीन चीज़ें हम पीते हैं। इनमें से कौन अलग है?",
+homeOddOneOutExplanation: "सेब अलग है क्योंकि बाकी तीन पेय हैं।",
+
+assamCulturalOddOneOut: "अलग वस्तु खोजें",
+assamCulturalOddOneOutInstruction: "इनमें से तीन जानवर हैं। इनमें से कौन अलग है?",
+assamCulturalOddOneOutExplanation: "कुर्सी अलग है क्योंकि बाकी तीन जानवर हैं।",
+
+teaGardenOddOneOut: "अलग वस्तु खोजें",
+teaGardenOddOneOutInstruction: "इनमें से तीन चीज़ें रसोई से संबंधित हैं। इनमें से कौन अलग है?",
+teaGardenOddOneOutExplanation: "पेड़ अलग है क्योंकि बाकी तीन रसोई की चीज़ें हैं।",
+
+assamCulturalItems: "असम की सांस्कृतिक वस्तुएँ",
+assamCulturalItemsInstruction: "इनमें से तीन परिचित असम से संबंधित वस्तुएँ हैं। इनमें से कौन अलग है?",
+assamCulturalItemsExplanation: "हवाई जहाज़ बाकी परिचित असम से संबंधित वस्तुओं से अलग है।",
+
+assamTraditionalItems: "असम की पारंपरिक वस्तुएँ",
+assamTraditionalItemsInstruction: "परिचित असमिया सांस्कृतिक वस्तुओं में से कौन सी वस्तु अलग है?",
+assamTraditionalItemsExplanation: "कंप्यूटर अलग है क्योंकि बाकी वस्तुएँ परिचित असमिया सांस्कृतिक वस्तुएँ हैं।",
+
+wonderfulCorrectAnswer: "बहुत बढ़िया! सही उत्तर! 🎉",
+nextQuestion: "अगला प्रश्न",
+goodEffort: "अच्छा प्रयास 🌱",
+oddOneOutHint: "ध्यान से देखें। कौन सी वस्तु बाकी तीन से अलग है?",
+tryAgain: "फिर से प्रयास करें",
+restartActivity: "गतिविधि फिर से शुरू करें",
+listenToQuestion: "प्रश्न सुनें",
+recognizeJapi: 'जापी को पहचानें',
+recognizeGamosa: 'गमोसा को पहचानें',
+recognizeTea: 'चाय को पहचानें',
+recognizePitha: 'पीठा को पहचानें',
+recognizeTeaGarden: 'चाय के बागान को पहचानें',
+
+recognizeObjectInstruction: 'वस्तु को देखें और उसका सही नाम चुनें।',
+recognizeFoodInstruction: 'खाद्य वस्तु को देखें और उसका सही नाम चुनें।',
+recognizeSymbolInstruction: 'चिह्न को देखें और सही उत्तर चुनें।',
+
+japiHint: 'यह असम की पारंपरिक सिर की टोपी है।',
+gamosaHint: 'यह असम का पारंपरिक कपड़ा है।',
+teaHint: 'असम अपने चाय के बागानों के लिए प्रसिद्ध है।',
+pithaHint: 'यह असम का एक प्रसिद्ध पारंपरिक भोजन है।',
+teaGardenHint: 'असम अपने सुंदर चाय के बागानों के लिए जाना जाता है।',
+japi: 'जापी',
+gamosa: 'गमोसा',
+teaPot: 'चाय की केतली',
+umbrella: 'छाता',
+riceBowl: 'चावल का कटोरा',
+apple: 'सेब',
+pitha: 'पीठा',
+mango: 'आम',
+teaGarden: 'चाय का बागान',
+cityBuilding: 'शहर की इमारत',
+road: 'सड़क',
+activityDailyRoutine: "दैनिक दिनचर्या",
+dailyRoutine: "दैनिक दिनचर्या",
+whatComesNext: "इसके बाद क्या करना चाहिए?",
+correctAnswer: "सही उत्तर!",
+excellentCorrectNextStep: "बहुत बढ़िया! आपने सही अगला काम चुना है।",
+wellTried: "अच्छी कोशिश!",
+theCorrectAnswerIs: "सही उत्तर है",
+restart: "फिर से शुरू करें",
+startAgain: "फिर से शुरू करें",
+nextQuestion: "अगला प्रश्न",
+question: "प्रश्न",
+of: "में से",
+morningRoutine: "सुबह की दिनचर्या",
+morningRoutineInstruction: "दैनिक दिनचर्या को देखें। इसके बाद क्या करना चाहिए?",
+
+wakeUp: "जागना",
+brushTeeth: "दाँत साफ करना",
+breakfast: "नाश्ता",
+takeMedicine: "दवा लेना",
+goToSleep: "सोने जाना",
+leaveHome: "घर से निकलना",
+
+healthyDayRoutine: "स्वस्थ दिन की दिनचर्या",
+healthyDayRoutineInstruction: "इस दिनचर्या में इसके बाद क्या करना चाहिए?",
+
+eatLunch: "दोपहर का भोजन करना",
+drinkWater: "पानी पीना",
+takeAWalk: "टहलने जाना",
+returnHome: "घर वापस आना",
+
+breakfastAndMedicine: "नाश्ता और दवा",
+breakfastAndMedicineInstruction: "नाश्ते के बाद क्या करना चाहिए?",
+
+eatDinner: "रात का खाना खाना",
+
+healthyExerciseRoutine: "स्वस्थ व्यायाम की दिनचर्या",
+healthyExerciseRoutineInstruction: "इस स्वस्थ दिनचर्या में इसके बाद क्या करना चाहिए?",
+
+goForAWalk: "टहलने जाना",
+restForAWhile: "थोड़ी देर आराम करना",
+
+eveningRoutine: "शाम की दिनचर्या",
+eveningRoutineInstruction: "रात के खाने के बाद क्या करना चाहिए?",
+
+evening: "शाम",
+takeEveningMedicine: "शाम की दवा लेना",
+eatBreakfast: "नाश्ता करना",
+
+bedtimeRoutine: "सोने की दिनचर्या",
+bedtimeRoutineInstruction: "सोने से पहले इसके बाद क्या करना चाहिए?",
+
+nightTime: "रात का समय",
+getReadyForBed: "सोने के लिए तैयार होना",
+backToGarden: "बगीचे पर वापस जाएँ",
+cognitiveActivities: "संज्ञानात्मक गतिविधियाँ",
+mode: "मोड",
+activitiesAdaptToPerformance:
+  "आपके प्रदर्शन के आधार पर गतिविधियाँ धीरे-धीरे अनुकूलित होती हैं।",
+
+memory: "स्मृति",
+attention: "ध्यान",
+pattern: "पैटर्न",
+objectRecognition: "वस्तु पहचान",
+oddOneOut: "अलग वस्तु खोजें",
+dailyRoutine: "दैनिक दिनचर्या",
+spotDifference: "अंतर पहचानें",
+backToGarden: "बगीचे पर वापस जाएँ",
+todaysTimeline: "आज की समय-सारणी",
+todayRemindersDescription:
+  "आज दवा, ताज़ा पानी और हल्की सैर के लिए सरल याद दिलाने वाले संदेश।",
+completed: "पूरा हुआ",
+upcoming: "आने वाला",
+listen: "सुनें",
+markDone: "पूरा हुआ चिह्नित करें",
+done: "पूरा हुआ",
+listenReminder: "याद दिलाने वाला संदेश सुनें",
+morningMedicineWarmWater: "सुबह की दवा और गुनगुना पानी",
+hydrationBreak: "पानी पीने का समय",
+nutritiousLunch: "पौष्टिक दोपहर का भोजन",
+eveningGardenStroll: "शाम की बगीचे में सैर",
+eveningMedicine: "शाम की दवा",
+
+morningMedicineWarmWaterAudio:
+  "अभी सुबह के 8 बजे हैं। कृपया नाश्ते के बाद गुनगुने पानी के साथ अपनी दवा लें।",
+hydrationBreakAudio:
+  "अभी सुबह के 10 बजे हैं। एक गिलास ताज़ा पानी पीने का समय है।",
+nutritiousLunchAudio:
+  "अभी दोपहर के 1 बजे हैं। दोपहर का भोजन करने का समय है।",
+eveningGardenStrollAudio:
+  "अभी शाम के 5 बजे हैं। थोड़ी देर आराम से टहलें।",
+eveningMedicineAudio:
+  "अभी रात के 8 बजे हैं। कृपया अपनी शाम की दवा लें।",
+  feedbackWonderfulAudio: "बहुत बढ़िया! आपका बगीचा बढ़ रहा है।",
+feedbackTryAgainAudio: "यह एक बहुत अच्छा प्रयास था। आइए, हम साथ मिलकर एक बार फिर कोशिश करें।",
+goodEffort: "अच्छी कोशिश!",
+activityAddedFlower: "आपकी गतिविधि ने आपके मेमोरी गार्डन में एक नया सुंदर फूल जोड़ा!",
+tryAgainGently: "धीरे से फिर कोशिश करें",
   },
   as: {
     greetingTitle: "শুভ প্ৰভাত, লক্ষ্মী",
@@ -525,6 +1024,181 @@ findJapiInstruction: "৩টা পৰম্পৰাগত জাপিৰ চ�
 activity2SelectiveAttention: "কাৰ্যকলাপ ২: নিৰ্বাচিত মনোযোগ",
 listenInstructions: "🔊 নিৰ্দেশনা শুনক",
 found: "বিচাৰি পোৱা গ'ল",
+spotDifference: "পাৰ্থক্য বিচাৰি উলিয়াওক",
+spotDifferenceInstruction: "ছবি B ভালদৰে চাই ৫টা পাৰ্থক্য বিচাৰি উলিয়াওক।",
+puzzle: "খেল",
+of: "ৰ",
+differencesFound: "বিচাৰি পোৱা পাৰ্থক্য",
+tapPictureDifference: "য'ত পাৰ্থক্য দেখা যায় তাত ছবি B-ত টেপ কৰক",
+restart: "পুনৰ আৰম্ভ কৰক",
+nextPuzzle: "পৰৱৰ্তী খেল",
+finishGame: "খেল শেষ কৰক",
+activity3VisualPattern: "কাৰ্যকলাপ ৩: দৃশ্যমান আৰ্হিৰ ক্ৰম",
+listenSequence: "🔊 ক্ৰমটো শুনক",
+selectNextItem: "পিছত অহা বস্তুটো বাছনি কৰক:",
+gardenFlowerSequence: "বাগিচাৰ ফুলৰ ক্ৰম",
+gardenFlowerSequenceInstruction: "আৰ্হিটো ভালদৰে চাওক। তাৰ পিছত কোনটো ফুল আহিব?",
+
+dailyRhythmPattern: "দৈনিক ছন্দৰ আৰ্হি",
+dailyRhythmPatternInstruction: "সূৰ্য, মেঘ, সূৰ্য, মেঘ... তাৰ পিছত কি আহিব?",
+
+assamCulturalPattern: "অসমীয়া সাংস্কৃতিক আৰ্হি",
+assamCulturalPatternInstruction: "জাপি, গামোচা, জাপি, গামোচা... তাৰ পিছত কি আহিব?",
+oddOneOut: "বেলেগ বস্তুটো বিচাৰি উলিয়াওক",
+gardenOddOneOut: "বেলেগ বস্তুটো বিচাৰি উলিয়াওক",
+gardenOddOneOutInstruction: "তিনিটা বস্তু বাগিচাৰ সৈতে জড়িত। কোনটো বেলেগ?",
+gardenOddOneOutExplanation: "গাড়ীখন বেলেগ, কাৰণ বাকী তিনিটা বস্তু বাগিচাৰ সৈতে জড়িত।",
+
+homeOddOneOut: "বেলেগ বস্তুটো বিচাৰি উলিয়াওক",
+homeOddOneOutInstruction: "ইয়াৰ তিনিটা বস্তু আমি পান কৰোঁ। কোনটো বেলেগ?",
+homeOddOneOutExplanation: "আপেলটো বেলেগ, কাৰণ বাকী তিনিটা পানীয়।",
+
+assamCulturalOddOneOut: "বেলেগ বস্তুটো বিচাৰি উলিয়াওক",
+assamCulturalOddOneOutInstruction: "ইয়াৰ তিনিটা জন্তু। কোনটো বেলেগ?",
+assamCulturalOddOneOutExplanation: "চকীখন বেলেগ, কাৰণ বাকী তিনিটা জন্তু।",
+
+teaGardenOddOneOut: "বেলেগ বস্তুটো বিচাৰি উলিয়াওক",
+teaGardenOddOneOutInstruction: "ইয়াৰ তিনিটা বস্তু পাকঘৰৰ সৈতে জড়িত। কোনটো বেলেগ?",
+teaGardenOddOneOutExplanation: "গছজোপা বেলেগ, কাৰণ বাকী তিনিটা পাকঘৰৰ সামগ্ৰী।",
+
+assamCulturalItems: "অসমৰ সাংস্কৃতিক সামগ্ৰী",
+assamCulturalItemsInstruction: "ইয়াৰ তিনিটা পৰিচিত অসম-সম্পৰ্কীয় সামগ্ৰী। কোনটো বেলেগ?",
+assamCulturalItemsExplanation: "বিমানখন বাকী পৰিচিত অসম-সম্পৰ্কীয় সামগ্ৰীৰ পৰা বেলেগ।",
+
+assamTraditionalItems: "অসমৰ পৰম্পৰাগত সামগ্ৰী",
+assamTraditionalItemsInstruction: "পৰিচিত অসমীয়া সাংস্কৃতিক সামগ্ৰীৰ সৈতে নিমিলি থকা বস্তুটো কোনটো?",
+assamTraditionalItemsExplanation: "কম্পিউটাৰটো বেলেগ, কাৰণ বাকী বস্তুবোৰ পৰিচিত অসমীয়া সাংস্কৃতিক সামগ্ৰী।",
+
+wonderfulCorrectAnswer: "বৰ ভাল! শুদ্ধ উত্তৰ! 🎉",
+nextQuestion: "পৰৱৰ্তী প্ৰশ্ন",
+goodEffort: "ভাল চেষ্টা 🌱",
+oddOneOutHint: "ভালদৰে চাওক। বাকী তিনিটাৰ সৈতে নিমিলা বস্তুটো কোনটো?",
+tryAgain: "পুনৰ চেষ্টা কৰক",
+restartActivity: "কাৰ্যকলাপ পুনৰ আৰম্ভ কৰক",
+listenToQuestion: "প্ৰশ্নটো শুনক",
+recognizeJapi: 'জাপিক চিনাক্ত কৰক',
+recognizeGamosa: 'গামোচাক চিনাক্ত কৰক',
+recognizeTea: 'চাহক চিনাক্ত কৰক',
+recognizePitha: 'পিঠাক চিনাক্ত কৰক',
+recognizeTeaGarden: 'চাহ বাগিচাক চিনাক্ত কৰক',
+
+recognizeObjectInstruction: 'বস্তুটো চাওক আৰু ইয়াৰ সঠিক নাম বাছনি কৰক।',
+recognizeFoodInstruction: 'খাদ্যবস্তুটো চাওক আৰু ইয়াৰ সঠিক নাম বাছনি কৰক।',
+recognizeSymbolInstruction: 'চিহ্নটো চাওক আৰু সঠিক উত্তৰ বাছনি কৰক।',
+
+japiHint: 'এইটো অসমৰ পৰম্পৰাগত মূৰৰ টুপী।',
+gamosaHint: 'এইটো অসমৰ পৰম্পৰাগত কাপোৰ।',
+teaHint: 'অসম ইয়াৰ চাহ বাগিচাৰ বাবে বিখ্যাত।',
+pithaHint: 'এইটো অসমৰ এক পৰম্পৰাগত খাদ্য।',
+teaGardenHint: 'অসম ইয়াৰ সুন্দৰ চাহ বাগিচাৰ বাবে জনাজাত।',
+japi: 'জাপি',
+gamosa: 'গামোচা',
+teaPot: 'চাহৰ পাত্ৰ',
+umbrella: 'ছাতি',
+riceBowl: 'ভাতৰ বাটি',
+apple: 'আপেল',
+pitha: 'পিঠা',
+mango: 'আম',
+teaGarden: 'চাহ বাগিচা',
+cityBuilding: 'চহৰৰ অট্টালিকা',
+road: 'ৰাস্তা',
+activityDailyRoutine: "দৈনন্দিন কাৰ্যসূচী",
+dailyRoutine: "দৈনন্দিন কাৰ্যসূচী",
+whatComesNext: "ইয়াৰ পিছত কি কৰিব লাগে?",
+correctAnswer: "শুদ্ধ উত্তৰ!",
+excellentCorrectNextStep: "বৰ ভাল! আপুনি সঠিক পৰৱৰ্তী কামটো বাছি লৈছে।",
+wellTried: "ভাল চেষ্টা!",
+theCorrectAnswerIs: "শুদ্ধ উত্তৰটো হ'ল",
+restart: "পুনৰ আৰম্ভ কৰক",
+startAgain: "পুনৰ আৰম্ভ কৰক",
+nextQuestion: "পৰৱৰ্তী প্ৰশ্ন",
+question: "প্ৰশ্ন",
+of: "ৰ",
+morningRoutine: "পুৱাৰ দৈনন্দিন কাৰ্যসূচী",
+morningRoutineInstruction: "দৈনন্দিন কাৰ্যসূচীটো চাওক। ইয়াৰ পিছত কি কৰিব লাগে?",
+
+wakeUp: "টোপনিৰ পৰা উঠা",
+brushTeeth: "দাঁত ব্ৰাছ কৰা",
+breakfast: "জলপান",
+takeMedicine: "ঔষধ খোৱা",
+goToSleep: "শুবলৈ যোৱা",
+leaveHome: "ঘৰৰ পৰা ওলাই যোৱা",
+
+healthyDayRoutine: "স্বাস্থ্যকৰ দিনৰ দৈনন্দিন কাৰ্যসূচী",
+healthyDayRoutineInstruction: "এই দৈনন্দিন কাৰ্যসূচীত ইয়াৰ পিছত কি কৰিব লাগে?",
+
+eatLunch: "দুপৰীয়াৰ আহাৰ খোৱা",
+drinkWater: "পানী খোৱা",
+takeAWalk: "খোজ কাঢ়িবলৈ যোৱা",
+returnHome: "ঘৰলৈ উভতি অহা",
+
+breakfastAndMedicine: "জলপান আৰু ঔষধ",
+breakfastAndMedicineInstruction: "জলপানৰ পিছত কি কৰিব লাগে?",
+
+eatDinner: "ৰাতিৰ আহাৰ খোৱা",
+
+healthyExerciseRoutine: "স্বাস্থ্যকৰ ব্যায়ামৰ দৈনন্দিন কাৰ্যসূচী",
+healthyExerciseRoutineInstruction: "এই স্বাস্থ্যকৰ দৈনন্দিন কাৰ্যসূচীত ইয়াৰ পিছত কি কৰিব লাগে?",
+
+goForAWalk: "খোজ কাঢ়িবলৈ যোৱা",
+restForAWhile: "অলপ সময় জিৰণি লোৱা",
+
+eveningRoutine: "সন্ধিয়াৰ দৈনন্দিন কাৰ্যসূচী",
+eveningRoutineInstruction: "ৰাতিৰ আহাৰৰ পিছত কি কৰিব লাগে?",
+
+evening: "সন্ধিয়া",
+takeEveningMedicine: "সন্ধিয়াৰ ঔষধ খোৱা",
+eatBreakfast: "জলপান খোৱা",
+
+bedtimeRoutine: "শোৱাৰ সময়ৰ দৈনন্দিন কাৰ্যসূচী",
+bedtimeRoutineInstruction: "শুবলৈ যোৱাৰ আগতে ইয়াৰ পিছত কি কৰিব লাগে?",
+
+nightTime: "ৰাতিৰ সময়",
+getReadyForBed: "শুবলৈ সাজু হোৱা",
+backToGarden: "বাগিচালৈ উভতি যাওক",
+cognitiveActivities: "জ্ঞানমূলক কাৰ্যকলাপ",
+mode: "ম'ড",
+activitiesAdaptToPerformance:
+  "আপোনাৰ কাৰ্যদক্ষতাৰ ওপৰত ভিত্তি কৰি কাৰ্যকলাপসমূহ লাহে লাহে সলনি হয়।",
+
+memory: "স্মৃতি",
+attention: "মনোযোগ",
+pattern: "আৰ্হি",
+objectRecognition: "বস্তু চিনাক্তকৰণ",
+oddOneOut: "বেলেগ বস্তুটো বিচাৰক",
+dailyRoutine: "দৈনন্দিন ৰুটিন",
+spotDifference: "পাৰ্থক্য বিচাৰক",
+backToGarden: "বাগিচালৈ উভতি যাওক",
+todaysTimeline: "আজিৰ সময়সূচী",
+todayRemindersDescription:
+  "আজি ঔষধ, সতেজ পানী আৰু লাহে লাহে খোজ কঢ়াৰ বাবে সৰল সোঁৱৰণী।",
+completed: "সম্পূৰ্ণ হৈছে",
+upcoming: "আগন্তুক",
+listen: "শুনক",
+markDone: "সম্পূৰ্ণ হোৱা বুলি চিহ্নিত কৰক",
+done: "সম্পূৰ্ণ",
+listenReminder: "সোঁৱৰণীটো শুনক",
+morningMedicineWarmWater: "ৰাতিপুৱাৰ ঔষধ আৰু গৰম পানী",
+hydrationBreak: "পানী খোৱাৰ বিৰতি",
+nutritiousLunch: "পুষ্টিকৰ দুপৰীয়াৰ আহাৰ",
+eveningGardenStroll: "সন্ধিয়াৰ বাগিচাত খোজ কঢ়া",
+eveningMedicine: "সন্ধিয়াৰ ঔষধ",
+
+morningMedicineWarmWaterAudio:
+  "এতিয়া ৰাতিপুৱা ৮ বাজিছে। অনুগ্ৰহ কৰি ৰাতিপুৱাৰ আহাৰৰ পিছত গৰম পানীৰ সৈতে আপোনাৰ ঔষধ লওক।",
+hydrationBreakAudio:
+  "এতিয়া ৰাতিপুৱা ১০ বাজিছে। সতেজ পানী এগিলাচ খোৱাৰ সময় হৈছে।",
+nutritiousLunchAudio:
+  "এতিয়া দুপৰীয়া ১ বাজিছে। দুপৰীয়াৰ আহাৰ খোৱাৰ সময় হৈছে।",
+eveningGardenStrollAudio:
+  "এতিয়া সন্ধিয়া ৫ বাজিছে। অলপ সময় লাহে লাহে খোজ কাঢ়ক।",
+eveningMedicineAudio:
+  "এতিয়া ৰাতি ৮ বাজিছে। অনুগ্ৰহ কৰি আপোনাৰ সন্ধিয়াৰ ঔষধ লওক।",
+  feedbackWonderfulAudio: "বৰ সুন্দৰ! আপোনাৰ বাগিচাখন ডাঙৰ হৈ আছে।",
+feedbackTryAgainAudio: "এইটো এটা বৰ ভাল প্ৰচেষ্টা আছিল। আহক, আমি একেলগে আকৌ এবাৰ চেষ্টা কৰোঁ।",
+goodEffort: "ভাল চেষ্টা!",
+activityAddedFlower: "আপোনাৰ কাৰ্যকলাপে আপোনাৰ মেমৰি গাৰ্ডেনত এটা নতুন সুন্দৰ ফুল যোগ কৰিলে!",
+tryAgainGently: "লাহে লাহে আকৌ চেষ্টা কৰক",
     }
 
 };
@@ -697,7 +1371,9 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'pat1',
       title: 'Garden Flower Sequence',
+      titleKey: 'gardenFlowerSequence',
       instruction: 'Look at the pattern. Which flower comes next?',
+      instructionKey: 'gardenFlowerSequenceInstruction',
       sequence: ['🌸 Pink Blossom', '🌼 Marigold', '🌸 Pink Blossom', '🌼 Marigold', '?'],
       sequenceDisplay: [
         { icon: '🌸', label: 'Blossom' },
@@ -716,7 +1392,9 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'pat2',
       title: 'Daily Rhythm Pattern',
+       titleKey: 'dailyRhythmPattern',
       instruction: 'Sun, Cloud, Sun, Cloud... What comes next?',
+      instructionKey: 'dailyRhythmPatternInstruction',
       sequence: ['☀️ Sun', '☁️ Cloud', '☀️ Sun', '☁️ Cloud', '?'],
       sequenceDisplay: [
         { icon: '☀️', label: 'Sun' },
@@ -737,7 +1415,9 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'pat3',
       title: 'Assam Cultural Pattern',
+      titleKey: 'assamCulturalPattern',
       instruction: 'Japi, Gamosa, Japi, Gamosa... What comes next?',
+      instructionKey: 'assamCulturalPatternInstruction',
       sequence: ['👒 Japi', '🧣 Gamosa', '👒 Japi', '🧣 Gamosa', '?'],
       sequenceDisplay: [
         { icon: '👒', label: 'Japi' },
@@ -758,74 +1438,92 @@ export const COGNITIVE_PUZZLES = {
   // =========================
   // OBJECT RECOGNITION
   // =========================
-  objectRecognition: [
-    {
-      id: 'obj1',
-      title: 'Recognize the Japi',
-      instruction: 'Look at the object and choose its correct name.',
-      object: { icon: '👒', name: 'Japi' },
-      correctAnswer: 'Japi',
-      options: [
-        { id: 'o1', icon: '👒', label: 'Japi' },
-        { id: 'o2', icon: '🧣', label: 'Gamosa' },
-        { id: 'o3', icon: '🫖', label: 'Tea Pot' }
-      ],
-      hint: 'It is a traditional Assamese headgear.'
-    },
-    {
-      id: 'obj2',
-      title: 'Recognize the Gamosa',
-      instruction: 'Look at the object and choose its correct name.',
-      object: { icon: '🧣', name: 'Gamosa' },
-      correctAnswer: 'Gamosa',
-      options: [
-        { id: 'o1', icon: '🧣', label: 'Gamosa' },
-        { id: 'o2', icon: '👒', label: 'Japi' },
-        { id: 'o3', icon: '☂️', label: 'Umbrella' }
-      ],
-      hint: 'It is a traditional Assamese cloth.'
-    },
-    {
-      id: 'obj3',
-      title: 'Recognize the Tea',
-      instruction: 'Look at the object and choose its correct name.',
-      object: { icon: '🫖', name: 'Tea Pot' },
-      correctAnswer: 'Tea Pot',
-      options: [
-        { id: 'o1', icon: '🫖', label: 'Tea Pot' },
-        { id: 'o2', icon: '🍚', label: 'Rice Bowl' },
-        { id: 'o3', icon: '🍎', label: 'Apple' }
-      ],
-      hint: 'Assam is famous for its tea gardens.'
-    },
-    {
-      id: 'obj4',
-      title: 'Recognize the Pitha',
-      instruction: 'Look at the food item and choose its correct name.',
-      object: { icon: '🍘', name: 'Pitha' },
-      correctAnswer: 'Pitha',
-      options: [
-        { id: 'o1', icon: '🍘', label: 'Pitha' },
-        { id: 'o2', icon: '🍎', label: 'Apple' },
-        { id: 'o3', icon: '🥭', label: 'Mango' }
-      ],
-      hint: 'It is a familiar traditional Assamese food.'
-    },
-    {
-      id: 'obj5',
-      title: 'Recognize the Tea Garden',
-      instruction: 'Look at the symbol and choose the correct answer.',
-      object: { icon: '🌿', name: 'Tea Garden' },
-      correctAnswer: 'Tea Garden',
-      options: [
-        { id: 'o1', icon: '🌿', label: 'Tea Garden' },
-        { id: 'o2', icon: '🏢', label: 'City Building' },
-        { id: 'o3', icon: '🚗', label: 'Road' }
-      ],
-      hint: 'Assam is well known for its beautiful tea gardens.'
-    }
-  ],
+ objectRecognition: [
+  {
+    id: 'obj1',
+    title: 'Recognize the Japi',
+    titleKey: 'recognizeJapi',
+    instruction: 'Look at the object and choose its correct name.',
+    instructionKey: 'recognizeObjectInstruction',
+    object: { icon: '👒', name: 'Japi' },
+    correctAnswer: 'Japi',
+    options: [
+      { id: 'o1', icon: '👒', label: 'Japi', labelKey: 'japi' },
+      { id: 'o2', icon: '🧣', label: 'Gamosa', labelKey: 'gamosa' },
+      { id: 'o3', icon: '🫖', label: 'Tea Pot', labelKey: 'teaPot' }
+    ],
+    hint: 'It is a traditional Assamese headgear.',
+    hintKey: 'japiHint'
+  },
 
+  {
+    id: 'obj2',
+    title: 'Recognize the Gamosa',
+    titleKey: 'recognizeGamosa',
+    instruction: 'Look at the object and choose its correct name.',
+    instructionKey: 'recognizeObjectInstruction',
+    object: { icon: '🧣', name: 'Gamosa' },
+    correctAnswer: 'Gamosa',
+    options: [
+      { id: 'o1', icon: '🧣', label: 'Gamosa', labelKey: 'gamosa' },
+      { id: 'o2', icon: '👒', label: 'Japi', labelKey: 'japi' },
+      { id: 'o3', icon: '☂️', label: 'Umbrella', labelKey: 'umbrella' }
+    ],
+    hint: 'It is a traditional Assamese cloth.',
+    hintKey: 'gamosaHint'
+  },
+
+  {
+    id: 'obj3',
+    title: 'Recognize the Tea',
+    titleKey: 'recognizeTea',
+    instruction: 'Look at the object and choose its correct name.',
+    instructionKey: 'recognizeObjectInstruction',
+    object: { icon: '🫖', name: 'Tea Pot' },
+    correctAnswer: 'Tea Pot',
+    options: [
+      { id: 'o1', icon: '🫖', label: 'Tea Pot', labelKey: 'teaPot' },
+      { id: 'o2', icon: '🍚', label: 'Rice Bowl', labelKey: 'riceBowl' },
+      { id: 'o3', icon: '🍎', label: 'Apple', labelKey: 'apple' }
+    ],
+    hint: 'Assam is famous for its tea gardens.',
+    hintKey: 'teaHint'
+  },
+
+  {
+    id: 'obj4',
+    title: 'Recognize the Pitha',
+    titleKey: 'recognizePitha',
+    instruction: 'Look at the food item and choose its correct name.',
+    instructionKey: 'recognizeFoodInstruction',
+    object: { icon: '🍘', name: 'Pitha' },
+    correctAnswer: 'Pitha',
+    options: [
+      { id: 'o1', icon: '🍘', label: 'Pitha', labelKey: 'pitha' },
+      { id: 'o2', icon: '🍎', label: 'Apple', labelKey: 'apple' },
+      { id: 'o3', icon: '🥭', label: 'Mango', labelKey: 'mango' }
+    ],
+    hint: 'It is a familiar traditional Assamese food.',
+    hintKey: 'pithaHint'
+  },
+
+  {
+    id: 'obj5',
+    title: 'Recognize the Tea Garden',
+    titleKey: 'recognizeTeaGarden',
+    instruction: 'Look at the symbol and choose the correct answer.',
+    instructionKey: 'recognizeSymbolInstruction',
+    object: { icon: '🌿', name: 'Tea Garden' },
+    correctAnswer: 'Tea Garden',
+    options: [
+      { id: 'o1', icon: '🌿', label: 'Tea Garden', labelKey: 'teaGarden' },
+      { id: 'o2', icon: '🏢', label: 'City Building', labelKey: 'cityBuilding' },
+      { id: 'o3', icon: '🚗', label: 'Road', labelKey: 'road' }
+    ],
+    hint: 'Assam is well known for its beautiful tea gardens.',
+    hintKey: 'teaGardenHint'
+  }
+],
   // =========================
   // ODD ONE OUT
   // =========================
@@ -833,7 +1531,9 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'odd1',
       title: 'Find the Different Item',
+      titleKey: 'gardenOddOneOut',
       instruction: 'Three items belong to the garden. Which one is different?',
+      instructionKey: 'gardenOddOneOutInstruction',
       items: [
         { id: 'flower', icon: '🌸', label: 'Flower', category: 'garden' },
         { id: 'sunflower', icon: '🌻', label: 'Sunflower', category: 'garden' },
@@ -841,12 +1541,15 @@ export const COGNITIVE_PUZZLES = {
         { id: 'car', icon: '🚗', label: 'Car', category: 'vehicle' }
       ],
       correctAnswerId: 'car',
-      explanation: 'The car is different because the other three belong to a garden.'
+      explanation: 'The car is different because the other three belong to a garden.',
+      explanationKey: 'gardenOddOneOutExplanation',
     },
     {
       id: 'odd2',
       title: 'Find the Different Item',
+      titleKey: 'homeOddOneOut',
       instruction: 'Three of these are things we drink. Which one is different?',
+      instructionKey: 'homeOddOneOutInstruction',
       items: [
         { id: 'tea', icon: '☕', label: 'Tea', category: 'drink' },
         { id: 'water', icon: '💧', label: 'Water', category: 'drink' },
@@ -854,12 +1557,15 @@ export const COGNITIVE_PUZZLES = {
         { id: 'apple', icon: '🍎', label: 'Apple', category: 'food' }
       ],
       correctAnswerId: 'apple',
-      explanation: 'Apple is different because the other three are drinks.'
+      explanation: 'Apple is different because the other three are drinks.',
+      explanationKey: 'homeOddOneOutExplanation',
     },
     {
       id: 'odd3',
       title: 'Find the Different Item',
+      titleKey: 'assamCulturalOddOneOut',
       instruction: 'Three of these are animals. Which one is different?',
+      instructionKey: 'assamCulturalOddOneOutInstruction',
       items: [
         { id: 'dog', icon: '🐶', label: 'Dog', category: 'animal' },
         { id: 'cat', icon: '🐱', label: 'Cat', category: 'animal' },
@@ -867,12 +1573,15 @@ export const COGNITIVE_PUZZLES = {
         { id: 'chair', icon: '🪑', label: 'Chair', category: 'furniture' }
       ],
       correctAnswerId: 'chair',
-      explanation: 'Chair is different because the other three are animals.'
+      explanation: 'Chair is different because the other three are animals.',
+      explanationKey: 'assamCulturalOddOneOutExplanation',
     },
     {
       id: 'odd4',
       title: 'Find the Different Item',
+      titleKey: 'teaGardenOddOneOut',
       instruction: 'Three of these belong to the kitchen. Which one is different?',
+      instructionKey: 'teaGardenOddOneOutInstruction',
       items: [
         { id: 'spoon', icon: '🥄', label: 'Spoon', category: 'kitchen' },
         { id: 'plate', icon: '🍽️', label: 'Plate', category: 'kitchen' },
@@ -880,12 +1589,15 @@ export const COGNITIVE_PUZZLES = {
         { id: 'tree', icon: '🌳', label: 'Tree', category: 'nature' }
       ],
       correctAnswerId: 'tree',
-      explanation: 'Tree is different because the other three are kitchen items.'
+      explanation: 'Tree is different because the other three are kitchen items.',
+      explanationKey: 'teaGardenOddOneOutExplanation',
     },
     {
       id: 'odd5',
       title: 'Assam Cultural Items',
+      titleKey: 'assamCulturalItems',
       instruction: 'Three of these are familiar Assam-related items. Which one is different?',
+      instructionKey: 'assamCulturalItemsInstruction',
       items: [
         { id: 'japi', icon: '👒', label: 'Japi', category: 'assam' },
         { id: 'gamosa', icon: '🧣', label: 'Gamosa', category: 'assam' },
@@ -893,12 +1605,15 @@ export const COGNITIVE_PUZZLES = {
         { id: 'airplane', icon: '✈️', label: 'Airplane', category: 'transport' }
       ],
       correctAnswerId: 'airplane',
-      explanation: 'Airplane is different from the other familiar Assam-related items.'
+      explanation: 'Airplane is different from the other familiar Assam-related items.',
+      explanationKey: 'assamCulturalItemsExplanation',
     },
     {
       id: 'odd6',
       title: 'Assam Traditional Items',
+      titleKey: 'assamTraditionalItems',
       instruction: 'Which item does not belong with the familiar Assamese cultural items?',
+      instructionKey: 'assamTraditionalItemsInstruction',
       items: [
         { id: 'japi', icon: '👒', label: 'Japi', category: 'assam' },
         { id: 'gamosa', icon: '🧣', label: 'Gamosa', category: 'assam' },
@@ -906,7 +1621,8 @@ export const COGNITIVE_PUZZLES = {
         { id: 'computer', icon: '💻', label: 'Computer', category: 'technology' }
       ],
       correctAnswerId: 'computer',
-      explanation: 'Computer is different because the other items are familiar Assamese cultural items.'
+      explanation: 'Computer is different because the other items are familiar Assamese cultural items.',
+      explanationKey: 'assamTraditionalItemsExplanation',
     }
   ],
 
@@ -914,102 +1630,137 @@ export const COGNITIVE_PUZZLES = {
   // DAILY ROUTINE
   // =========================
   dailyRoutine: [
-    {
-      id: "routine1",
-      title: "Morning Routine",
-      instruction: "Look at the daily routine. What should come next?",
-      sequence: [
-        { icon: "🌅", label: "Wake Up" },
-        { icon: "🪥", label: "Brush Teeth" },
-        { icon: "🍳", label: "Breakfast" }
-      ],
-      correctAnswer: "Take Medicine",
-      options: [
-        { id: "o1", icon: "💊", label: "Take Medicine" },
-        { id: "o2", icon: "🌙", label: "Go to Sleep" },
-        { id: "o3", icon: "🏠", label: "Leave Home" }
-      ]
-    },
-    {
-      id: "routine2",
-      title: "Healthy Day Routine",
-      instruction: "What should come next in this routine?",
-      sequence: [
-        { icon: "🍽️", label: "Eat Lunch" },
-        { icon: "💧", label: "Drink Water" },
-        { icon: "🌿", label: "Take a Walk" }
-      ],
-      correctAnswer: "Return Home",
-      options: [
-        { id: "o1", icon: "🏠", label: "Return Home" },
-        { id: "o2", icon: "🌙", label: "Go to Sleep" },
-        { id: "o3", icon: "🪥", label: "Brush Teeth" }
-      ]
-    },
-    {
-      id: "routine3",
-      title: "Breakfast and Medicine",
-      instruction: "After breakfast, what should come next?",
-      sequence: [
-        { icon: "🌅", label: "Wake Up" },
-        { icon: "🪥", label: "Brush Teeth" },
-        { icon: "🍳", label: "Breakfast" }
-      ],
-      correctAnswer: "Take Medicine",
-      options: [
-        { id: "o1", icon: "💊", label: "Take Medicine" },
-        { id: "o2", icon: "🌙", label: "Go to Sleep" },
-        { id: "o3", icon: "🍽️", label: "Eat Dinner" }
-      ]
-    },
-    {
-      id: "routine4",
-      title: "Healthy Exercise Routine",
-      instruction: "What should come next in this healthy routine?",
-      sequence: [
-        { icon: "🌿", label: "Go for a Walk" },
-        { icon: "💧", label: "Drink Water" },
-        { icon: "🪑", label: "Rest for a While" }
-      ],
-      correctAnswer: "Return Home",
-      options: [
-        { id: "o1", icon: "🏠", label: "Return Home" },
-        { id: "o2", icon: "🌙", label: "Go to Sleep" },
-        { id: "o3", icon: "🪥", label: "Brush Teeth" }
-      ]
-    },
-    {
-      id: "routine5",
-      title: "Evening Routine",
-      instruction: "After dinner, what should come next?",
-      sequence: [
-        { icon: "🌆", label: "Evening" },
-        { icon: "🍽️", label: "Eat Dinner" }
-      ],
-      correctAnswer: "Take Evening Medicine",
-      options: [
-        { id: "o1", icon: "💊", label: "Take Evening Medicine" },
-        { id: "o2", icon: "🌅", label: "Eat Breakfast" },
-        { id: "o3", icon: "🌿", label: "Go for a Walk" }
-      ]
-    },
-    {
-      id: "routine6",
-      title: "Bedtime Routine",
-      instruction: "What should come next before going to sleep?",
-      sequence: [
-        { icon: "🌙", label: "Night Time" },
-        { icon: "🪥", label: "Brush Teeth" },
-        { icon: "🛏️", label: "Get Ready for Bed" }
-      ],
-      correctAnswer: "Go to Sleep",
-      options: [
-        { id: "o1", icon: "😴", label: "Go to Sleep" },
-        { id: "o2", icon: "🍳", label: "Eat Breakfast" },
-        { id: "o3", icon: "🌿", label: "Go for a Walk" }
-      ]
-    }
-  ],
+  {
+    id: "routine1",
+    title: "Morning Routine",
+    titleKey: "morningRoutine",
+    instruction: "Look at the daily routine. What should come next?",
+    instructionKey: "morningRoutineInstruction",
+
+    sequence: [
+      { icon: "🌅", label: "Wake Up", labelKey: "wakeUp" },
+      { icon: "🪥", label: "Brush Teeth", labelKey: "brushTeeth" },
+      { icon: "🍳", label: "Breakfast", labelKey: "breakfast" }
+    ],
+
+    correctAnswer: "Take Medicine",
+
+    options: [
+      { id: "o1", icon: "💊", label: "Take Medicine", labelKey: "takeMedicine" },
+      { id: "o2", icon: "🌙", label: "Go to Sleep", labelKey: "goToSleep" },
+      { id: "o3", icon: "🏠", label: "Leave Home", labelKey: "leaveHome" }
+    ]
+  },
+
+  {
+    id: "routine2",
+    title: "Healthy Day Routine",
+    titleKey: "healthyDayRoutine",
+    instruction: "What should come next in this routine?",
+    instructionKey: "healthyDayRoutineInstruction",
+
+    sequence: [
+      { icon: "🍽️", label: "Eat Lunch", labelKey: "eatLunch" },
+      { icon: "💧", label: "Drink Water", labelKey: "drinkWater" },
+      { icon: "🌿", label: "Take a Walk", labelKey: "takeAWalk" }
+    ],
+
+    correctAnswer: "Return Home",
+
+    options: [
+      { id: "o1", icon: "🏠", label: "Return Home", labelKey: "returnHome" },
+      { id: "o2", icon: "🌙", label: "Go to Sleep", labelKey: "goToSleep" },
+      { id: "o3", icon: "🪥", label: "Brush Teeth", labelKey: "brushTeeth" }
+    ]
+  },
+
+  {
+    id: "routine3",
+    title: "Breakfast and Medicine",
+    titleKey: "breakfastAndMedicine",
+    instruction: "After breakfast, what should come next?",
+    instructionKey: "breakfastAndMedicineInstruction",
+
+    sequence: [
+      { icon: "🌅", label: "Wake Up", labelKey: "wakeUp" },
+      { icon: "🪥", label: "Brush Teeth", labelKey: "brushTeeth" },
+      { icon: "🍳", label: "Breakfast", labelKey: "breakfast" }
+    ],
+
+    correctAnswer: "Take Medicine",
+
+    options: [
+      { id: "o1", icon: "💊", label: "Take Medicine", labelKey: "takeMedicine" },
+      { id: "o2", icon: "🌙", label: "Go to Sleep", labelKey: "goToSleep" },
+      { id: "o3", icon: "🍽️", label: "Eat Dinner", labelKey: "eatDinner" }
+    ]
+  },
+
+  {
+    id: "routine4",
+    title: "Healthy Exercise Routine",
+    titleKey: "healthyExerciseRoutine",
+    instruction: "What should come next in this healthy routine?",
+    instructionKey: "healthyExerciseRoutineInstruction",
+
+    sequence: [
+      { icon: "🌿", label: "Go for a Walk", labelKey: "goForAWalk" },
+      { icon: "💧", label: "Drink Water", labelKey: "drinkWater" },
+      { icon: "🪑", label: "Rest for a While", labelKey: "restForAWhile" }
+    ],
+
+    correctAnswer: "Return Home",
+
+    options: [
+      { id: "o1", icon: "🏠", label: "Return Home", labelKey: "returnHome" },
+      { id: "o2", icon: "🌙", label: "Go to Sleep", labelKey: "goToSleep" },
+      { id: "o3", icon: "🪥", label: "Brush Teeth", labelKey: "brushTeeth" }
+    ]
+  },
+
+  {
+    id: "routine5",
+    title: "Evening Routine",
+    titleKey: "eveningRoutine",
+    instruction: "After dinner, what should come next?",
+    instructionKey: "eveningRoutineInstruction",
+
+    sequence: [
+      { icon: "🌆", label: "Evening", labelKey: "evening" },
+      { icon: "🍽️", label: "Eat Dinner", labelKey: "eatDinner" }
+    ],
+
+    correctAnswer: "Take Evening Medicine",
+
+    options: [
+      { id: "o1", icon: "💊", label: "Take Evening Medicine", labelKey: "takeEveningMedicine" },
+      { id: "o2", icon: "🌅", label: "Eat Breakfast", labelKey: "eatBreakfast" },
+      { id: "o3", icon: "🌿", label: "Go for a Walk", labelKey: "goForAWalk" }
+    ]
+  },
+
+  {
+    id: "routine6",
+    title: "Bedtime Routine",
+    titleKey: "bedtimeRoutine",
+    instruction: "What should come next before going to sleep?",
+    instructionKey: "bedtimeRoutineInstruction",
+
+    sequence: [
+      { icon: "🌙", label: "Night Time", labelKey: "nightTime" },
+      { icon: "🪥", label: "Brush Teeth", labelKey: "brushTeeth" },
+      { icon: "🛏️", label: "Get Ready for Bed", labelKey: "getReadyForBed" }
+    ],
+
+    correctAnswer: "Go to Sleep",
+
+    options: [
+      { id: "o1", icon: "😴", label: "Go to Sleep", labelKey: "goToSleep" },
+      { id: "o2", icon: "🍳", label: "Eat Breakfast", labelKey: "eatBreakfast" },
+      { id: "o3", icon: "🌿", label: "Go for a Walk", labelKey: "goForAWalk" }
+    ]
+  }
+],
 
   // =========================
   // SPOT THE DIFFERENCE
@@ -1018,7 +1769,9 @@ spotDifference: [
   {
     id: "spot1",
     title: "Garden Spot the Difference",
+    titleKey: 'spotDifference',
     instruction: "Look carefully at Picture B and find 5 differences.",
+    instructionKey: 'spotDifferenceInstruction',
     image: "/images/spot-difference/puzzle1.jpeg",
 
     differences: [
@@ -1033,7 +1786,9 @@ spotDifference: [
   {
     id: "spot2",
     title: "Home Spot the Difference",
+    titleKey: 'spotDifference',
     instruction: "Look carefully at Picture B and find 5 differences.",
+    instructionKey: 'spotDifferenceInstruction',
     image: "/images/spot-difference/puzzle2.jpeg",
 
     differences: [
@@ -1048,7 +1803,9 @@ spotDifference: [
   {
     id: "spot3",
     title: "Park Spot the Difference",
+    titleKey: 'spotDifference',
     instruction: "Look carefully at Picture B and find 5 differences.",
+    instructionKey: 'spotDifferenceInstruction',
     image: "/images/spot-difference/puzzle3.jpeg",
 
     differences: [

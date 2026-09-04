@@ -8,11 +8,14 @@ export const TodayReminders = () => {
   const { reminders, toggleReminder, setCurrentView, language, t } = useApp();
 
   const handleReadReminder = (reminder) => {
-    speakWithAzure(
-      reminder.audioText || `${reminder.time}: ${reminder.title}`,
-      language
-    );
-  };
+  const translatedAudio =
+    t[reminder.audioTextKey] || reminder.audioText;
+
+  speakWithAzure(
+    translatedAudio || `${reminder.time}: ${reminder.title}`,
+    language
+  );
+};
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
@@ -23,11 +26,11 @@ export const TodayReminders = () => {
           className="flex items-center gap-2 bg-cream-light hover:bg-cream-dark text-forest px-4 py-2 rounded-2xl border border-sage/40 font-bold shadow-sm transition-all"
         >
           <ArrowLeft className="w-5 h-5" />
-          <span>Back to Garden</span>
+          <span>{t.backToGarden}</span>
         </button>
 
         <div className="flex items-center gap-2 bg-sage/20 text-forest px-4 py-1.5 rounded-full font-bold text-sm">
-          <span>🔔 Today's Timeline</span>
+          <span>🔔 {t.todaysTimeline}</span>
         </div>
       </div>
 
@@ -37,8 +40,8 @@ export const TodayReminders = () => {
           {t.today}
         </h1>
         <p className="text-base font-medium text-ink/80 mt-1">
-          Simple reminders for medicine, fresh water, and gentle walks today.
-        </p>
+  {t.todayRemindersDescription}
+</p>
       </div>
 
       {/* Timeline Items List */}
@@ -74,7 +77,7 @@ export const TodayReminders = () => {
                   )}
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-ink mt-0.5">
-                  {item.title}
+                   {t[item.titleKey] || item.title}
                 </h3>
               </div>
             </div>
@@ -84,7 +87,7 @@ export const TodayReminders = () => {
               <button
                 onClick={() => handleReadReminder(item)}
                 className="flex items-center gap-1.5 px-4 py-3 bg-cream-dark hover:bg-sage/30 text-forest rounded-2xl font-bold text-sm border border-sage/40 shadow-sm transition-all"
-                title="Listen reminder vocal audio"
+                title={t.listenReminder}
               >
                 <Volume2 className="w-5 h-5 text-terracotta" />
                 <span>{t.listen}</span>
@@ -99,7 +102,7 @@ export const TodayReminders = () => {
                 }`}
               >
                 <CheckCircle2 className="w-6 h-6" />
-                <span>{item.completed ? 'Done' : t.markDone}</span>
+                <span>{item.completed ? t.done : t.markDone}</span>
               </button>
             </div>
           </div>

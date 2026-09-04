@@ -4,10 +4,9 @@ import { COGNITIVE_PUZZLES } from '../../types/data';
 import { FeedbackModal } from './FeedbackModal';
 import { SpeechButton } from '../common/SpeechButton';
 import { Sparkles, Eye } from 'lucide-react';
-import { speakText } from '../../utils/speech';
-
+import { speakWithAzure } from '../../utils/speech';
 export const ObjectRecognitionGame = () => {
-  const { aiState, recordActivity, language } = useApp();
+  const { aiState, recordActivity, language, t } = useApp();
 
   const [puzzleIndex, setPuzzleIndex] = useState(0);
   const [showHint, setShowHint] = useState(false);
@@ -21,15 +20,20 @@ export const ObjectRecognitionGame = () => {
   const currentPuzzle = puzzles[puzzleIndex] || puzzles[0];
 
   useEffect(() => {
-    setStartTime(Date.now());
-    setShowHint(false);
+  setStartTime(Date.now());
+  setShowHint(false);
 
-    speakText(
-      currentPuzzle.title + ". " + currentPuzzle.instruction,
-      language
-    );
-  }, [puzzleIndex, language, currentPuzzle]);
+  const translatedTitle =
+    t[currentPuzzle.titleKey] || currentPuzzle.title;
 
+  const translatedInstruction =
+    t[currentPuzzle.instructionKey] || currentPuzzle.instruction;
+
+  speakWithAzure(
+    translatedTitle + ". " + translatedInstruction,
+    language
+  );
+}, [puzzleIndex, language, currentPuzzle]);
   const handleSelectOption = (option) => {
     const timeTaken = Math.round(
       (Date.now() - startTime) / 1000
@@ -75,11 +79,11 @@ export const ObjectRecognitionGame = () => {
 
         <div>
           <span className="text-xs uppercase font-extrabold tracking-wider text-terracotta">
-            Activity: Object Recognition
+             {t.activityObjectRecognition}
           </span>
 
           <h2 className="text-2xl md:text-3xl font-extrabold text-forest">
-            {currentPuzzle.title}
+            {t[currentPuzzle.titleKey] || currentPuzzle.title}
           </h2>
         </div>
 
@@ -89,7 +93,7 @@ export const ObjectRecognitionGame = () => {
             className="flex items-center gap-2 bg-gold/20 hover:bg-gold/40 text-forest px-4 py-2 rounded-2xl border border-gold font-bold text-sm shadow-sm transition-all"
           >
             <Sparkles className="w-5 h-5 text-gold-dark" />
-            Need a Hint?
+            {t.needHint}
           </button>
         )}
 
@@ -99,17 +103,17 @@ export const ObjectRecognitionGame = () => {
 
         <div className="bg-cream p-4 rounded-2xl border border-sage/30 inline-block">
           <p className="text-xl font-bold text-ink">
-            {currentPuzzle.instruction}
+            {t[currentPuzzle.instructionKey] || currentPuzzle.instruction}
           </p>
         </div>
 
         <div className="mt-3">
           <SpeechButton
-            mode="listen"
-            textToSpeak={currentPuzzle.instruction}
-            label="Listen"
-            className="text-sm py-2 px-4"
-          />
+          mode="listen"
+          textToSpeak={t[currentPuzzle.instructionKey] || currentPuzzle.instruction}
+          label={t.listen}
+        />
+          
         </div>
 
       </div>
@@ -125,7 +129,7 @@ export const ObjectRecognitionGame = () => {
           </span>
 
           <p className="text-lg font-bold text-forest">
-            Look carefully at the object
+            {t.lookCarefullyAtObject}
           </p>
 
         </div>
@@ -134,7 +138,7 @@ export const ObjectRecognitionGame = () => {
 
       {showHint && (
         <div className="bg-gold/20 border-2 border-gold p-4 rounded-2xl max-w-md mx-auto text-forest font-bold text-center animate-pulse">
-          Hint: {currentPuzzle.hint}
+          {t.hint}: {t[currentPuzzle.hintKey] || currentPuzzle.hint}
         </div>
       )}
 
@@ -152,7 +156,7 @@ export const ObjectRecognitionGame = () => {
             </span>
 
             <span>
-              {option.label}
+                {t[option.labelKey] || option.label}
             </span>
 
           </button>

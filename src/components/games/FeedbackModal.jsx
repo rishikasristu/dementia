@@ -9,17 +9,23 @@ export const FeedbackModal = ({ isOpen, isCorrect, onNext, onRepeat }) => {
   useEffect(() => {
     if (isOpen) {
       if (isCorrect) {
-        // Trigger non-flashy soft confetti
-        confetti({
-          particleCount: 40,
-          spread: 60,
-          origin: { y: 0.6 },
-          colors: ['#A8C3A0', '#E9C46A', '#D98262']
-        });
-        speakWithAzure("Wonderful job, Lakshmi! Your garden is growing.", language);
-      } else {
-        speakWithAzure("That was a great effort. Let's try once more together.", language);
-      }
+  confetti({
+    particleCount: 40,
+    spread: 60,
+    origin: { y: 0.6 },
+    colors: ['#A8C3A0', '#E9C46A', '#D98262']
+  });
+
+  speakWithAzure(
+    t.feedbackWonderfulAudio,
+    language
+  );
+} else {
+  speakWithAzure(
+    t.feedbackTryAgainAudio,
+    language
+  );
+}
     }
   }, [isOpen, isCorrect, language]);
 
@@ -35,12 +41,12 @@ export const FeedbackModal = ({ isOpen, isCorrect, onNext, onRepeat }) => {
 
         <div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-forest">
-            {isCorrect ? t.wonderful : "Good Effort!"}
+            {isCorrect ? t.wonderful : t.goodEffort}
           </h2>
           <p className="text-lg font-bold text-terracotta mt-2">
             {isCorrect
-              ? "Your activity added a fresh flower to your Memory Garden! 🌸"
-              : t.takeYourTime}
+  ? `${t.activityAddedFlower} 🌸`
+  : t.takeYourTime}
           </p>
         </div>
 
@@ -57,7 +63,7 @@ export const FeedbackModal = ({ isOpen, isCorrect, onNext, onRepeat }) => {
               onClick={onRepeat}
               className="w-full py-3 bg-cream border-2 border-forest/30 text-forest font-bold text-lg rounded-2xl hover:bg-sage/20 transition-all"
             >
-              Try Again Gently 🔄
+              {t.tryAgainGently} 🔄
             </button>
           )}
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { COGNITIVE_PUZZLES } from '../../types/data';
 import { useApp } from '../../context/AppContext';
+import { speakWithAzure } from '../../utils/speech';
 
 import {
   Volume2,
@@ -10,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const SpotDifferenceGame = () => {
-  const { recordActivity } = useApp();
+  const { recordActivity, language, t } = useApp();
 
   const puzzles = COGNITIVE_PUZZLES.spotDifference || [];
 
@@ -36,14 +37,7 @@ export const SpotDifferenceGame = () => {
   }
 
   const speakText = (text) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.8;
-
-      window.speechSynthesis.speak(utterance);
-    }
+  speakWithAzure(text, language);
   };
 
   const handleClick = (event) => {
@@ -296,16 +290,16 @@ export const SpotDifferenceGame = () => {
 
         <div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-forest">
-            🔍 {puzzle.title}
+            🔍 {t[puzzle.titleKey] || puzzle.title}
           </h2>
 
           <p className="text-forest/70 font-medium mt-2">
-            {puzzle.instruction}
+            {t[puzzle.instructionKey] || puzzle.instruction}
           </p>
         </div>
 
         <button
-          onClick={() => speakText(puzzle.instruction)}
+          onClick={() => speakText(t[puzzle.instructionKey] || puzzle.instruction)}
           className="
             p-3 rounded-2xl
             bg-gold/20 hover:bg-gold/30
@@ -321,14 +315,14 @@ export const SpotDifferenceGame = () => {
       {/* Puzzle Progress */}
       <div className="text-center">
         <p className="text-sm font-bold text-forest/60">
-          Puzzle {currentIndex + 1} of {puzzles.length}
+          {t.puzzle} {currentIndex + 1} {t.of} {puzzles.length}
         </p>
       </div>
 
       {/* Difference Progress */}
       <div className="bg-cream-dark rounded-2xl p-4 text-center">
         <p className="font-bold text-forest">
-          Differences Found:{' '}
+          {t.differencesFound}:
 
           <span className="text-green-600">
             {foundDifferences.length}
@@ -421,7 +415,7 @@ export const SpotDifferenceGame = () => {
           "
         >
           <p className="text-forest font-bold">
-            👆 Tap on Picture B where you see a difference
+            👆 {t.tapPictureDifference}
           </p>
         </div>
       )}
@@ -470,7 +464,7 @@ export const SpotDifferenceGame = () => {
           "
         >
           <RotateCcw className="w-5 h-5" />
-          Restart
+          {t.restart}
         </button>
 
         {gameCompleted && (
@@ -485,8 +479,8 @@ export const SpotDifferenceGame = () => {
           >
 
             {currentIndex < puzzles.length - 1
-              ? 'Next Puzzle'
-              : 'Finish Game'}
+              ? t.nextPuzzle
+              : t.finishGame}
 
             <ArrowRight className="w-5 h-5" />
 

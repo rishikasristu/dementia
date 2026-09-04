@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useApp } from '../../context/AppContext';
 import { COGNITIVE_PUZZLES } from "../../types/data";
 import { Volume2, RotateCcw, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const OddOneOutGame = () => {
   const puzzles = COGNITIVE_PUZZLES.oddOneOut;
-
+  const { language, t } = useApp();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedId, setSelectedId] = useState(null);
   const [result, setResult] = useState(null);
@@ -30,6 +31,15 @@ export const OddOneOutGame = () => {
       window.speechSynthesis.cancel();
 
       const speech = new SpeechSynthesisUtterance(text);
+
+    const voiceLang = {
+      en: 'en-US',
+      te: 'te-IN',
+      hi: 'hi-IN',
+      as: 'as-IN'
+    };
+
+  speech.lang = voiceLang[language] || 'en-US';
       speech.rate = 0.8;
       speech.pitch = 1;
 
@@ -50,7 +60,7 @@ export const OddOneOutGame = () => {
       setResult('correct');
 
       speakText(
-        `Correct! ${item.label} is the different item. ${currentPuzzle.explanation}`
+        `Correct! ${item.label} is the different item. ${t[currentPuzzle.explanationKey] || currentPuzzle.explanation}`
       );
     } else {
       setResult('wrong');
@@ -95,15 +105,17 @@ export const OddOneOutGame = () => {
       <div className="text-center space-y-4">
 
         <h2 className="text-2xl md:text-3xl font-extrabold text-forest">
-          {currentPuzzle.title}
+          {t[currentPuzzle.titleKey] || currentPuzzle.title}
         </h2>
 
         <p className="text-lg md:text-xl font-bold text-forest/80">
-          {currentPuzzle.instruction}
+          {t[currentPuzzle.instructionKey] || currentPuzzle.instruction}
         </p>
 
         <button
-          onClick={() => speakText(currentPuzzle.instruction)}
+          onClick={() =>
+            speakText(t[currentPuzzle.instructionKey] || currentPuzzle.instruction)
+          }
           className="inline-flex items-center gap-3 bg-forest text-cream px-6 py-4 rounded-2xl font-bold shadow-md hover:scale-105 transition-transform"
         >
           <Volume2 className="w-6 h-6" />
@@ -152,7 +164,7 @@ export const OddOneOutGame = () => {
               </span>
 
               <span className="text-xl font-extrabold text-forest">
-                {item.label}
+                {t[item.labelKey] || item.label}
               </span>
 
             </button>
@@ -170,18 +182,18 @@ export const OddOneOutGame = () => {
           </div>
 
           <h3 className="text-2xl font-extrabold text-green-700">
-            Wonderful! Correct Answer! 🎉
+            {t.wonderfulCorrectAnswer}
           </h3>
 
           <p className="text-lg font-medium text-forest">
-            {currentPuzzle.explanation}
+            {t[currentPuzzle.explanationKey] || currentPuzzle.explanation}
           </p>
 
           <button
             onClick={handleNext}
             className="inline-flex items-center gap-2 bg-forest text-cream px-7 py-4 rounded-2xl font-bold hover:scale-105 transition-transform"
           >
-            Next Question
+            {t.nextQuestion}
             <ArrowRight className="w-5 h-5" />
           </button>
 
@@ -193,11 +205,11 @@ export const OddOneOutGame = () => {
         <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 text-center space-y-4">
 
           <h3 className="text-2xl font-extrabold text-amber-700">
-            Good Effort 🌱
+            {t.goodEffort}
           </h3>
 
           <p className="text-lg font-medium text-forest">
-            Look carefully. Which item does not belong with the other three?
+            {t.oddOneOutHint}
           </p>
 
           <button
@@ -205,7 +217,7 @@ export const OddOneOutGame = () => {
             className="inline-flex items-center gap-2 bg-terracotta text-cream px-7 py-4 rounded-2xl font-bold hover:scale-105 transition-transform"
           >
             <RotateCcw className="w-5 h-5" />
-            Try Again
+            {t.tryAgain}
           </button>
 
         </div>
@@ -224,7 +236,7 @@ export const OddOneOutGame = () => {
           className="text-forest font-bold flex items-center gap-2 hover:underline"
         >
           <RotateCcw className="w-4 h-4" />
-          Restart Activity
+          {t.restartActivity}
         </button>
 
       </div>
