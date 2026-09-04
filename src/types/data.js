@@ -125,7 +125,73 @@ export const TRANSLATIONS = {
     hintsAvailable: "Hint active",
     cognitiveMetrics: "Cognitive Activity Trends",
     addMemory: "+ Add New Memory",
-    addReminder: "+ Add Reminder"
+    addReminder: "+ Add Reminder",
+        activity1MemoryPuzzle: "Activity 1: Memory Puzzle",
+    needHint: "🌿 Need a Little Hint?",
+    haveMemorizedThem: "I Have Memorized Them! 👀",
+    listenQuestion: "🔊 Listen Question",
+    hint: "💡 Hint",
+    next: "Next",
+    repeat: "Repeat",
+    correct: "Correct!",
+    incorrect: "Try Again!",
+    memoryHint: "Look for the bright yellow garden blossom!",
+    gardenFlowerMemory: "Garden Flower Memory",
+gardenFlowerMemoryInstructions: "Look closely at these 3 garden items. Memorize them!",
+gardenFlowerMemoryQuestion: "Which item was the Marigold Flower?",
+
+afternoonTeaMemory: "Afternoon Tea Memory",
+afternoonTeaMemoryInstructions: "Memorize these afternoon tea items.",
+afternoonTeaMemoryQuestion: "Which item was the Sweet Biscuits?",
+
+assamCulturalMemory: "Assam Cultural Memory",
+assamCulturalMemoryInstructions: "Look carefully at these familiar Assamese items and memorize them.",
+assamCulturalMemoryQuestion: "Which item was the Gamosa?",
+
+assamFestivalMemory: "Assam Festival Memory",
+assamFestivalMemoryInstructions: "Memorize these familiar festival items.",
+assamFestivalMemoryQuestion: "Which item was the Pitha?",
+
+teaGardenMemory: "Tea Garden Memory",
+teaGardenMemoryInstructions: "Memorize these things commonly seen in a tea garden.",
+teaGardenMemoryQuestion: "Which item was the Tea Leaves?",
+
+needHint: "🌿 Need a Little Hint?",
+haveMemorizedThem: "I Have Memorized Them! 👍",
+listenQuestion: "🔊 Listen Question",
+memoryHint: "💡 Hint: Look for the bright yellow garden blossom!",
+marigoldFlower: "Marigold Flower",
+clayPot: "Clay Pot",
+wateringCan: "Watering Can",
+redRose: "Red Rose",
+
+ceramicTeapot: "Ceramic Teapot",
+sweetBiscuits: "Sweet Biscuits",
+greenMango: "Green Mango",
+apple: "Apple",
+
+japi: "Japi",
+gamosa: "Gamosa",
+assamTea: "Assam Tea",
+umbrella: "Umbrella",
+
+bihuDance: "Bihu Dance",
+pitha: "Pitha",
+dholDrum: "Dhol Drum",
+
+teaLeaves: "Tea Leaves",
+teaBasket: "Tea Basket",
+teaCup: "Tea Cup",
+book: "Book",
+selectiveAttention: "Selective Attention",
+selectiveAttentionInstruction: "Tap all 3 golden butterflies in the garden grid!",
+waterDrops: "Find the Water Drops",
+waterDropsInstruction: "Tap all 3 water drops to refresh the garden!",
+findJapi: "Find the Japi",
+findJapiInstruction: "Find all 3 traditional Japi symbols!",
+activity2SelectiveAttention: "Activity 2: Selective Attention",
+listenInstructions: "🔊 Listen Instructions",
+found: "Found",
   },
 
   te: {
@@ -160,7 +226,73 @@ export const TRANSLATIONS = {
     hintsAvailable: "సూచన ఉంది",
     cognitiveMetrics: "జ్ఞాపకశక్తి పురోగతి",
     addMemory: "+ కొత్త జ్ఞాపకం జతచేయి",
-    addReminder: "+ గుర్తుచేసేది జతచేయి"
+    addReminder: "+ గుర్తుచేసేది జతచేయి",
+    activity1MemoryPuzzle: "కార్యకలాపం 1: జ్ఞాపకశక్తి పజిల్",
+    needHint: "🌿 చిన్న సూచన కావాలా?",
+    haveMemorizedThem: "నేను వాటిని గుర్తుంచుకున్నాను! 👀",
+    listenQuestion: "🔊 ప్రశ్న వినండి",
+    hint: "💡 సూచన",
+    next: "తదుపరి",
+    repeat: "మళ్లీ ప్రయత్నించండి",
+    correct: "సరైనది!",
+    incorrect: "మళ్లీ ప్రయత్నించండి!",
+    memoryHint: "ప్రకాశవంతమైన పసుపు రంగు తోట పువ్వు కోసం చూడండి!",
+    gardenFlowerMemory: "తోట పూల జ్ఞాపకం",
+gardenFlowerMemoryInstructions: "ఈ 3 తోట వస్తువులను జాగ్రత్తగా చూడండి. వాటిని గుర్తుంచుకోండి!",
+gardenFlowerMemoryQuestion: "బంతి పువ్వు ఏ వస్తువు?",
+
+afternoonTeaMemory: "మధ్యాహ్నం టీ జ్ఞాపకం",
+afternoonTeaMemoryInstructions: "ఈ మధ్యాహ్నం టీ వస్తువులను గుర్తుంచుకోండి.",
+afternoonTeaMemoryQuestion: "తీపి బిస్కెట్లు ఏవి?",
+
+assamCulturalMemory: "అస్సాం సాంస్కృతిక జ్ఞాపకం",
+assamCulturalMemoryInstructions: "ఈ పరిచయమైన అస్సామీ వస్తువులను జాగ్రత్తగా చూసి గుర్తుంచుకోండి.",
+assamCulturalMemoryQuestion: "గమోసా ఏ వస్తువు?",
+
+assamFestivalMemory: "అస్సాం పండుగ జ్ఞాపకం",
+assamFestivalMemoryInstructions: "ఈ పరిచయమైన పండుగ వస్తువులను గుర్తుంచుకోండి.",
+assamFestivalMemoryQuestion: "పిఠా ఏ వస్తువు?",
+
+teaGardenMemory: "టీ తోట జ్ఞాపకం",
+teaGardenMemoryInstructions: "టీ తోటలో సాధారణంగా కనిపించే ఈ వస్తువులను గుర్తుంచుకోండి.",
+teaGardenMemoryQuestion: "టీ ఆకులు ఏవి?",
+
+needHint: "🌿 చిన్న సూచన కావాలా?",
+haveMemorizedThem: "నేను వాటిని గుర్తుంచుకున్నాను! 👍",
+listenQuestion: "🔊 ప్రశ్న వినండి",
+memoryHint: "💡 సూచన: ప్రకాశవంతమైన పసుపు తోట పువ్వు కోసం చూడండి!",
+marigoldFlower: "బంతి పువ్వు",
+clayPot: "మట్టి కుండ",
+wateringCan: "నీళ్లు పోసే డబ్బా",
+redRose: "ఎర్ర గులాబీ",
+
+ceramicTeapot: "సిరామిక్ టీ పాట్",
+sweetBiscuits: "తీపి బిస్కెట్లు",
+greenMango: "పచ్చి మామిడి",
+apple: "ఆపిల్",
+
+japi: "జాపి",
+gamosa: "గమోసా",
+assamTea: "అస్సాం టీ",
+umbrella: "గొడుగు",
+
+bihuDance: "బిహు నృత్యం",
+pitha: "పిఠా",
+dholDrum: "ఢోల్ డ్రమ్",
+
+teaLeaves: "టీ ఆకులు",
+teaBasket: "టీ బుట్ట",
+teaCup: "టీ కప్పు",
+book: "పుస్తకం",
+selectiveAttention: "ఎంపికాత్మక శ్రద్ధ",
+selectiveAttentionInstruction: "తోటలో ఉన్న 3 బంగారు సీతాకోకచిలుకలను నొక్కండి!",
+waterDrops: "నీటి చుక్కలను కనుగొనండి",
+waterDropsInstruction: "తోటను తాజాగా చేయడానికి 3 నీటి చుక్కలను నొక్కండి!",
+findJapi: "జాపిని కనుగొనండి",
+findJapiInstruction: "3 సంప్రదాయ జాపి గుర్తులను కనుగొనండి!",
+activity2SelectiveAttention: "కార్యకలాపం 2: ఎంపికాత్మక శ్రద్ధ",
+listenInstructions: "🔊 సూచనలు వినండి",
+found: "కనుగొనబడింది",
   },
 
   hi: {
@@ -196,6 +328,72 @@ export const TRANSLATIONS = {
     cognitiveMetrics: "स्मृति प्रगति चार्ट",
     addMemory: "+ नई याद जोड़ें",
     addReminder: "+ नया रिमाइंडर जोड़ें",
+        activity1MemoryPuzzle: "गतिविधि 1: स्मृति पहेली",
+    needHint: "🌿 थोड़ी मदद चाहिए?",
+    haveMemorizedThem: "मैंने उन्हें याद कर लिया! 👀",
+    listenQuestion: "🔊 प्रश्न सुनें",
+    hint: "💡 संकेत",
+    next: "अगला",
+    repeat: "फिर से प्रयास करें",
+    correct: "सही!",
+    incorrect: "फिर से प्रयास करें!",
+    memoryHint: "चमकीले पीले बगीचे के फूल को देखें!",
+    gardenFlowerMemory: "बगीचे के फूलों की स्मृति",
+gardenFlowerMemoryInstructions: "इन 3 बगीचे की चीज़ों को ध्यान से देखें और याद रखें!",
+gardenFlowerMemoryQuestion: "गेंदा फूल कौन सी चीज़ थी?",
+
+afternoonTeaMemory: "शाम की चाय की स्मृति",
+afternoonTeaMemoryInstructions: "इन चाय के सामान को याद रखें।",
+afternoonTeaMemoryQuestion: "मीठी बिस्कुट कौन सी थी?",
+
+assamCulturalMemory: "असम की सांस्कृतिक स्मृति",
+assamCulturalMemoryInstructions: "इन परिचित असमिया वस्तुओं को ध्यान से देखें और याद रखें।",
+assamCulturalMemoryQuestion: "गमोसा कौन सी वस्तु थी?",
+
+assamFestivalMemory: "असम त्योहार की स्मृति",
+assamFestivalMemoryInstructions: "इन परिचित त्योहार की वस्तुओं को याद रखें।",
+assamFestivalMemoryQuestion: "पीठा कौन सी वस्तु थी?",
+
+teaGardenMemory: "चाय बागान की स्मृति",
+teaGardenMemoryInstructions: "चाय बागान में आमतौर पर दिखाई देने वाली इन चीज़ों को याद रखें।",
+teaGardenMemoryQuestion: "चाय की पत्तियाँ कौन सी थीं?",
+
+needHint: "🌿 थोड़ी मदद चाहिए?",
+haveMemorizedThem: "मैंने इन्हें याद कर लिया! 👍",
+listenQuestion: "🔊 प्रश्न सुनें",
+memoryHint: "💡 संकेत: चमकीले पीले बगीचे के फूल को देखें!",
+marigoldFlower: "गेंदा फूल",
+clayPot: "मिट्टी का गमला",
+wateringCan: "पानी देने का डिब्बा",
+redRose: "लाल गुलाब",
+
+ceramicTeapot: "सिरेमिक चायदानी",
+sweetBiscuits: "मीठे बिस्कुट",
+greenMango: "कच्चा आम",
+apple: "सेब",
+
+japi: "जापी",
+gamosa: "गमछा",
+assamTea: "असम की चाय",
+umbrella: "छाता",
+
+bihuDance: "बिहू नृत्य",
+pitha: "पीठा",
+dholDrum: "ढोल",
+
+teaLeaves: "चाय की पत्तियाँ",
+teaBasket: "चाय की टोकरी",
+teaCup: "चाय का कप",
+book: "किताब",
+selectiveAttention: "चयनात्मक ध्यान",
+selectiveAttentionInstruction: "बगीचे में सभी 3 सुनहरी तितलियों को चुनें!",
+waterDrops: "पानी की बूँदें खोजें",
+waterDropsInstruction: "बगीचे को ताज़ा करने के लिए सभी 3 पानी की बूँदों को चुनें!",
+findJapi: "जापी खोजें",
+findJapiInstruction: "सभी 3 पारंपरिक जापी चिन्ह खोजें!",
+activity2SelectiveAttention: "गतिविधि 2: चयनात्मक ध्यान",
+listenInstructions: "🔊 निर्देश सुनें",
+found: "मिल गया",
   },
   as: {
     greetingTitle: "শুভ প্ৰভাত, লক্ষ্মী",
@@ -260,7 +458,73 @@ export const TRANSLATIONS = {
 
     addMemory: "+ নতুন স্মৃতি যোগ কৰক",
 
-    addReminder: "+ নতুন ৰিমাইণ্ডাৰ যোগ কৰক"
+    addReminder: "+ নতুন ৰিমাইণ্ডাৰ যোগ কৰক",
+    activity1MemoryPuzzle: "কাৰ্যকলাপ ১: স্মৃতিৰ ধাঁধা",
+    needHint: "🌿 অলপ সহায় লাগে নেকি?",
+    haveMemorizedThem: "মই সেইবোৰ মনত ৰাখিছোঁ! 👀",
+    listenQuestion: "🔊 প্ৰশ্নটো শুনক",
+    hint: "💡 ইংগিত",
+    next: "পৰৱৰ্তী",
+    repeat: "পুনৰ চেষ্টা কৰক",
+    correct: "শুদ্ধ!",
+    incorrect: "পুনৰ চেষ্টা কৰক!",
+    memoryHint: "উজ্জ্বল হালধীয়া বাগিচাৰ ফুলটো বিচাৰক!",
+    gardenFlowerMemory: "বাগিচাৰ ফুলৰ স্মৃতি",
+gardenFlowerMemoryInstructions: "এই ৩টা বাগিচাৰ সামগ্ৰী ভালদৰে চাওক আৰু মনত ৰাখক!",
+gardenFlowerMemoryQuestion: "গেন্ধা ফুলটো কোনটো আছিল?",
+
+afternoonTeaMemory: "আবেলিৰ চাহৰ স্মৃতি",
+afternoonTeaMemoryInstructions: "এই চাহৰ সামগ্ৰীসমূহ মনত ৰাখক।",
+afternoonTeaMemoryQuestion: "মিঠা বিস্কুটটো কোনটো আছিল?",
+
+assamCulturalMemory: "অসমৰ সাংস্কৃতিক স্মৃতি",
+assamCulturalMemoryInstructions: "এই পৰিচিত অসমীয়া সামগ্ৰীসমূহ ভালদৰে চাই মনত ৰাখক।",
+assamCulturalMemoryQuestion: "গামোচাখন কোনটো আছিল?",
+
+assamFestivalMemory: "অসমৰ উৎসৱৰ স্মৃতি",
+assamFestivalMemoryInstructions: "এই পৰিচিত উৎসৱৰ সামগ্ৰীসমূহ মনত ৰাখক।",
+assamFestivalMemoryQuestion: "পিঠাটো কোনটো আছিল?",
+
+teaGardenMemory: "চাহ বাগিচাৰ স্মৃতি",
+teaGardenMemoryInstructions: "চাহ বাগিচাত সাধাৰণতে দেখা এই বস্তুসমূহ মনত ৰাখক।",
+teaGardenMemoryQuestion: "চাহৰ পাতবোৰ কোনবোৰ আছিল?",
+
+needHint: "🌿 অলপ ইংগিত বিচাৰেনে?",
+haveMemorizedThem: "মই সেইবোৰ মনত ৰাখিছোঁ! 👍",
+listenQuestion: "🔊 প্ৰশ্নটো শুনক",
+memoryHint: "💡 ইংগিত: উজ্জ্বল হালধীয়া বাগিচাৰ ফুলটো বিচাৰক!",
+marigoldFlower: "গেন্ধা ফুল",
+clayPot: "মাটিৰ টাব",
+wateringCan: "পানী দিয়া পাত্ৰ",
+redRose: "ৰঙা গোলাপ",
+
+ceramicTeapot: "চিৰামিক চাহৰ পাত্ৰ",
+sweetBiscuits: "মিঠা বিস্কুট",
+greenMango: "কেঁচা আম",
+apple: "আপেল",
+
+japi: "জাপি",
+gamosa: "গামোচা",
+assamTea: "অসমৰ চাহ",
+umbrella: "ছাতি",
+
+bihuDance: "বিহু নৃত্য",
+pitha: "পিঠা",
+dholDrum: "ঢোল",
+
+teaLeaves: "চাহৰ পাত",
+teaBasket: "চাহৰ টোপোলা",
+teaCup: "চাহৰ কাপ",
+book: "কিতাপ",
+selectiveAttention: "নিৰ্বাচিত মনোযোগ",
+selectiveAttentionInstruction: "বাগিচাৰ গ্ৰীডত থকা ৩টা সোণালী পখিলা বাছনি কৰক!",
+waterDrops: "পানীৰ টোপালবোৰ বিচাৰক",
+waterDropsInstruction: "বাগিচাখন সতেজ কৰিবলৈ ৩টা পানীৰ টোপাল বাছনি কৰক!",
+findJapi: "জাপি বিচাৰক",
+findJapiInstruction: "৩টা পৰম্পৰাগত জাপিৰ চিহ্ন বিচাৰক!",
+activity2SelectiveAttention: "কাৰ্যকলাপ ২: নিৰ্বাচিত মনোযোগ",
+listenInstructions: "🔊 নিৰ্দেশনা শুনক",
+found: "বিচাৰি পোৱা গ'ল",
     }
 
 };
@@ -275,31 +539,38 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'mem1',
       title: 'Garden Flower Memory',
+      titleKey: 'gardenFlowerMemory',
       instructions: 'Look closely at these 3 garden items. Memorize them!',
+      instructionsKey: 'gardenFlowerMemoryInstructions',
       items: [
-        { id: 1, name: 'Marigold Flower', icon: '🌼', color: 'bg-amber-100 border-amber-300' },
-        { id: 2, name: 'Clay Pot', icon: '🪴', color: 'bg-emerald-100 border-emerald-300' },
-        { id: 3, name: 'Watering Can', icon: '🚿', color: 'bg-sky-100 border-sky-300' }
+        { id: 1, name: 'Marigold Flower',nameKey: 'marigoldFlower', icon: '🌼', color: 'bg-amber-100 border-amber-300' },
+        { id: 2, name: 'Clay Pot',nameKey: 'clayPot', icon: '🪴', color: 'bg-emerald-100 border-emerald-300' },
+        { id: 3, name: 'Watering Can',nameKey: 'wateringCan', icon: '🚿', color: 'bg-sky-100 border-sky-300' }
       ],
       targetId: 1,
       targetQuestion: 'Which item was the Marigold Flower?',
+      questionKey: 'gardenFlowerMemoryQuestion',
       distractors: [
-        { id: 4, name: 'Red Rose', icon: '🌹', color: 'bg-rose-100 border-rose-300' }
+        { id: 4, name: 'Red Rose',nameKey: 'redRose', icon: '🌹', color: 'bg-rose-100 border-rose-300' }
       ]
+      
     },
     {
       id: 'mem2',
       title: 'Family Tea Time Items',
+      titleKey: 'afternoonTeaMemory',
       instructions: 'Memorize these afternoon tea items.',
+      instructionsKey: 'afternoonTeaMemoryInstructions',
       items: [
-        { id: 1, name: 'Ceramic Teapot', icon: '🫖', color: 'bg-amber-100 border-amber-300' },
-        { id: 2, name: 'Sweet Biscuits', icon: '🍪', color: 'bg-amber-50 border-amber-200' },
-        { id: 3, name: 'Green Mango', icon: '🥭', color: 'bg-lime-100 border-lime-300' }
+        { id: 1, name: 'Ceramic Teapot',nameKey: 'ceramicTeapot', icon: '🫖', color: 'bg-amber-100 border-amber-300' },
+        { id: 2, name: 'Sweet Biscuits',nameKey: 'sweetBiscuits', icon: '🍪', color: 'bg-amber-50 border-amber-200' },
+        { id: 3, name: 'Green Mango',nameKey: 'greenMango', icon: '🥭', color: 'bg-lime-100 border-lime-300' }
       ],
       targetId: 2,
       targetQuestion: 'Which item was the Sweet Biscuits?',
+      questionKey: 'afternoonTeaMemoryQuestion',
       distractors: [
-        { id: 4, name: 'Apple', icon: '🍎', color: 'bg-red-100 border-red-300' }
+        { id: 4, name: 'Apple',nameKey: 'apple',icon: '🍎', color: 'bg-red-100 border-red-300' }
       ]
     },
 
@@ -307,46 +578,55 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'mem3',
       title: 'Assam Cultural Memory',
+      titleKey: 'assamCulturalMemory',
       instructions: 'Look carefully at these familiar Assamese items and memorize them.',
+      instructionsKey: 'assamCulturalMemoryInstructions',
       items: [
-        { id: 1, name: 'Japi', icon: '👒', color: 'bg-amber-100 border-amber-300' },
-        { id: 2, name: 'Gamosa', icon: '🧣', color: 'bg-red-100 border-red-300' },
-        { id: 3, name: 'Assam Tea', icon: '🫖', color: 'bg-lime-100 border-lime-300' }
+        { id: 1, name: 'Japi',nameKey: 'japi', icon: '👒', color: 'bg-amber-100 border-amber-300' },
+        { id: 2, name: 'Gamosa',nameKey: 'gamosa', icon: '🧣', color: 'bg-red-100 border-red-300' },
+        { id: 3, name: 'Assam Tea',nameKey: 'assamTea', icon: '🫖', color: 'bg-lime-100 border-lime-300' }
       ],
       targetId: 2,
       targetQuestion: 'Which item was the Gamosa?',
+      questionKey: 'assamCulturalMemoryQuestion',
       distractors: [
-        { id: 4, name: 'Umbrella', icon: '☂️', color: 'bg-sky-100 border-sky-300' }
+        { id: 4, name: 'Umbrella',nameKey: 'umbrella', icon: '☂️', color: 'bg-sky-100 border-sky-300' }
       ]
     },
     {
       id: 'mem4',
       title: 'Assam Festival Memory',
+      titleKey: 'assamFestivalMemory',
       instructions: 'Memorize these familiar festival items.',
+      instructionsKey: 'assamFestivalMemoryInstructions',
       items: [
-        { id: 1, name: 'Bihu Dance', icon: '💃', color: 'bg-orange-100 border-orange-300' },
-        { id: 2, name: 'Pitha', icon: '🍘', color: 'bg-amber-100 border-amber-300' },
-        { id: 3, name: 'Dhol Drum', icon: '🥁', color: 'bg-red-100 border-red-300' }
+        { id: 1, name: 'Bihu Dance', nameKey: 'bihuDance',icon: '💃', color: 'bg-orange-100 border-orange-300' },
+        { id: 2, name: 'Pitha',nameKey: 'pitha', icon: '🍘', color: 'bg-amber-100 border-amber-300' },
+        { id: 3, name: 'Dhol Drum', nameKey: 'dholDrum',icon: '🥁', color: 'bg-red-100 border-red-300' }
       ],
       targetId: 2,
       targetQuestion: 'Which item was the Pitha?',
+      questionKey: 'assamFestivalMemoryQuestion',
       distractors: [
-        { id: 4, name: 'Apple', icon: '🍎', color: 'bg-red-100 border-red-300' }
+        { id: 4, name: 'Apple',nameKey: 'apple', icon: '🍎', color: 'bg-red-100 border-red-300' }
       ]
     },
     {
       id: 'mem5',
       title: 'Tea Garden Memory',
+      titleKey: 'teaGardenMemory',
       instructions: 'Memorize these things commonly seen in a tea garden.',
+      instructionsKey: 'teaGardenMemoryInstructions',
       items: [
-        { id: 1, name: 'Tea Leaves', icon: '🍃', color: 'bg-green-100 border-green-300' },
-        { id: 2, name: 'Tea Basket', icon: '🧺', color: 'bg-yellow-100 border-yellow-300' },
-        { id: 3, name: 'Tea Cup', icon: '☕', color: 'bg-orange-100 border-orange-300' }
+        { id: 1, name: 'Tea Leaves',nameKey: 'teaLeaves', icon: '🍃', color: 'bg-green-100 border-green-300' },
+        { id: 2, name: 'Tea Basket',nameKey: 'teaBasket', icon: '🧺', color: 'bg-yellow-100 border-yellow-300' },
+        { id: 3, name: 'Tea Cup',nameKey: 'teaCup', icon: '☕', color: 'bg-orange-100 border-orange-300' }
       ],
       targetId: 1,
       targetQuestion: 'Which item was the Tea Leaves?',
+      questionKey: 'teaGardenMemoryQuestion',
       distractors: [
-        { id: 4, name: 'Book', icon: '📖', color: 'bg-blue-100 border-blue-300' }
+        { id: 4, name: 'Book',nameKey: 'book', icon: '📖', color: 'bg-blue-100 border-blue-300' }
       ]
     }
   ],
@@ -358,7 +638,9 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'att1',
       title: 'Find the Butterflies',
+      titleKey: 'selectiveAttention',
       instruction: 'Tap all 3 golden butterflies in the garden grid!',
+      instructionKey: 'selectiveAttentionInstruction',
       targetType: 'butterfly',
       grid: [
         { id: 1, icon: '🦋', isTarget: true, name: 'Golden Butterfly' },
@@ -373,7 +655,9 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'att2',
       title: 'Find the Water Drops',
+      titleKey: 'waterDrops',
       instruction: 'Tap all 3 water drops to refresh the garden!',
+      instructionKey: 'waterDropsInstruction',
       targetType: 'water',
       grid: [
         { id: 1, icon: '💧', isTarget: true, name: 'Water Drop' },
@@ -390,7 +674,9 @@ export const COGNITIVE_PUZZLES = {
     {
       id: 'att3',
       title: 'Find the Japi',
+      titleKey: 'findJapi',
       instruction: 'Find all 3 traditional Japi symbols!',
+      instructionKey: 'findJapiInstruction',
       targetType: 'japi',
       grid: [
         { id: 1, icon: '👒', isTarget: true, name: 'Japi' },
@@ -774,4 +1060,5 @@ spotDifference: [
     ]
   }
 ]
+
 };

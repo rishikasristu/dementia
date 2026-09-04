@@ -20,12 +20,19 @@ export const MemoryGame = () => {
     setStartTime(Date.now());
     setStage('memorize');
     setShowHint(false);
-    speakWithAzure(`${currentPuzzle.title}. ${currentPuzzle.instructions}`, language);
+    const title = t[currentPuzzle.titleKey] || currentPuzzle.title;
+        const instructions =
+          t[currentPuzzle.instructionsKey] || currentPuzzle.instructions;
+
+        speakWithAzure(`${title}. ${instructions}`, language);
   }, [puzzleIndex, language]);
 
   const handleHideItems = () => {
     setStage('hidden');
-    speakWithAzure(currentPuzzle.targetQuestion, language);
+    const question =
+       t[currentPuzzle.questionKey] || currentPuzzle.targetQuestion;
+
+    speakWithAzure(question, language);
   };
 
   const handleSelectOption = (item) => {
@@ -56,8 +63,12 @@ export const MemoryGame = () => {
       {/* Game Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-sage/30 pb-4">
         <div>
-          <span className="text-xs uppercase font-extrabold tracking-wider text-terracotta">Activity 1: Memory Puzzle</span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-forest">{currentPuzzle.title}</h2>
+          <span className="text-xs uppercase font-extrabold tracking-wider text-terracotta">
+              {t.activity1MemoryPuzzle}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-forest">
+              {t[currentPuzzle.titleKey] || currentPuzzle.title}
+          </h2>
         </div>
 
         {/* AI Hint Trigger Button */}
@@ -67,7 +78,7 @@ export const MemoryGame = () => {
             className="flex items-center gap-2 bg-gold/20 hover:bg-gold/40 text-forest px-4 py-2 rounded-2xl border border-gold font-bold text-sm shadow-sm transition-all"
           >
             <Sparkles className="w-5 h-5 text-gold-dark" />
-            <span>🌿 Need a Little Hint?</span>
+            <span>{t.needHint}</span>
           </button>
         )}
       </div>
@@ -76,7 +87,9 @@ export const MemoryGame = () => {
       {stage === 'memorize' ? (
         <div className="space-y-6 text-center">
           <div className="bg-cream p-4 rounded-2xl border border-sage/30 inline-block">
-            <p className="text-xl font-bold text-ink">{currentPuzzle.instructions}</p>
+            <p className="text-xl font-bold text-ink">
+                {t[currentPuzzle.instructionsKey] || currentPuzzle.instructions}
+          </p>
           </div>
 
           {/* Large Visible Items Grid */}
@@ -87,7 +100,9 @@ export const MemoryGame = () => {
                 className={`p-6 rounded-3xl border-3 ${item.color} shadow-photo transform hover:scale-105 transition-all flex flex-col items-center justify-center min-h-[180px]`}
               >
                 <span className="text-6xl mb-3">{item.icon}</span>
-                <span className="text-2xl font-extrabold text-forest">{item.name}</span>
+                <span className="text-2xl font-extrabold text-forest">
+                  {t[item.nameKey] || item.name}
+                </span>
               </div>
             ))}
           </div>
@@ -96,7 +111,7 @@ export const MemoryGame = () => {
             onClick={handleHideItems}
             className="px-8 py-4 bg-forest text-cream font-extrabold text-xl rounded-2xl shadow-md btn-tactile-forest"
           >
-            I Have Memorized Them! 👁
+            {t.haveMemorizedThem}
           </button>
         </div>
       ) : (
@@ -104,20 +119,20 @@ export const MemoryGame = () => {
         <div className="space-y-6 text-center">
           <div className="bg-cream-light p-6 rounded-2xl border-2 border-terracotta/40 max-w-xl mx-auto">
             <h3 className="text-2xl font-extrabold text-forest">
-              {currentPuzzle.targetQuestion}
+              {t[currentPuzzle.questionKey] || currentPuzzle.targetQuestion}
             </h3>
-            <SpeechButton
-              mode="listen"
-              textToSpeak={currentPuzzle.targetQuestion}
-              label="🔊 Listen Question"
-              className="mt-3 text-sm py-2 px-4"
+           <SpeechButton
+               mode="listen"
+                textToSpeak={t[currentPuzzle.questionKey] || currentPuzzle.targetQuestion}
+                label={t.listenQuestion}
+                className="mt-3 text-sm py-2 px-4"
             />
           </div>
 
           {/* AI Hint Box if Active */}
           {showHint && (
             <div className="bg-gold/20 border-2 border-gold p-4 rounded-2xl max-w-md mx-auto text-forest font-bold text-base animate-pulse">
-              💡 Hint: Look for the bright yellow garden blossom!
+              {t.memoryHint}
             </div>
           )}
 

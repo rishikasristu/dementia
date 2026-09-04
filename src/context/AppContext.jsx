@@ -5,8 +5,9 @@ import { evaluatePerformance } from '../utils/personalizationEngine';
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [userRole, setUserRole] = useState('elderly'); // 'elderly' | 'caregiver'
-  const [currentView, setCurrentView] = useState('home'); // 'home' | 'album' | 'games' | 'reminders' | 'caregiver_dashboard'
+  const [userRole, setUserRole] = useState('elderly'); // 'elderly' | 'caregiver' | 'healthcare_worker'
+  
+  const [currentView, setCurrentView] = useState('home'); // 'home' | 'album' | 'games' | 'reminders' | 'caregiver_dashboard' | 'healthcare_dashboard'
   const [language, setLanguage] = useState('en'); // 'en' | 'te' | 'hi'
   const [activeGameType, setActiveGameType] = useState('memory'); // 'memory' | 'attention' | 'pattern'
 

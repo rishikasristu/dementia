@@ -42,24 +42,38 @@ export const HealthcareDashboard = () => {
     1
   );
 
-  const gamePerformance = [
-    {
-      name: 'Memory',
-      accuracy: 90,
-      icon: '🧠'
-    },
-    {
-      name: 'Attention',
-      accuracy: 85,
-      icon: '🎯'
-    },
-    {
-      name: 'Pattern',
-      accuracy: 75,
-      icon: '🧩'
-    }
-  ];
+    const getGameAccuracy = (gameType) => {
+  const activities = history.filter(
+    item => item.gameType === gameType
+  );
 
+  if (activities.length === 0) return 0;
+
+  const correct = activities.filter(
+    item => item.isCorrect
+  ).length;
+
+  return Math.round((correct / activities.length) * 100);
+};
+
+const gamePerformance = [
+  {
+    name: 'Memory',
+    accuracy: getGameAccuracy('memory'),
+    icon: '🧠'
+  },
+  {
+    name: 'Attention',
+    accuracy: getGameAccuracy('attention'),
+    icon: '🎯'
+  },
+  {
+    name: 'Pattern',
+    accuracy: getGameAccuracy('pattern'),
+    icon: '🧩'
+  }
+];
+  
   const correctSessions = history.filter(
     (item) => item.isCorrect
   ).length;

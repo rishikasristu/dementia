@@ -6,7 +6,7 @@ import { SpeechButton } from '../common/SpeechButton';
 import { speakWithAzure } from '../../utils/speech';
 
 export const AttentionGame = () => {
-  const { recordActivity, language } = useApp();
+  const { recordActivity, language, t } = useApp();
   const [puzzleIndex, setPuzzleIndex] = useState(0);
   const [tappedIds, setTappedIds] = useState([]);
   const [feedbackState, setFeedbackState] = useState({ isOpen: false, isCorrect: false });
@@ -17,7 +17,10 @@ export const AttentionGame = () => {
   useEffect(() => {
     setStartTime(Date.now());
     setTappedIds([]);
-    speakWithAzure(currentPuzzle.instruction, language);
+    speakWithAzure(
+  t[currentPuzzle.instructionKey] || currentPuzzle.instruction,
+  language
+);
   }, [puzzleIndex, language]);
 
   const handleTileTap = (tile) => {
@@ -41,7 +44,7 @@ export const AttentionGame = () => {
     } else {
       // Soft reminder if non-target tapped
       speakWithAzure(
-        "That's a pretty flower! Look for the golden butterfly.",
+        t.attentionWrongAnswer,
         language
       );   
     }
@@ -56,18 +59,22 @@ export const AttentionGame = () => {
     <div className="bg-[#FFFDF6] border-2 border-sage/40 rounded-3xl p-6 md:p-8 shadow-photo space-y-6 text-center">
       <div>
         <span className="text-xs uppercase font-extrabold tracking-wider text-terracotta">Activity 2: Selective Attention</span>
-        <h2 className="text-2xl md:text-3xl font-extrabold text-forest">{currentPuzzle.title}</h2>
-        <p className="text-xl font-bold text-ink mt-2">{currentPuzzle.instruction}</p>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-forest">
+          {t[currentPuzzle.titleKey] || currentPuzzle.title}
+        </h2>
+        <p className="text-xl font-bold text-ink mt-2">
+            {t[currentPuzzle.instructionKey] || currentPuzzle.instruction}
+        </p>
       </div>
 
       <div className="flex items-center justify-center gap-3">
         <SpeechButton
           mode="listen"
-          textToSpeak={currentPuzzle.instruction}
-          label="🔊 Listen Instructions"
+          textToSpeak={t[currentPuzzle.instructionKey] || currentPuzzle.instruction}
+          label={t.listenInstructions}
         />
         <div className="bg-sage/20 text-forest px-4 py-2 rounded-2xl font-bold text-sm">
-          Found: {tappedIds.length} of {currentPuzzle.totalTargets} 🦋
+          {t.found}: {tappedIds.length} {t.of} {currentPuzzle.totalTargets} 🦋
         </div>
       </div>
 
@@ -86,7 +93,11 @@ export const AttentionGame = () => {
               }`}
             >
               <span className="text-7xl">{tile.icon}</span>
-              {isSelected && <span className="text-xs font-extrabold text-forest uppercase mt-1">✓ Found</span>}
+              {isSelected && (
+                <span className="text-xs font-extrabold text-forest uppercase mt-1">
+                    ✓ {t.found}
+                </span>
+              )}
             </button>
           );
         })}

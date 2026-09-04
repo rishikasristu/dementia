@@ -105,30 +105,50 @@ export const DemoBanner = () => {
           </button>
 
           {/* Role Toggle Button */}
-          <button
-            onClick={() => {
-              if (userRole === 'elderly') {
-                setUserRole('caregiver');
-                setCurrentView('caregiver_dashboard');
-              } else {
-                setUserRole('elderly');
-                setCurrentView('home');
-              }
-            }}
-            className="flex items-center gap-2 bg-gold hover:bg-gold-light text-forest px-3.5 py-1 rounded-lg font-bold text-xs transition-all shadow-sm border border-gold-dark"
-          >
-            {userRole === 'elderly' ? (
-              <>
-                <HeartHandshake className="w-4 h-4 text-forest" />
-                <span>Caregiver Dashboard</span>
-              </>
-            ) : (
-              <>
-                <User className="w-4 h-4 text-forest" />
-                <span>Switch to Elderly View</span>
-              </>
-            )}
-          </button>
+          {/* Role Selector */}
+<div className="flex items-center bg-cream/10 rounded-lg p-0.5 border border-cream/20">
+  <button
+    onClick={() => {
+      setUserRole('elderly');
+      setCurrentView('home');
+    }}
+    className={`px-2.5 py-1 text-xs rounded-md font-semibold transition-all ${
+      userRole === 'elderly'
+        ? 'bg-gold text-forest shadow-sm'
+        : 'text-cream/80 hover:text-cream'
+    }`}
+  >
+    👵 Elderly
+  </button>
+
+  <button
+    onClick={() => {
+      setUserRole('caregiver');
+      setCurrentView('caregiver_dashboard');
+    }}
+    className={`px-2.5 py-1 text-xs rounded-md font-semibold transition-all ${
+      userRole === 'caregiver'
+        ? 'bg-gold text-forest shadow-sm'
+        : 'text-cream/80 hover:text-cream'
+    }`}
+  >
+    🤝 Caregiver
+  </button>
+
+  <button
+    onClick={() => {
+      setUserRole('healthcare_worker');
+      setCurrentView('healthcare_dashboard');
+    }}
+    className={`px-2.5 py-1 text-xs rounded-md font-semibold transition-all ${
+      userRole === 'healthcare_worker'
+        ? 'bg-gold text-forest shadow-sm'
+        : 'text-cream/80 hover:text-cream'
+    }`}
+  >
+    🧑‍⚕️ Healthcare
+  </button>
+</div>
         </div>
       </div>
     </header>
