@@ -8,7 +8,8 @@ import {
   Wifi,
   WifiOff,
   TrendingUp,
-  Sparkles
+  Sparkles,
+  Trash2
 } from 'lucide-react';
 export const CaregiverDashboard = () => {
   const {
@@ -23,6 +24,7 @@ export const CaregiverDashboard = () => {
     addMemory,
     addReminder,
     deleteMemory,
+    deleteReminder,
     setCurrentView,
     setUserRole
   } = useApp();
@@ -669,34 +671,47 @@ export const CaregiverDashboard = () => {
             <div className="space-y-2">
 
               {reminders.map((r) => (
-                <div
-                  key={r.id}
-                  className="flex items-center justify-between p-3 bg-cream rounded-xl border border-sage/30 text-xs"
-                >
+  <div
+    key={r.id}
+    className="flex items-center justify-between p-3 bg-cream rounded-xl border border-sage/30 text-xs"
+  >
 
-                  <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2">
 
-                    <span className="text-base">
-                      {r.icon}
-                    </span>
+      <span className="text-base">
+        {r.icon}
+      </span>
 
-                    <p className="font-extrabold text-forest">
-                      {r.time} — {r.title}
-                    </p>
+      <p className="font-extrabold text-forest">
+        {r.time} — {r.title}
+      </p>
 
-                  </div>
+    </div>
 
-                  <span
-                    className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${r.completed
-                      ? 'bg-sage text-forest'
-                      : 'bg-gold/40 text-forest'
-                      }`}
-                  >
-                    {r.completed ? 'Done' : 'Upcoming'}
-                  </span>
+    <div className="flex items-center gap-2">
 
-                </div>
-              ))}
+      <span
+        className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
+          r.completed
+            ? 'bg-sage text-forest'
+            : 'bg-gold/40 text-forest'
+        }`}
+      >
+        {r.completed ? 'Done' : 'Upcoming'}
+      </span>
+
+      <button
+        onClick={() => deleteReminder(r.id)}
+        className="p-1.5 rounded-lg bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream transition-all"
+        title="Delete Reminder"
+      >
+        <Trash2 className="w-4 h-4" />
+      </button>
+
+    </div>
+
+  </div>
+))}
 
             </div>
 

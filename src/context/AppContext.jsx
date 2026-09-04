@@ -165,6 +165,20 @@ export const AppProvider = ({ children }) => {
       setLastSyncTime('Just now');
     }
   };
+  const deleteReminder = (id) => {
+  console.log("Deleting reminder:", id);
+
+  setReminders(prev => prev.filter(reminder => reminder.id !== id));
+
+  if (isOffline) {
+    setPendingSyncQueue(q => [
+      ...q,
+      { type: 'DELETE_REMINDER', id }
+    ]);
+  } else {
+    setLastSyncTime('Just now');
+  }
+};
 
   // Add Reminder (Caregiver action)
   const addReminder = (newRem) => {
@@ -243,6 +257,7 @@ export const AppProvider = ({ children }) => {
       toggleReminder,
       addMemory,
       deleteMemory,
+      deleteReminder,
       addReminder,
       recordActivity,
       t

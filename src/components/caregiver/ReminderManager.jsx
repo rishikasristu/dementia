@@ -3,10 +3,11 @@ import {
   Bell,
   CheckCircle2,
   Clock,
-  AlertTriangle
+  AlertTriangle,
+  Trash2
 } from 'lucide-react';
 
-export const ReminderManager = ({ reminders = [] }) => {
+export const ReminderManager = ({ reminders = [], onDelete }) => {
 
   const demoReminders = [
     {
@@ -93,6 +94,18 @@ export const ReminderManager = ({ reminders = [] }) => {
             <span className="text-xs font-bold text-ink/70">
               Needs Attention
             </span>
+             <button
+    onClick={() => {
+      if (window.confirm(`Delete "${reminder.title}"?`)) {
+        onDelete?.(reminder.id);
+      }
+    }}
+    className="p-2 rounded-xl text-terracotta hover:bg-terracotta/10 transition-all"
+    title="Delete reminder"
+  >
+    <Trash2 className="w-4 h-4" />
+  </button>
+
           </div>
 
           <p className="text-2xl font-extrabold text-terracotta mt-2">
