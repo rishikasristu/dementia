@@ -83,8 +83,8 @@ export const PatternGame = () => {
               onClick={() => handleSelectOption(opt)}
               className="p-6 bg-cream border-3 border-forest/20 hover:bg-forest hover:text-cream text-forest font-extrabold text-2xl rounded-3xl shadow-md transition-all flex flex-col items-center justify-center gap-2 group min-h-[120px]"
             >
-              <span className="text-5xl group-hover:scale-110 transition-transform">{opt.icon}</span>
-              <span className="text-base font-extrabold">{opt.label}</span>
+              <span className="text-6xl group-hover:scale-110 transition-transform">{opt.icon}</span>
+              
             </button>
           ))}
         </div>

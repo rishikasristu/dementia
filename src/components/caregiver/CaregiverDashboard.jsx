@@ -22,6 +22,7 @@ export const CaregiverDashboard = () => {
     streakDays = 0,
     addMemory,
     addReminder,
+    deleteMemory,
     setCurrentView,
     setUserRole
   } = useApp();
@@ -32,9 +33,7 @@ export const CaregiverDashboard = () => {
   // Memory form
   const [newMemName, setNewMemName] = useState('');
   const [newMemRelation, setNewMemRelation] = useState('');
-  const [newMemPhoto, setNewMemPhoto] = useState(
-    'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80'
-  );
+  const [newMemPhoto, setNewMemPhoto] = useState('');
   const [newMemStory, setNewMemStory] = useState('');
 
   // Reminder form
@@ -80,6 +79,7 @@ export const CaregiverDashboard = () => {
 
     return gameNames[gameType] || gameType || 'Activity';
   };
+
 
   // =====================================
   // DYNAMIC GAME STATISTICS
@@ -127,10 +127,10 @@ export const CaregiverDashboard = () => {
   const calculatedAccuracy =
     history.length > 0
       ? Math.round(
-          (history.filter(getIsCorrect).length /
-            history.length) *
-            100
-        )
+        (history.filter(getIsCorrect).length /
+          history.length) *
+        100
+      )
       : 0;
 
   const overallAccuracy =
@@ -146,11 +146,11 @@ export const CaregiverDashboard = () => {
   const calculatedAverageTime =
     responseTimes.length > 0
       ? Math.round(
-          responseTimes.reduce(
-            (total, time) => total + time,
-            0
-          ) / responseTimes.length
-        )
+        responseTimes.reduce(
+          (total, time) => total + time,
+          0
+        ) / responseTimes.length
+      )
       : 0;
 
   const averageResponseTime =
@@ -182,6 +182,14 @@ export const CaregiverDashboard = () => {
     setNewMemRelation('');
     setNewMemStory('');
     setShowAddMemoryModal(false);
+  };
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setNewMemPhoto(imageUrl);
+    }
   };
 
   // =====================================
@@ -304,20 +312,20 @@ export const CaregiverDashboard = () => {
           <div>
           </div>
           <p className="text-xs font-bold text-ink/70 uppercase tracking-wider">
-              Puzzle Accuracy
+            Puzzle Accuracy
           </p>
 
-<p className="text-2xl font-extrabold text-forest">
-  {aiState.accuracyRate || overallAccuracy}% Rate
-</p>
+          <p className="text-2xl font-extrabold text-forest">
+            {aiState.accuracyRate || overallAccuracy}% Rate
+          </p>
 
-<p className="text-xs text-terracotta font-bold">
-  Cognitive Score: {aiState.cognitiveScore ?? 0}/100
-</p>
+          <p className="text-xs text-terracotta font-bold">
+            Cognitive Score: {aiState.cognitiveScore ?? 0}/100
+          </p>
 
-<p className="text-xs text-forest/80 font-bold">
-  Avg {aiState.avgResponseTime || averageResponseTime}s Response
-</p>
+          <p className="text-xs text-forest/80 font-bold">
+            Avg {aiState.avgResponseTime || averageResponseTime}s Response
+          </p>
 
         </div>
 
@@ -396,78 +404,78 @@ export const CaregiverDashboard = () => {
               </span>
 
             </div>
-{/* MEMORY */}
-<div>
+            {/* MEMORY */}
+            <div>
 
-  <div className="flex justify-between text-xs font-bold text-ink mb-1">
-    <span>Memory Activities</span>
+              <div className="flex justify-between text-xs font-bold text-ink mb-1">
+                <span>Memory Activities</span>
 
-    <span>
-      {memoryStats.attempts > 0
-        ? `${memoryStats.accuracy}% Accuracy`
-        : 'No data yet'}
-    </span>
-  </div>
+                <span>
+                  {memoryStats.attempts > 0
+                    ? `${memoryStats.accuracy}% Accuracy`
+                    : 'No data yet'}
+                </span>
+              </div>
 
-  <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-    <div
-      className="h-full bg-forest rounded-full"
-      style={{
-        width: `${memoryStats.accuracy}%`
-      }}
-    />
-  </div>
+              <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-forest rounded-full"
+                  style={{
+                    width: `${memoryStats.accuracy}%`
+                  }}
+                />
+              </div>
 
-</div>
+            </div>
 
-{/* ATTENTION */}
-<div>
+            {/* ATTENTION */}
+            <div>
 
-  <div className="flex justify-between text-xs font-bold text-ink mb-1">
-    <span>Attention Activities</span>
+              <div className="flex justify-between text-xs font-bold text-ink mb-1">
+                <span>Attention Activities</span>
 
-    <span>
-      {attentionStats.attempts > 0
-        ? `${attentionStats.accuracy}% Accuracy`
-        : 'No data yet'}
-    </span>
-  </div>
+                <span>
+                  {attentionStats.attempts > 0
+                    ? `${attentionStats.accuracy}% Accuracy`
+                    : 'No data yet'}
+                </span>
+              </div>
 
-  <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-    <div
-      className="h-full bg-terracotta rounded-full"
-      style={{
-        width: `${attentionStats.accuracy}%`
-      }}
-    />
-  </div>
+              <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-terracotta rounded-full"
+                  style={{
+                    width: `${attentionStats.accuracy}%`
+                  }}
+                />
+              </div>
 
-</div>
+            </div>
 
-{/* PATTERN */}
-<div>
+            {/* PATTERN */}
+            <div>
 
-  <div className="flex justify-between text-xs font-bold text-ink mb-1">
-    <span>Pattern Activities</span>
+              <div className="flex justify-between text-xs font-bold text-ink mb-1">
+                <span>Pattern Activities</span>
 
-    <span>
-      {patternStats.attempts > 0
-        ? `${patternStats.accuracy}% Accuracy`
-        : 'No data yet'}
-    </span>
-  </div>
+                <span>
+                  {patternStats.attempts > 0
+                    ? `${patternStats.accuracy}% Accuracy`
+                    : 'No data yet'}
+                </span>
+              </div>
 
-  <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
-    <div
-      className="h-full bg-gold-dark rounded-full"
-      style={{
-        width: `${patternStats.accuracy}%`
-      }}
-    />
-  </div>
+              <div className="w-full h-3 bg-cream-dark rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gold-dark rounded-full"
+                  style={{
+                    width: `${patternStats.accuracy}%`
+                  }}
+                />
+              </div>
 
-</div>  
-</div>            
+            </div>
+          </div>
 
           {/* AI Recommendation */}
           <div className="bg-forest text-cream p-5 rounded-3xl border-2 border-sage/40 shadow-photo">
@@ -476,25 +484,25 @@ export const CaregiverDashboard = () => {
                 <Sparkles className="w-6 h-6 text-gold" />
               </div>
 
-            <div>
-            <p className="text-xs font-bold text-gold uppercase tracking-wider">
-              AI Recommendation
-            </p>
+              <div>
+                <p className="text-xs font-bold text-gold uppercase tracking-wider">
+                  AI Recommendation
+                </p>
 
-            <h3 className="text-lg font-extrabold mt-1">
-              {aiState.recommendation?.charAt(0).toUpperCase() +
-                  aiState.recommendation?.slice(1)} Activity
-            </h3>
+                <h3 className="text-lg font-extrabold mt-1">
+                  {aiState.recommendation?.charAt(0).toUpperCase() +
+                    aiState.recommendation?.slice(1)} Activity
+                </h3>
 
-            <p className="text-sm text-cream/80 mt-1">
-              {aiState.recommendationReason}
-            </p>
+                <p className="text-sm text-cream/80 mt-1">
+                  {aiState.recommendationReason}
+                </p>
 
-            <p className="text-xs text-sage mt-2 font-bold">
-              Overall Trend: {aiState.overallTrend}
-            </p>
+                <p className="text-xs text-sage mt-2 font-bold">
+                  Overall Trend: {aiState.overallTrend}
+                </p>
+              </div>
             </div>
-          </div>
           </div>
 
           {/* RECENT ACTIVITY LOG */}
@@ -541,11 +549,10 @@ export const CaregiverDashboard = () => {
                         <div className="flex items-center gap-3">
 
                           <div
-                            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                              correct
-                                ? 'bg-sage text-forest'
-                                : 'bg-terracotta/20 text-terracotta'
-                            }`}
+                            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${correct
+                              ? 'bg-sage text-forest'
+                              : 'bg-terracotta/20 text-terracotta'
+                              }`}
                           >
                             {correct ? '✓' : '•'}
                           </div>
@@ -625,6 +632,13 @@ export const CaregiverDashboard = () => {
                     {m.relation}
                   </p>
 
+                  {/* Delete Photo */}
+                  <button
+                    onClick={() => deleteMemory(m.id)}
+                    className="mt-2 w-full py-1.5 bg-terracotta text-cream rounded-lg text-xs font-bold hover:opacity-90"
+                  >
+                    Delete
+                  </button>
                 </div>
               ))}
 
@@ -673,11 +687,10 @@ export const CaregiverDashboard = () => {
                   </div>
 
                   <span
-                    className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
-                      r.completed
-                        ? 'bg-sage text-forest'
-                        : 'bg-gold/40 text-forest'
-                    }`}
+                    className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${r.completed
+                      ? 'bg-sage text-forest'
+                      : 'bg-gold/40 text-forest'
+                      }`}
                   >
                     {r.completed ? 'Done' : 'Upcoming'}
                   </span>
@@ -732,12 +745,9 @@ export const CaregiverDashboard = () => {
               />
 
               <input
-                type="url"
-                value={newMemPhoto}
-                onChange={(e) =>
-                  setNewMemPhoto(e.target.value)
-                }
-                placeholder="Photo URL"
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoUpload}
                 className="w-full p-3 rounded-xl border border-sage"
               />
 

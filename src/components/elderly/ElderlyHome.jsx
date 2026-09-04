@@ -38,8 +38,16 @@ export const ElderlyHome = () => {
 
         {/* Date / Time Badge */}
         <div className="bg-forest text-cream px-5 py-2.5 rounded-2xl text-center shadow-sm self-stretch md:self-auto">
-          <p className="text-xs uppercase tracking-wider text-gold font-bold">Today</p>
-          <p className="text-lg font-extrabold">Tuesday, Sep 1</p>
+          <p className="text-xs uppercase tracking-wider text-gold font-bold">
+           Today
+          </p>
+          <p className="text-lg font-extrabold">
+            {new Date().toLocaleDateString('en-US', {
+              weekday: 'long',
+              month: 'short',
+              day: 'numeric',
+         })}
+          </p>
         </div>
       </div>
 

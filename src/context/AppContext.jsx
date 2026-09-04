@@ -73,11 +73,11 @@ export const AppProvider = ({ children }) => {
     );
   }, [memories]);
   useEffect(() => {
-  localStorage.setItem(
-    'memoryGardenReminders',
-    JSON.stringify(reminders)
-  );
-}, [reminders]);
+    localStorage.setItem(
+      'memoryGardenReminders',
+      JSON.stringify(reminders)
+    );
+  }, [reminders]);
   useEffect(() => {
     localStorage.setItem(
       'memoryGardenSyncQueue',
@@ -85,34 +85,34 @@ export const AppProvider = ({ children }) => {
     );
   }, [pendingSyncQueue]);
   useEffect(() => {
-  const handleOffline = () => {
-    setIsOffline(true);
-  };
+    const handleOffline = () => {
+      setIsOffline(true);
+    };
 
-  const handleOnline = () => {
-    setIsOffline(false);
+    const handleOnline = () => {
+      setIsOffline(false);
 
-    if (pendingSyncQueue.length > 0) {
-      setSyncToast(
-        `Synced ${pendingSyncQueue.length} offline activities to Caregiver Dashboard!`
-      );
+      if (pendingSyncQueue.length > 0) {
+        setSyncToast(
+          `Synced ${pendingSyncQueue.length} offline activities to Caregiver Dashboard!`
+        );
 
-      setPendingSyncQueue([]);
+        setPendingSyncQueue([]);
 
-      setLastSyncTime('Just now');
+        setLastSyncTime('Just now');
 
-      setTimeout(() => setSyncToast(null), 4000);
-    }
-  };
+        setTimeout(() => setSyncToast(null), 4000);
+      }
+    };
 
-  window.addEventListener('offline', handleOffline);
-  window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    window.addEventListener('online', handleOnline);
 
-  return () => {
-    window.removeEventListener('offline', handleOffline);
-    window.removeEventListener('online', handleOnline);
-  };
-}, [pendingSyncQueue]);
+    return () => {
+      window.removeEventListener('offline', handleOffline);
+      window.removeEventListener('online', handleOnline);
+    };
+  }, [pendingSyncQueue]);
   // Derived Garden Stage (0: Seedling, 1: Sprout, 2: Blossom, 3: Sanctuary Tree)
   const gardenStage = Math.min(Math.floor(completedCount / 1), 3);
 
@@ -150,6 +150,20 @@ export const AppProvider = ({ children }) => {
       setLastSyncTime('Just now');
     }
   };
+  const deleteMemory = (id) => {
+    console.log("Deleting memory:", id);
+
+    setMemories(prev => prev.filter(memory => memory.id !== id));
+
+    if (isOffline) {
+      setPendingSyncQueue(q => [
+        ...q,
+        { type: 'DELETE_MEMORY', id }
+      ]);
+    } else {
+      setLastSyncTime('Just now');
+    }
+  };
 
   // Add Reminder (Caregiver action)
   const addReminder = (newRem) => {
@@ -175,7 +189,7 @@ export const AppProvider = ({ children }) => {
     };
 
     setHistory(prev => [...prev, logEntry]);
-    
+
     if (result.isCorrect) {
       setCompletedCount(prev => prev + 1);
     }
@@ -227,6 +241,7 @@ export const AppProvider = ({ children }) => {
       syncToast,
       toggleReminder,
       addMemory,
+      deleteMemory,
       addReminder,
       recordActivity,
       t

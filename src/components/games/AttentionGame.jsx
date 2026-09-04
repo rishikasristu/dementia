@@ -85,8 +85,7 @@ export const AttentionGame = () => {
                   : 'bg-cream border-forest/20 text-forest hover:bg-sage/30 hover:scale-105'
               }`}
             >
-              <span className="text-5xl mb-2">{tile.icon}</span>
-              <span className="text-base font-bold text-ink">{tile.name}</span>
+              <span className="text-7xl">{tile.icon}</span>
               {isSelected && <span className="text-xs font-extrabold text-forest uppercase mt-1">✓ Found</span>}
             </button>
           );

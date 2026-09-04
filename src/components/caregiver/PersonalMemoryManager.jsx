@@ -29,6 +29,18 @@ export const PersonalMemoryManager = ({ memories = [], addMemory }) => {
       [name]: value
     }));
   };
+  const handlePhotoChange = (event) => {
+    const file = event.target.files?.[0];
+
+    if (!file) return;
+
+    const imageUrl = URL.createObjectURL(file);
+
+    setFormData((previous) => ({
+      ...previous,
+      photoUrl: imageUrl
+    }));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,18 +50,18 @@ export const PersonalMemoryManager = ({ memories = [], addMemory }) => {
     }
 
     if (addMemory) {
-  addMemory({
-    id: Date.now(),
-    name: formData.name,
-    relation: formData.relationship,
-    relationship: formData.relationship,
-    photo: formData.photoUrl,
-    photoUrl: formData.photoUrl,
-    story: formData.story,
-    familiarObject: formData.familiarObject,
-    routine: formData.routine
-  });
-}
+      addMemory({
+        id: Date.now(),
+        name: formData.name,
+        relation: formData.relationship,
+        relationship: formData.relationship,
+        photo: formData.photoUrl,
+        photoUrl: formData.photoUrl,
+        story: formData.story,
+        familiarObject: formData.familiarObject,
+        routine: formData.routine
+      });
+    }
     setFormData({
       name: '',
       relationship: '',
@@ -138,27 +150,23 @@ export const PersonalMemoryManager = ({ memories = [], addMemory }) => {
               className="w-full mt-1 px-3 py-2.5 rounded-xl border border-sage/40 bg-cream-light text-sm outline-none focus:border-forest"
             />
           </div>
-
           {/* Photo */}
           <div>
             <label className="text-xs font-bold text-forest">
-              Photo URL
+              Upload Photo
             </label>
 
             <div className="relative mt-1">
               <Camera className="absolute left-3 top-3 w-4 h-4 text-ink/50" />
 
               <input
-                type="text"
-                name="photoUrl"
-                value={formData.photoUrl}
-                onChange={handleChange}
-                placeholder="Paste photo URL"
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoChange}
                 className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-sage/40 bg-cream-light text-sm outline-none focus:border-forest"
               />
             </div>
           </div>
-
           {/* Personal Story */}
           <div>
             <label className="text-xs font-bold text-forest">

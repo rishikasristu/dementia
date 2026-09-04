@@ -130,7 +130,6 @@ export const MemoryGame = () => {
                 className="p-6 bg-cream border-3 border-forest/20 text-forest hover:bg-forest hover:text-cream font-extrabold text-2xl rounded-3xl shadow-md transition-all flex items-center justify-center gap-4 group min-h-[120px]"
               >
                 <span className="text-4xl group-hover:scale-110 transition-transform">{choice.icon}</span>
-                <span>{choice.name}</span>
               </button>
             ))}
           </div>
